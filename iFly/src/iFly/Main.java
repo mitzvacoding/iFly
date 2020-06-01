@@ -1,4 +1,5 @@
 package iFly;
+import UI.MainPage;
 
 public class Main {
 
@@ -6,14 +7,9 @@ public class Main {
 	
 	public static void main(String[] args)
 	{
-		for(int j =0 ; j<10 ; j++) 
-		{
-			System.out.println("#");
+		MainPage.UI_func();
 
 
-			System.out.println("**");
-		
-		}
 
 	}
 
