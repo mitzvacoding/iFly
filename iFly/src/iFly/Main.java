@@ -1,15 +1,16 @@
 package iFly;
 import java.util.HashMap;
+
 import java.util.LinkedList;
+
 
 import UI.MainPage;
 
 public class Main {
-
-	
 	
 	public static void main(String[] args)
 	{
+
 		//MainPage.UI_func();
 		LinkedList<HashMap<Integer,Flight>> l1 = new LinkedList<HashMap<Integer,Flight>>();
 		
@@ -24,6 +25,7 @@ public class Main {
 		//System.out.println(h1);
 		
 	
+
 
 	}
 
