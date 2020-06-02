@@ -9,6 +9,7 @@ public class Flight
     private int price;
     private int quantity;
     private int flightId;
+    public static int num;
     
     public Flight()
     {
@@ -32,12 +33,11 @@ public class Flight
     	this.flightId = flightId;
     }
     
-    private void print()
+    public void print()
     {
-    	this.departureDate.print();
-    	this.landingDate.print();
-    	System.out.println(this.landingAirport + this.vendor +this.price + this.quantity + this.flightId);
-    
+    	System.out.println("Departure Date: "+ this.departureDate.print()+ "\nLanding Date: "+ this.landingDate.print());
+    	System.out.println("LandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price);
+    	System.out.println("Quantity: " + this.quantity + "\nFlight ID: " + this.flightId);
     }
    
 	public int priceCalculation() {return 1;}
@@ -52,9 +52,9 @@ public class Flight
 	return  this.landingDate;
 	}
 	
-	public String getLandAir()
+	public String getLandingAirport()
 	{
-	return  this.landinAairport;
+	return  this.landingAirport;
 	}
 	public String getVen()
 	{

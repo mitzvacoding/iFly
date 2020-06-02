@@ -17,10 +17,10 @@ public class Date {
 		this.year = year;
 	}
 	
-	private void print()
+	public String print()
 	{
 		String str = day + "/" + month + "/" + year;
-		System.out.println(str);
+		return str;
 	}
 
 }
