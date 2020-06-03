@@ -76,5 +76,6 @@ public class MainPage {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(110, 23, 223, 67);
 		frame.getContentPane().add(lblNewLabel);
+		
 	}
 }
