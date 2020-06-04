@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args)
 	{
 
-		//MainPage.UI_func();
+		MainPage.UI_func();
 		
 		System.out.println("\n****FLIGHT******\n");
 		
