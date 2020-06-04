@@ -9,14 +9,29 @@ import java.util.Map;
 
 public class DataBase {
 	
-	//private LinkedList<HashMap<Integer,Flight>> fligtsList;
-	//private LinkedList<HashMap<Integer,Flight> > usersList;
-	public static HashMap<String,FileOutputStream> files;
+	public static HashMap<String, HashMap<Integer, Object>> big;
+	public static HashMap<String,String> files;
 	
 	public static void init()
 	{
-		files = new HashMap<String,FileOutputStream>();
+		big = new HashMap<String, HashMap<Integer, Object>>();
+		big.put("flights", new HashMap<Integer, Object>());
+		big.put("customer", new HashMap<Integer, Object>());
+
+		files = new HashMap<String,String>();
 	}
+	
+	
+	public void addObject(String mapName, Object obj)
+	{//need to implement factory	
+		big.get(obj.getClass().getSimpleName()).put(1, )
+
+	}
+	
+	
+	
+	
+	
 	
 	private static void createFile(String fileName)
 	{
@@ -29,7 +44,6 @@ public class DataBase {
 			e.printStackTrace();
 		}
 		
-
 	}
 	
 	private HashMap<String,HashMap<Integer,Class>> DB;

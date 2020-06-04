@@ -61,6 +61,16 @@ public class Flight
 	 public int getQuantity() {return this.quantity;}
 	 public int getFlightId() {return this.flightId;}
 	   
+	 
+	 @Override
+	 public String toString()
+	 {
+		String str =  "Departure Date: "+ this.departureDate.print()+ "\nLanding Date: "+ this.landingDate.print();
+		str += "\nLandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$";
+		str += "\nQuantity: " + this.quantity + "\nFlight ID: " + this.flightId;
+		return str;
+	 }
+	 
 	    public void print()
 	    {
 	    	System.out.println("Departure Date: "+ this.departureDate.print()+ "\nLanding Date: "+ this.landingDate.print());

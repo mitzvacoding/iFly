@@ -1,13 +1,19 @@
 package iFly;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Reader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
+
 import UI.MainPage;
 
 public class Main {
@@ -16,7 +22,7 @@ public class Main {
 	{
 
 
-		
+		/*	
 
 		//MainPage.UI_func();
 
@@ -33,7 +39,7 @@ public class Main {
 		ConnectionFlight cf=new ConnectionFlight(new Date(1,1,2020),new Date(07,1,2020),"Natbag air port","elal",500,12,747,"NY air port",new Date(02,1,2020),new Date(03,1,2020),"bangkok air port"); 
 		cf.print();
 		
-/*
+
 		HashMap<Integer,String> h1 = new HashMap<Integer,String>();
 		HashMap<Integer, Flight> h2 = new HashMap<Integer, Flight>();
 		h2.put(1, new Flight());
@@ -69,5 +75,64 @@ public class Main {
 	      System.out.println(data);
 	      myReader.close();
 */
+		String fileName = "C:\\Users\\Home\\Desktop\\try1.txt";
+		ObjectOutputStream oos = null;
+		/*
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream(fileName));
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		HashMap<Integer, String> hashObj = new HashMap<Integer,String>();
+		hashObj.put(1, "first");
+		hashObj.put(2, "second");
+		hashObj.put(3, "troi");
+
+		oos.writeObject(hashObj);
+		*/
+		//-----------------------------------------------
+		
+		
+		
+		ObjectInputStream ois =null;
+		FileInputStream fis = new FileInputStream(fileName);
+		HashMap<Integer, String> Iobj = null;
+		
+		ois = new ObjectInputStream(fis);
+		
+		try{
+		Iobj = (HashMap<Integer, String>) ois.readObject();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println(Iobj.toString());
+		
+		//Iobj.forEach("first");
+		for(Map.Entry<Integer, String> entry: Iobj.entrySet())//entry is an iterator
+		{
+			if(entry.getValue().equals("second"))
+				System.out.println(entry.getValue());
+		}
+		
+		
+		HashMap<String, HashMap<Integer, Object>> big;
+		HashMap<Integer,Object> flight = new HashMap<Integer, Object>();
+		HashMap<Integer,Object> user = new HashMap<Integer, Object>();
+		HashMap<Integer,Object> manager = new HashMap<Integer, Object>();
+		
+
+		flight.put(1, new Flight());
+		System.out.println(flight.toString());
+		
+		Object test = new Flight();
+		System.out.println(test.getClass().getSimpleName());
+		//oos.close();
+		
 	}
 }
