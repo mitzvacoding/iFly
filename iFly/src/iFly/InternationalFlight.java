@@ -4,8 +4,6 @@ public class InternationalFlight extends Flight {
 
 	private String destenation;
 
-	
-	
 	public InternationalFlight()
 	{
 		super();

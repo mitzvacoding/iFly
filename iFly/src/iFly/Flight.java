@@ -32,7 +32,7 @@ public class Flight
     	this.quantity = quantity;
     	this.flightId = flightId;
     }
-    
+
    
 	public int priceCalculation() {return 1;}
 

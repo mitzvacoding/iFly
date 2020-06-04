@@ -29,7 +29,7 @@ public class DataBase {
 			e.printStackTrace();
 		}
 		
-		//files.put(fileName,newFile );
+
 	}
 	
 	private HashMap<String,HashMap<Integer,Class>> DB;
@@ -44,3 +44,4 @@ public class DataBase {
 		DB.get(map).put(index, cls);
 	}
 }
+
