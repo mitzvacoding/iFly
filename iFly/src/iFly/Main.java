@@ -16,8 +16,6 @@ public class Main {
 	{
 
 
-		
-
 		//MainPage.UI_func();
 
 		System.out.println("\n****FLIGHT******\n");
@@ -55,7 +53,7 @@ public class Main {
 		HashMap<Integer, Class> a;
 
 		
-		//h1.put(1,"a");
+		//h1.put(1,"a");8
 		//h1.put(2,"b");
 		//System.out.println(h1);
 		
