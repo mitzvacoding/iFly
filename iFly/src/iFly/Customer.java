@@ -1,8 +1,9 @@
 package iFly;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Customer extends User
+public class Customer extends User implements Serializable
 {
  HashMap<Integer,String> cart;
  CreditCard  credit;

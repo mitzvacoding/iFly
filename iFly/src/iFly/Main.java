@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,37 +19,78 @@ import UI.MainPage;
 
 public class Main {
 	
-	public static void main(String[] args) //throws IOException
+	public static void main(String[] args) throws IOException //throws IOException
 	{
 		
-	/*	MainPage.UI_func();
 
-		System.out.println("\n****FLIGHT******\n");
+		enter2File();
+		readFromFile();
 		
-		Flight ff =new Flight( new Date(25,10,2020),new Date(25,10,2020),"Natbg","elal",100,25,12);
-		ff.print();
-		System.out.println("\n****InternationalFlight FLIGHT******\n");
+		/*
+		HashMap<String, HashMap<Integer, Object>> big =null;// new HashMap<String, HashMap<Integer, Object>>();
+		//big.put("flights", new HashMap<Integer, Object>());
+		//big.put("customer", new HashMap<Integer, Object>());
+		//big.get("flights").put(1,null);
+
 		
-		InternationalFlight in=new InternationalFlight(new Date(25,10,2000),new Date(25,11,2000),"Natbg","elal",200,3,141,"NY city"); 
-		in.print();
-		System.out.println("\n****ConnectionFlight FLIGHT******\n");
+		try{
+			FileInputStream fis = new FileInputStream("data.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			big = (HashMap<String, HashMap<Integer, Object>>)ois.readObject();
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
 		
-		ConnectionFlight cf=new ConnectionFlight(new Date(1,1,2020),new Date(07,1,2020),"Natbag air port","elal",500,12,747,"NY air port",new Date(02,1,2020),new Date(03,1,2020),"bangkok air port"); 
-		cf.print();
-   
-	*/
+		System.out.println(big.get("flights").get(1).toString());
 		
+		*/
+	}
+	
+	public static void enter2File()
+	{
+		String fileName = "data.txt";
+
+		DataObject dObj = new DataObject();
+		dObj.put("flights");
+		dObj.putInternal("flights", 1, new Flight());
 		
-		HashMap<Integer,Object> h1 = new HashMap<Integer,Object>();
+		dObj.put("customers");
+		dObj.putInternal("customers", 5, new Customer());
 		
-		h1.put(11,new Flight());
-		h1.put(21,new Customer());
-		h1.put(31,new Manger());
-		System.out.println(h1.get(11).toString()); 
-		System.out.println(h1.get(21).toString()); 
-		System.out.println(h1.get(31).toString()); 
+		ObjectOutputStream oos = null;
+		try{
+			FileOutputStream fos = new FileOutputStream(fileName);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(dObj);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void readFromFile()
+	{
+		DataObject dObj =null;// new DataObject();
+		try{
+			FileInputStream fis = new FileInputStream("data.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			dObj = (DataObject)ois.readObject();
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
-		
+		System.out.println(dObj.get("flights").get(1).toString());
+		System.out.println(dObj.get("customers").get(5).toString());
+
 	}
 	
 }

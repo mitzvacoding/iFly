@@ -1,6 +1,8 @@
 package iFly;
 
-public class Flight 
+import java.io.Serializable;
+
+public class Flight implements Serializable
 {
 	private Date departureDate;
 	private Date landingDate;

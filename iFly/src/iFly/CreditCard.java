@@ -1,6 +1,8 @@
 package iFly;
 
-public class CreditCard {
+import java.io.Serializable;
+
+public class CreditCard implements Serializable {
 	
 	private int creditNumber;
 	private int validity;
