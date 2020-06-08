@@ -29,7 +29,14 @@ public class Manger extends User {
   	}
   public void setSeniority(int seniority) {
 	this.seniority = seniority;
-  	};
+  	}
+  
+@Override
+public String toString() 
+{
+	String str="seniority:"+this.seniority +"\nEmail"+ this.getEmail()+"Password"+this.getPassword();
+	return str;
+};
 	
 
 	

@@ -19,7 +19,10 @@ public class CreditCard {
 		this.cvv=cvv;
 	}
 	
-	
-	
+	public String print()
+	{
+		String str="creditNumber:"+this.creditNumber+"\nvalidity:"+this.validity+"\ncvv"+this.cvv;
+		return str;
+	}
 	
 }

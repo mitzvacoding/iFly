@@ -30,5 +30,12 @@ public class Customer extends User
 	@Override
 	public  String showDetalis(){return null;}
 	public boolean serachFlight(String dates,String destination) {return true;}
+
+	@Override
+	public String toString() 
+	{
+	String str="\nEmail "+ this.getEmail()+"\nPassword "+ this.getPassword()+"\nCredit Card: "+this.credit.print();
+	return str;
+	}
 	
 }
