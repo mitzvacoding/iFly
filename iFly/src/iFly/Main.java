@@ -16,13 +16,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 import UI.MainPage;
+import UI.RegistarPage;
+import UI.SearchPage;
 
 public class Main {
 	
-
 	public static void main(String[] args) throws IOException
 
 	{
+		//MainPage.MpFun();
+		SearchPage.SpFun();
 		String fileName = "try1.txt";
 		ObjectOutputStream oos = null;
 		try 
@@ -32,36 +35,9 @@ public class Main {
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
-		
-
-		
-		
+		}		
 		enter2File();
 		readFromFile();
-		
-		/*
-		HashMap<String, HashMap<Integer, Object>> big =null;// new HashMap<String, HashMap<Integer, Object>>();
-		//big.put("flights", new HashMap<Integer, Object>());
-		//big.put("customer", new HashMap<Integer, Object>());
-		//big.get("flights").put(1,null);
-
-		
-		try{
-			FileInputStream fis = new FileInputStream("data.txt");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			big = (HashMap<String, HashMap<Integer, Object>>)ois.readObject();
-
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-
-		
-		System.out.println(big.get("flights").get(1).toString());
-		
-		*/
 	}
 	
 	public static void enter2File()
@@ -104,23 +80,6 @@ public class Main {
 		
 		System.out.println(dObj.get("flights").get(1).toString());
 		System.out.println(dObj.get("customers").get(5).toString());
-
 	}
-	
-	
-	/*	ObjectInputStream ois =null;
-		FileInputStream fis = new FileInputStream(fileName);
-		HashMap<Integer, String> Iobj = null;
-		
-		
-		ois = new ObjectInputStream(fis);
-		
-		try {	Iobj = (HashMap<Integer,String>)ois.readObject();}
-		
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-			System.out.println(Iobj.toString());
-	     }*/
+
 	}
