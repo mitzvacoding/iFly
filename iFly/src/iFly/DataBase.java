@@ -15,15 +15,10 @@ public class DataBase {
 	public static HashMap<String,String> files;
 	
 	public static void init()
-	{
-		big = new DataObject();
-		big.put("flights");
-		big.put("customers");
-
-		files = new HashMap<String,String>();
-		
+	{	
+		//in case file exists
 		try{
-			FileInputStream fis = new FileInputStream("data");
+			FileInputStream fis = new FileInputStream("data.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			big = (DataObject)ois.readObject();
 

@@ -8,25 +8,32 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import iFly.Date;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
+
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JSpinner;
-import javax.swing.JSlider;
-import javax.swing.border.LineBorder;
-import javax.swing.JMenuBar;
-import java.awt.TextArea;
+import javax.swing.JRadioButtonMenuItem;
+import java.awt.Choice;
+import java.awt.Canvas;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.lang.FdLibm.Pow;
 
 public class SearchPage {
 
 	private JFrame frame;
 	private JTextField depDate;
 	private JTextField DesttextField;
-	private JTextField textField_1;
+	private JTextField passField;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -57,21 +64,30 @@ public class SearchPage {
 		frame.getContentPane().setForeground(SystemColor.controlText);
 		frame.getContentPane().setBackground(SystemColor.activeCaption);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setFocusable(true);
 		JLabel lblNewLabel = new JLabel("IFLY");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 45));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(175, 11, 147, 87);
 		frame.getContentPane().add(lblNewLabel);
 		
+
+		
 		depDate = new JTextField();
+		depDate.setText("dd/mm/yy");
 		depDate.setHorizontalAlignment(SwingConstants.CENTER);
 		depDate.setFont(new Font("Arial", Font.PLAIN, 15));
-		depDate.setText("xx/yy/zzzz.");
 		depDate.setToolTipText("Enter Departure Date");
 		depDate.setColumns(10);
 		depDate.setBounds(341, 142, 122, 42);
 		frame.getContentPane().add(depDate);
+		
+		depDate.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				depDate.setText("");
+			}
+		});
 		
 		DesttextField = new JTextField();
 		DesttextField.setEditable(false);
@@ -80,13 +96,32 @@ public class SearchPage {
 		frame.getContentPane().add(DesttextField);
 		DesttextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setToolTipText("");
-		textField_1.setBounds(341, 315, 117, 33);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		passField = new JTextField();
+		passField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				passField.setText("");
+			}
+		});
+		passField.setText("33");
+		passField.setToolTipText("");
+		passField.setBounds(341, 315, 117, 33);
+		frame.getContentPane().add(passField);
+		passField.setColumns(10);
 		
-		btnNewButton = new JButton("");
+		btnNewButton = new JButton("Search");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date date = new Date(depDate.getText());
+				String destination, temp;
+				int passengers = convertString(passField.getText());
+				
+				destination = DesttextField.getText();
+				
+				//now need to send to server 
+				
+			}
+		});
 		btnNewButton.setBounds(126, 397, 129, 55);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -94,25 +129,24 @@ public class SearchPage {
 		abrad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				  DesttextField.setEditable(true);
-				  
+		      DesttextField.setEditable(true);
+			
 			}
-					
-		});	
+		});
 		abrad.setBounds(139, 188, 73, 23);
 		frame.getContentPane().add(abrad);
 		
-		JRadioButton Eilatrad = new JRadioButton("Eilat");
-		Eilatrad.setSelected(true);
-		Eilatrad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				
-				  DesttextField.setEditable(false);
+		JRadioButton Eirad = new JRadioButton("Eilat");
+		Eirad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DesttextField.setEditable(false);
 			}
 		});
-		Eilatrad.setBounds(139, 222, 73, 23);
-		frame.getContentPane().add(Eilatrad);
+		Eirad.setSelected(true);
+		Eirad.setBounds(139, 222, 73, 23);
+		frame.getContentPane().add(Eirad);
+		
+		
 		
 		lblNewLabel_1 = new JLabel("Flying to");
 		lblNewLabel_1.setBackground(new Color(255, 0, 0));
@@ -129,6 +163,23 @@ public class SearchPage {
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_3.setBounds(341, 282, 147, 35);
 		frame.getContentPane().add(lblNewLabel_3);
-	      
+		
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(abrad);
+		bg.add(Eirad);
+		
+		
+		
+		
+
+	}
+	public static int convertString(String str)
+	{
+		int size= str.length();
+		int num=0;
+		for(int i= 0; i<size ; i++)
+		{
+			num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
+		}
 	}
 }
