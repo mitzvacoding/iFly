@@ -1,8 +1,7 @@
 package iFly;
+import java.io.Serializable;
 
-import org.junit.Test;
-
-public class Flight 
+public class Flight implements Serializable
 {
 	private Date departureDate;
 	private Date landingDate;
@@ -48,12 +47,11 @@ public class Flight
 	return  this.landingDate;
 	}
 	
-	 @Test
 	public String getLandingAirport()
 	{
 	return  this.landingAirport;
 	}
-	 @Test
+	 
 	public String getVendor()
 	{
 	return  this.vendor;

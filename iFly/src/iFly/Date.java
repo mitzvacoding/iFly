@@ -1,6 +1,8 @@
 package iFly;
 
-public class Date {
+import java.io.Serializable;
+
+public class Date implements Serializable {
 	
 	public int day,month,year;
 	public Date()

@@ -1,6 +1,8 @@
 package iFly;
 import java.util.List;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -9,16 +11,28 @@ import java.util.Map;
 
 public class DataBase {
 	
-	public static HashMap<String, HashMap<Integer, Object>> big;
+	public static DataObject big;
 	public static HashMap<String,String> files;
 	
 	public static void init()
 	{
-		big = new HashMap<String, HashMap<Integer, Object>>();
-		big.put("flights", new HashMap<Integer, Object>());
-		big.put("customer", new HashMap<Integer, Object>());
+		big = new DataObject();
+		big.put("flights");
+		big.put("customers");
 
 		files = new HashMap<String,String>();
+		
+		try{
+			FileInputStream fis = new FileInputStream("data");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			big = (DataObject)ois.readObject();
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+				
 	}
 	
 	
