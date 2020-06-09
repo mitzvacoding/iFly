@@ -1,5 +1,7 @@
 package iFly;
 
+import org.junit.Test;
+
 public class Flight 
 {
 	private Date departureDate;
@@ -46,10 +48,12 @@ public class Flight
 	return  this.landingDate;
 	}
 	
+	 @Test
 	public String getLandingAirport()
 	{
 	return  this.landingAirport;
 	}
+	 @Test
 	public String getVendor()
 	{
 	return  this.vendor;
