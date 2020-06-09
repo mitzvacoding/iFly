@@ -23,7 +23,7 @@ public class Main {
 	{
 		
 
-		enter2File();
+		//enter2File();
 		readFromFile();
 		
 		/*
