@@ -12,8 +12,10 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MainPage {
+public class MainPage  extends RegistarPage{
 
 	private JFrame frame;
 	private JTextField userField;
@@ -24,7 +26,7 @@ public class MainPage {
 	/**
 	 * Launch the application.
 	 */
-	public static void UI_func() {
+	public static void MpFun() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -68,6 +70,14 @@ public class MainPage {
 		frame.getContentPane().add(passwordField);
 		
 		regBtn = new JButton("Sign Up");
+		regBtn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) //sign up button function
+			{
+				frame.setVisible(false);
+				RegistarPage.RpFun();
+			}
+		});
 		regBtn.setBounds(149, 305, 143, 32);
 		frame.getContentPane().add(regBtn);
 		
