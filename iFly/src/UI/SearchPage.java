@@ -15,6 +15,11 @@ import javax.swing.JRadioButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.JSlider;
+import javax.swing.border.LineBorder;
+import javax.swing.JMenuBar;
+import java.awt.TextArea;
 
 public class SearchPage {
 
@@ -89,16 +94,25 @@ public class SearchPage {
 		abrad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-		      DesttextField.setEnabled(true);
-			
+				  DesttextField.setEditable(true);
+				  
 			}
-		});
+					
+		});	
 		abrad.setBounds(139, 188, 73, 23);
 		frame.getContentPane().add(abrad);
 		
-		JRadioButton Eirad = new JRadioButton("Eilat");
-		Eirad.setBounds(139, 222, 73, 23);
-		frame.getContentPane().add(Eirad);
+		JRadioButton Eilatrad = new JRadioButton("Eilat");
+		Eilatrad.setSelected(true);
+		Eilatrad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+				  DesttextField.setEditable(false);
+			}
+		});
+		Eilatrad.setBounds(139, 222, 73, 23);
+		frame.getContentPane().add(Eilatrad);
 		
 		lblNewLabel_1 = new JLabel("Flying to");
 		lblNewLabel_1.setBackground(new Color(255, 0, 0));
@@ -115,8 +129,6 @@ public class SearchPage {
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_3.setBounds(341, 282, 147, 35);
 		frame.getContentPane().add(lblNewLabel_3);
-		
-		
-		
+	      
 	}
 }
