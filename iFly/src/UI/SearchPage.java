@@ -182,18 +182,7 @@ public class SearchPage {
 		
 
 	}
-<<<<<<< HEAD
+
 
 }
-=======
-	public static int convertString(String str)
-	{
-		int size= str.length();
-		int num=0;
-		for(int i= 0; i<size ; i++)
-		{
-			num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
-		}
-	}
-}
->>>>>>> branch 'master' of https://github.com/mitzvacoding/iFly.git
+
