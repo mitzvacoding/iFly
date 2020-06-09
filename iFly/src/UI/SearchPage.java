@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import iFly.Date;
+import iFly.Server;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -26,7 +27,6 @@ import java.awt.Choice;
 import java.awt.Canvas;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.lang.FdLibm.Pow;
 
 public class SearchPage {
 
@@ -109,19 +109,9 @@ public class SearchPage {
 		frame.getContentPane().add(passField);
 		passField.setColumns(10);
 		
+		
 		btnNewButton = new JButton("Search");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Date date = new Date(depDate.getText());
-				String destination, temp;
-				int passengers = convertString(passField.getText());
-				
-				destination = DesttextField.getText();
-				
-				//now need to send to server 
-				
-			}
-		});
+		
 		btnNewButton.setBounds(126, 397, 129, 55);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -169,17 +159,28 @@ public class SearchPage {
 		bg.add(Eirad);
 		
 		
-		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date date = new Date(depDate.getText());
+				int passengers;
+				passengers = Date.convertString(passField.getText());
+				String destination = null;
+				if(Eirad.isSelected())
+					destination= "Eilat";
+				else 
+					destination = DesttextField.getText();
+				
+				
+				//now need to send to server 
+				System.out.println(date.print());
+				System.out.println(destination);
+				//Server.requestSearchFlight(date, destination, passengers);
+				
+				
+			}
+		});
 		
 
 	}
-	public static int convertString(String str)
-	{
-		int size= str.length();
-		int num=0;
-		for(int i= 0; i<size ; i++)
-		{
-			num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
-		}
-	}
+
 }

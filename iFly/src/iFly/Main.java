@@ -34,12 +34,9 @@ public class Main {
 
 	{
 		//MainPage.MpFun();
-		//SearchPage.SpFun();
-		String fileName = "try1.txt";
-		ObjectOutputStream oos = null;
-		int x = convertString("45123");
+		SearchPage.SpFun();
 
-		System.out.println(x);
+
 		//enter2File();
 		//readFromFile();
 	}
