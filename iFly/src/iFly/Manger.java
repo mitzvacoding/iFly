@@ -10,9 +10,9 @@ public class Manger extends User {
 		super();
 		this.setSeniority(0);
 	}
-	public Manger(String email,String password,int seniority)
+	public Manger(String email,String password,String name,int seniority)
 	{
-	   super(email,password);
+	   super(email,password,name);
 		this.setSeniority(seniority);
 	}
 

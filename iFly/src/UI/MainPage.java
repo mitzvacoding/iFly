@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import iFly.Server;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -38,17 +41,12 @@ public class MainPage  extends RegistarPage{
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
-	public MainPage() {
+	public MainPage() 
+	{
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
@@ -57,6 +55,17 @@ public class MainPage  extends RegistarPage{
 		frame.getContentPane().setLayout(null);
 		
 		JButton loginBtn = new JButton("Log In");
+		loginBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String Estr=userField.getText();
+				String Pstr=passwordField.getText();
+				Server.requestSignInUser(Estr,Pstr);
+				frame.setVisible(false);
+				SearchPage.SpFun();
+				
+			}
+		});
 		loginBtn.setBounds(149, 213, 143, 32);
 		frame.getContentPane().add(loginBtn);
 		

@@ -17,6 +17,7 @@ import java.util.Scanner;
 
 import UI.MainPage;
 import UI.RegistarPage;
+import UI.ResultPage;
 import UI.SearchPage;
 
 public class Main {
@@ -35,10 +36,12 @@ public class Main {
 	{
 		//MainPage.MpFun();
 		//SearchPage.SpFun();
+		ResultPage.ResFun();
 		String fileName = "try1.txt";
 		ObjectOutputStream oos = null;
-		int x = convertString("45123");
-
+		int x = convertString("45");
+		
+		
 		System.out.println(x);
 		//enter2File();
 		//readFromFile();
@@ -51,7 +54,6 @@ public class Main {
 		DataObject dObj = new DataObject();
 		dObj.put("flights");
 		dObj.putInternal("flights", 1, new Flight());
-		
 		dObj.put("customers");
 		dObj.putInternal("customers", 5, new Customer());
 		

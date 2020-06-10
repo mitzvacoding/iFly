@@ -18,9 +18,9 @@ public class Customer extends User implements Serializable
 
  }
 
- public Customer(String email,String password,HashMap<Integer,String> cart,CreditCard  credit)
+ public Customer(String email,String password,String name,HashMap<Integer,String> cart,CreditCard  credit)
  {
-	 super(email,password);
+	 super(email,password,name);
 	 this.cart=new HashMap<Integer, String>(0);
      this.credit= new CreditCard();
 
