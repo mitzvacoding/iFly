@@ -37,10 +37,16 @@ public class DataBase {
 
 	}
 	
-	public static boolean CheckUserDB(String Email)
+	public static boolean checkUserDB(String Email)
 	{
-		
-		return true;
+		for(Object user: big.get("users").values())
+		{
+			if( ((User)user).getEmail().equals(Email))//user exists
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
