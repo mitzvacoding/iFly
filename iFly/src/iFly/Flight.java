@@ -28,7 +28,7 @@ public class Flight implements Serializable
     
     public Flight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, int flightId)
     {
-    	this. departureDate = departureDate;
+    	this.departureDate = departureDate;
     	this.landingDate = landingDate;
     	this.landingAirport = landingAirport;
     	this.vendor = vendor;
@@ -38,9 +38,12 @@ public class Flight implements Serializable
     }
 
    
-	public Flight(Date returnDate, String destination)
+	public Flight(Date departureDate, String landingAirport)
 	{
-		
+    	this.departureDate = departureDate;
+    	this.landingDate = null;
+    	this.landingAirport = landingAirport;
+
 		
 	}
 

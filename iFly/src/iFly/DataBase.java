@@ -52,7 +52,6 @@ public class DataBase
 	}
 	
 	public static boolean checkSignInUser(String Email,String password)
-
 	{//called when user is logging-in
 		for(Object user: big.get("users").values())
 		{
@@ -67,7 +66,7 @@ public class DataBase
 	
 
 	
-	public static Object checkFlight(Date departureDate, Date landingDate, Class cls)
+	//public static Object checkFlight(Date departureDate, Date landingDate, Class cls)
 
 	private static void createFile(String fileName)
 	{

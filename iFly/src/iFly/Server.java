@@ -14,7 +14,7 @@ public class Server
 	public static void requestSearchFlight(Date depDate, Date returnDate, String Destination, int passengers, Integer abroadFlight, Integer roundTrip) 	
 	{ 
       Flight fl=null;
-      fl=(Flight) ObjectsFactory.getFlightByButton(returnDate,Destination);//abroadFlight, roundTrip);
+      fl=(Flight)ObjectsFactory.getFlightByButton(depDate, returnDate,Destination);//abroadFlight, roundTrip);
 
       if( fl.getClass().getSimpleName()=="RoundTripFlight")
     	  

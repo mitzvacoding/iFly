@@ -2,7 +2,7 @@ package iFly;
 
 public class ObjectsFactory {
 
-	public static Object getFlightByButton(Date returnDate,String destination)//Integer abroadType ,Integer roundTripType)
+	public static Object getFlightByButton(Date depDate,Date returnDate,String destination)//Integer abroadType ,Integer roundTripType)
 	{
 		Object obj = null;
 		
@@ -12,15 +12,15 @@ public class ObjectsFactory {
 			if(destination!=null)
 				obj =new RoundTripFlight(new InternationalFlight( returnDate, destination),new InternationalFlight(returnDate, destination));
 			else
-				obj =new RoundTripFlight(new Flight( returnDate, destination),new Flight(returnDate, destination));
+				obj =new RoundTripFlight(new Flight(depDate,"ELT"),new Flight(returnDate, "TLV"));
 		}
 		
 		else
 		{
 			if(destination!=null)
-				obj =new InternationalFlight( returnDate, destination);
+				obj =new InternationalFlight(depDate, destination);
 			else
-				obj =new Flight();	
+				obj =new Flight(depDate, "ELT");	
 			
 		}
 
