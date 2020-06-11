@@ -21,45 +21,29 @@ import UI.ResultPage;
 import UI.SearchPage;
 
 public class Main {
-	public static int convertString(String str)
-	{
-		int size= str.length();
-		int num=0;
-		for(int i= 0; i<size ; i++)
-		{
-			num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
-		}
-		return num;
-	}
+	
 	public static void main(String[] args) throws IOException
 
 	{
-		 MainPage.MpFun();
-		//SearchPage.SpFun();
-		//ResultPage.ResFun();
-		String fileName = "try1.txt";
-		ObjectOutputStream oos = null;
-		int x = convertString("45");
 		
-		
-		System.out.println(x);
-		SearchPage.SpFun();
-
-
+		ResultPage.ResFun();
+		// MainPage.MpFun();
+		//String fileName = "try1.txt";
+		//ObjectOutputStream oos = null;
 		//enter2File();
 		//readFromFile();
+		
 	}
-	
+	/*
 	public static void enter2File()
 	{
+		
 		String fileName = "data.txt";
-
 		DataObject dObj = new DataObject();
 		dObj.put("flights");
 		dObj.putInternal("flights", 1, new Flight());
 		dObj.put("customers");
 		dObj.putInternal("customers", 5, new Customer());
-		
 		ObjectOutputStream oos = null;
 		try{
 			FileOutputStream fos = new FileOutputStream(fileName);
@@ -90,5 +74,5 @@ public class Main {
 		System.out.println(dObj.get("flights").get(1).toString());
 		System.out.println(dObj.get("customers").get(5).toString());
 	}
-
+*/
 	}
