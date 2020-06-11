@@ -27,7 +27,7 @@ public class DataBase {
 		{
 			e.printStackTrace();
 		}
-				 
+				   
 	}
 	
 	
@@ -37,8 +37,15 @@ public class DataBase {
 
 	}
 	
-	public static boolean CheckUserDB(String Email)
+	public static boolean checkUserDB(String Email)
 	{
+		
+		return true;
+	}
+	
+	public static boolean checkSignInUser(String Email,String password)
+	{
+		checkUserDB(Email);
 		
 		return true;
 	}
