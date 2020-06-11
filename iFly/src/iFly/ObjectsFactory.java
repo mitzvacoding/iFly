@@ -15,7 +15,7 @@ public class ObjectsFactory {
 			obj = new Manger();
 		}
 
-		
+		 
 		
 		
 		return obj;

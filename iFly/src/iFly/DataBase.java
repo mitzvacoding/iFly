@@ -27,7 +27,7 @@ public class DataBase {
 		{
 			e.printStackTrace();
 		}
-				 
+				   
 	}
 	
 	
@@ -47,6 +47,13 @@ public class DataBase {
 			}
 		}
 		return false;
+	}
+	
+	public static boolean checkSignInUser(String Email,String password)
+	{
+		checkUserDB(Email);
+		
+		return true;
 	}
 	
 	
