@@ -37,14 +37,15 @@ public class SearchPage
 
 	private JFrame frame;
 	private JTextField depDate;
-	private JTextField DesttextField;
+	private JTextField destField;
 	private JTextField passField;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
-	private JTextField ReDate;
+	private JTextField retDateField;
 	private JButton SearchBtn;
-	
+	private  static Integer abroadFlight=0;
+	private  static Integer roundTrip=0;
 	
 	public static void SpFun() {
 		EventQueue.invokeLater(new Runnable() {
@@ -98,20 +99,20 @@ public class SearchPage
 			}
 		});
 		
-		DesttextField = new JTextField();
-		DesttextField.setHorizontalAlignment(SwingConstants.CENTER);
-		DesttextField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		DesttextField.setText("Enter City");
-		DesttextField.setBounds(364, 217, 122, 42);
-		DesttextField.setEditable(false);
-		DesttextField.setToolTipText("");
-		frame.getContentPane().add(DesttextField);
-		DesttextField.setColumns(10);
+		destField = new JTextField();
+		destField.setHorizontalAlignment(SwingConstants.CENTER);
+		destField.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		destField.setText("Enter City");
+		destField.setBounds(364, 217, 122, 42);
+		destField.setEditable(false);
+		destField.setToolTipText("");
+		frame.getContentPane().add(destField);
+		destField.setColumns(10);
 
-		DesttextField.addFocusListener(new FocusAdapter() {
+		destField.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				DesttextField.setText("");
+				destField.setText("");
 				
 			}
 		});
@@ -151,47 +152,50 @@ public class SearchPage
 		panel.setBounds(299, 121, 136, 33);
 		frame.getContentPane().add(panel);
 		
-		JRadioButton Eirad = new JRadioButton("Eilat");
-		Eirad.setBackground(new Color(34, 139, 34));
-		panel.add(Eirad);
+		JRadioButton eiRad = new JRadioButton("Eilat");
+		eiRad.setBackground(new Color(34, 139, 34));
+		panel.add(eiRad);
 		ButtonGroup bg = new ButtonGroup();
-		bg.add(Eirad);
-		Eirad.addActionListener(new ActionListener() {
+		bg.add(eiRad);
+		eiRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DesttextField.setEditable(false);
+				destField.setEditable(false);
+				abroadFlight=0;
 			}
 		});
-		Eirad.setSelected(true);
+		eiRad.setSelected(true);
 
 		SearchBtn = new JButton("Search");		
 		SearchBtn.setBounds(126, 397, 129, 55);
 		frame.getContentPane().add(SearchBtn);
 
-		JRadioButton abrad = new JRadioButton("abroad");
-		abrad.setBackground(new Color(124, 252, 0));
-		panel.add(abrad);
-	 	bg.add(abrad);
-		abrad.addActionListener(new ActionListener() {
+		JRadioButton abRad = new JRadioButton("abroad");
+		abRad.setBackground(new Color(124, 252, 0));
+		panel.add(abRad);
+	 	bg.add(abRad);
+		abRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-		      DesttextField.setEditable(true);
-			
+		      destField.setEditable(true);
+		      abroadFlight=1;
 			}
 		});
 
-		ReDate = new JTextField();
-		ReDate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ReDate.setHorizontalAlignment(SwingConstants.CENTER);
-		ReDate.setText("02/06/2020");
-		ReDate.setToolTipText("");
-		ReDate.setEditable(false);
-		ReDate.setColumns(10);
-		ReDate.setBounds(204, 217, 122, 42);
-		frame.getContentPane().add(ReDate);
-		ReDate.addFocusListener(new FocusAdapter() {
+		retDateField = new JTextField();
+		retDateField.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		retDateField.setHorizontalAlignment(SwingConstants.CENTER);
+		retDateField.setText("02/06/2020");
+		retDateField.setToolTipText("");
+		retDateField.setEditable(false);
+		retDateField.setColumns(10);
+		retDateField.setBounds(204, 217, 122, 42);
+		frame.getContentPane().add(retDateField);
+		retDateField.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				ReDate.setText("");
+				retDateField.setText("");
+				
+				
 			}
 		});
 		
@@ -207,48 +211,57 @@ public class SearchPage
 		frame.getContentPane().add(panel_1);
 		
 		ButtonGroup bg1 = new ButtonGroup();		
-		JRadioButton Onerad = new JRadioButton("One way");
-		Onerad.setSelected(true);
-		Onerad.setBackground(new Color(255, 153, 0));
-		panel_1.add(Onerad);
-		bg1.add(Onerad);
-		JRadioButton Rourad = new JRadioButton("Roundtrip");
-		Rourad.setBackground(new Color(255, 255, 51));
-		panel_1.add(Rourad);
-		bg1.add(Rourad);
+		JRadioButton oneRad = new JRadioButton("One way");
+		oneRad.setSelected(true);
+		oneRad.setBackground(new Color(255, 153, 0));
+		panel_1.add(oneRad);  
+		bg1.add(oneRad);
+		JRadioButton rouRad = new JRadioButton("Roundtrip");
+		rouRad.setBackground(new Color(255, 255, 51));
+		panel_1.add(rouRad);
+		bg1.add(rouRad);
 		
-		JButton SearchBtn = new JButton(" Search Flights");
-		SearchBtn.setBounds(510, 280, 147, 42);
-		frame.getContentPane().add(SearchBtn);
+		JButton searchBtn = new JButton(" Search Flights");
+		searchBtn.setBounds(510, 280, 147, 42);
+		frame.getContentPane().add(searchBtn);
 		
 	
-		Onerad.addActionListener(new ActionListener() {
+		oneRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ReDate.setEditable(false);
+				retDateField.setEditable(false);
 			}
 		});
-		Rourad.addActionListener(new ActionListener() {
+		rouRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ReDate.setEditable(true);
+				retDateField.setEditable(true);
+				roundTrip=1;
 			}
 		});
 		
 		
-		SearchBtn.addActionListener(new ActionListener() {
+		searchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				Date date = new Date(depDate.getText());
 				int passengers;
-				passengers = Date.convertString(passField.getText());
+				Date returnDate=null;
 				String destination = null;
-				if(Eirad.isSelected())
+				Date date = new Date(depDate.getText());
+				
+				passengers = Date.convertString(passField.getText());
+				
+				if(eiRad.isSelected())
 					destination= "Eilat";
 				else 
-					destination = DesttextField.getText();
+					destination = destField.getText();
+				
+				if(rouRad.isSelected())
+					returnDate=new Date( retDateField.getText());
+				
 				frame.setVisible(false);
 				ResultPage.ResFun();	
-				//now need to send to server 
-				Server.requestSearchFlight(date, destination, passengers);
+				//now need to send to server
+				
+				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);
 				
 			}
 		});

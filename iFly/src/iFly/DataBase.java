@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import com.sun.org.apache.xpath.internal.operations.And;
 
 
-public class DataBase {
+public class DataBase 
+{
 	
 	public static DataObject big;
 	public static HashMap<String,String> files;
@@ -48,10 +48,11 @@ public class DataBase {
 				return true;
 			}
 		}
-		return false;
+		return false; 
 	}
 	
 	public static boolean checkSignInUser(String Email,String password)
+
 	{//called when user is logging-in
 		for(Object user: big.get("users").values())
 		{
@@ -61,14 +62,13 @@ public class DataBase {
 			}
 		}
 		return false;
+
 	}
 	
+
 	
 	public static Object checkFlight(Date departureDate, Date landingDate, Class cls)
-	
-	
-	
-	
+
 	private static void createFile(String fileName)
 	{
 		ObjectOutputStream oos = null;
@@ -79,11 +79,8 @@ public class DataBase {
 		{
 			e.printStackTrace();
 		}
-		
+	
 	}
-	
-	
-	
 	
 }
 

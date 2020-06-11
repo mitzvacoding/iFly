@@ -3,10 +3,11 @@
 public class DataManagement 
 {
 	public static boolean SignInUser(String email,String password) 
-	 {
+	 {  
 		DataBase.checkSignInUser(email, password);
 		return true;
 	}
+	
 	public static boolean upDataDb(){return true;}
 	public static User createUser(){return null;}
 	public static boolean addUser() {return true;}
@@ -23,7 +24,7 @@ public class DataManagement
 	}
 	
 
-	public static void searchFlights() 
+	public static void searchFlights(Flight fl) 
 	{
 	
 		

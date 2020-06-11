@@ -1,9 +1,11 @@
 package iFly;
 
-public class InternationalFlight extends Flight {
+public class InternationalFlight extends Flight 
+{
 
 	private String destenation;
 
+		
 	public InternationalFlight()
 	{
 		super();
@@ -15,6 +17,13 @@ public class InternationalFlight extends Flight {
 	{
 		super(departureDate, landingDate, landingAirport,  vendor, price, quantity,flightId);
 		this.setDestenation(destenation);
+	}
+
+	public InternationalFlight(Date departureDate, String destination) 
+	{
+		super();
+		this.setDepartureDate(departureDate);
+	   this.destenation=destination;
 	}
 
 	public int priceCalculation() {return 1;}
