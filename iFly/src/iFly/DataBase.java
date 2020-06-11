@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import com.sun.org.apache.xpath.internal.operations.And;
+
 
 public class DataBase {
 	
@@ -50,13 +52,19 @@ public class DataBase {
 	}
 	
 	public static boolean checkSignInUser(String Email,String password)
-	{
-		checkUserDB(Email);
-		
-		return true;
+	{//called when user is logging-in
+		for(Object user: big.get("users").values())
+		{
+			if( ((User)user).getEmail().equals(Email) && ((User)user).getPassword().equals(password))//user exists
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
+	public static Object checkFlight(Date departureDate, Date landingDate, Class cls)
 	
 	
 	

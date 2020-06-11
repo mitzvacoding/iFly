@@ -33,6 +33,14 @@ public class Main {
 		//enter2File();
 		//readFromFile();
 		
+		 Customer a = new Customer("ariel","123", "ariel", new HashMap<Integer,String>(), new CreditCard());
+
+		 func(a);
+	}
+	
+	public static void func(Object cls)
+	{
+		System.out.println(cls.getClass().getSimpleName());
 	}
 	/*
 	public static void enter2File()
