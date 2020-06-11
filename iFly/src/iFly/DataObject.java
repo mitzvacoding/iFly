@@ -15,7 +15,7 @@ public class DataObject implements Serializable{
 		this.ext = new HashMap<String, HashMap<Integer, Object>>();
 	
 	}
-	
+	 
 	public HashMap<Integer, Object> put(String category)
 	{
 		HashMap<Integer, Object> hm = new HashMap<Integer, Object>();
@@ -34,5 +34,8 @@ public class DataObject implements Serializable{
 		return value;
 		
 	}
+	
+	
+	
 	
 }

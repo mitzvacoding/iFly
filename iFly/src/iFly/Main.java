@@ -26,8 +26,8 @@ public class Main {
 
 	{
 		
-		ResultPage.ResFun();
-		// MainPage.MpFun();
+		//ResultPage.ResFun();
+		 MainPage.MpFun();
 		//String fileName = "try1.txt";
 		//ObjectOutputStream oos = null;
 		//enter2File();

@@ -38,7 +38,7 @@ public class RegistarPage {
 				try {
 					RegistarPage window = new RegistarPage();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (Exception e) { 
 					e.printStackTrace();
 				}
 			}
@@ -93,7 +93,7 @@ public class RegistarPage {
 				String email=EmailField_1.getText();
 				String password=passwordField.getText();
 				frame.setVisible(false);
-				SearchPage.SpFun();
+				MainPage.MpFun();
 			 	Server.requestSignUpCustomer(name, email,password);		
 				
 			}
