@@ -9,7 +9,10 @@ import java.util.LinkedList;
 import java.util.Map;
 
 
-public class DataBase {
+
+
+public class DataBase 
+{
 	
 	public static DataObject big;
 	public static HashMap<String,String> files;
@@ -46,20 +49,15 @@ public class DataBase {
 				return true;
 			}
 		}
-		return false;
+		return false; 
 	}
 	
 	public static boolean checkSignInUser(String Email,String password)
 	{
 		checkUserDB(Email);
 		
-		return true;
+	 	return true;
 	}
-	
-	
-	
-	
-	
 	
 	private static void createFile(String fileName)
 	{
@@ -71,11 +69,8 @@ public class DataBase {
 		{
 			e.printStackTrace();
 		}
-		
+	
 	}
-	
-	
-	
 	
 }
 

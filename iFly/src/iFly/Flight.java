@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class Flight implements Serializable
 {
+	
 	private Date departureDate;
 	private Date landingDate;
 	private String landingAirport;
@@ -16,7 +17,7 @@ public class Flight implements Serializable
     
     public Flight()
     {
-     	this. departureDate = new Date();
+     	this. departureDate = new Date(); 
     	this.landingDate = new Date();
     	this.landingAirport = "";
     	this.vendor = "";
@@ -37,6 +38,12 @@ public class Flight implements Serializable
     }
 
    
+	public Flight(Date returnDate, String destination)
+	{
+		
+		
+	}
+
 	public int priceCalculation() {return 1;}
 
 	
@@ -44,6 +51,13 @@ public class Flight implements Serializable
 	{
 	return  this.departureDate;
 	}
+	
+	public void setDepartureDate(Date d)
+	{
+	 this.departureDate=d;
+		
+	}
+	
 	
 	public Date getLandingDate()
 	{
