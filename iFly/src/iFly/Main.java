@@ -34,15 +34,18 @@ public class Main {
 	public static void main(String[] args) throws IOException
 
 	{
-		//MainPage.MpFun();
+		 MainPage.MpFun();
 		//SearchPage.SpFun();
-		ResultPage.ResFun();
+		//ResultPage.ResFun();
 		String fileName = "try1.txt";
 		ObjectOutputStream oos = null;
 		int x = convertString("45");
 		
 		
 		System.out.println(x);
+		SearchPage.SpFun();
+
+
 		//enter2File();
 		//readFromFile();
 	}

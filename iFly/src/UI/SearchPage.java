@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import iFly.Date;
+import iFly.Server;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
@@ -23,8 +25,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.JSplitPane;
 import javax.swing.JInternalFrame;
-import javax.swing.JScrollBar;
-import javax.swing.JProgressBar;
+//import javax.swing.JScrollBar;
+//import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -41,7 +43,7 @@ public class SearchPage
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JTextField ReDate;
-	
+	private JButton SearchBtn;
 	
 	
 	public static void SpFun() {
@@ -59,7 +61,13 @@ public class SearchPage
 	{
 		initialize();
 	}
-	private void initialize() {
+	
+	
+	
+	
+	
+	private void initialize() 
+	{
 		frame = new JFrame();
 		frame.setBounds(700,400,700, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -120,9 +128,7 @@ public class SearchPage
 		passField.setToolTipText("");
 		frame.getContentPane().add(passField);
 		passField.setColumns(10);
-		
-		
-		
+			
 		lblNewLabel_1 = new JLabel("Flying to");
 		lblNewLabel_1.setBounds(363, 183, 97, 35);
 		lblNewLabel_1.setBackground(new Color(255, 0, 0));
@@ -156,7 +162,11 @@ public class SearchPage
 			}
 		});
 		Eirad.setSelected(true);
-		
+
+		SearchBtn = new JButton("Search");		
+		SearchBtn.setBounds(126, 397, 129, 55);
+		frame.getContentPane().add(SearchBtn);
+
 		JRadioButton abrad = new JRadioButton("abroad");
 		abrad.setBackground(new Color(124, 252, 0));
 		panel.add(abrad);
@@ -224,8 +234,33 @@ public class SearchPage
 		});
 		
 		
-		
+		SearchBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date date = new Date(depDate.getText());
+				int passengers;
+				passengers = Date.convertString(passField.getText());
+				String destination = null;
+				if(Eirad.isSelected())
+					destination= "Eilat";
+				else 
+					destination = DesttextField.getText();
+				
+				
+				//now need to send to server 
+				System.out.println(date.print());
+				System.out.println(destination);
+				//Server.requestSearchFlight(date, destination, passengers);
+				
+				
+			}
+		});
 		
 		
 	}
+
+
 }
+
+
+
+
