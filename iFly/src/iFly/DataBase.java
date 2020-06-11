@@ -17,7 +17,7 @@ public class DataBase {
 	public static void init()
 	{	
 		//in case file exists
-		try{
+		try{ 
 			FileInputStream fis = new FileInputStream("data.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			big = (DataObject)ois.readObject();
@@ -27,7 +27,7 @@ public class DataBase {
 		{
 			e.printStackTrace();
 		}
-				
+				 
 	}
 	
 	
@@ -37,7 +37,11 @@ public class DataBase {
 
 	}
 	
-	
+	public static boolean CheckUserDB(String Email)
+	{
+		
+		return true;
+	}
 	
 	
 	

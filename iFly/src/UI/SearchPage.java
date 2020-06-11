@@ -48,14 +48,14 @@ public class SearchPage
 	
 	public static void SpFun() {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() { 
 				try {
 					SearchPage window = new SearchPage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}}});
-	}
+	} 
 	
 	public SearchPage() 
 	{
@@ -235,7 +235,8 @@ public class SearchPage
 		
 		
 		SearchBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				Date date = new Date(depDate.getText());
 				int passengers;
 				passengers = Date.convertString(passField.getText());
@@ -244,13 +245,10 @@ public class SearchPage
 					destination= "Eilat";
 				else 
 					destination = DesttextField.getText();
-				
-				
+				frame.setVisible(false);
+				ResultPage.ResFun();	
 				//now need to send to server 
-				System.out.println(date.print());
-				System.out.println(destination);
-				//Server.requestSearchFlight(date, destination, passengers);
-				
+				Server.requestSearchFlight(date, destination, passengers);
 				
 			}
 		});

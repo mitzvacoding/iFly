@@ -35,6 +35,8 @@ import java.awt.Canvas;
 import java.awt.Cursor;
 import java.awt.ComponentOrientation;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
@@ -43,15 +45,15 @@ public class ResultPage
 	private JFrame frame;
     private JLabel label;
     private JTable ta;
-    private JButton btnPurchase;
-    private JButton button;
-    private JButton button_1;
-    private JButton button_2;
-    private JButton button_3;
-    private JButton button_4;
-    private JButton button_5;
-    private JButton button_6;
-    private JButton button_7;
+    private JButton btn1;
+    private JButton btn2;
+    private JButton btn3;
+    private JButton btn4;
+    private JButton btn5;
+    private JButton btn6;
+    private JButton btn7;
+    private JButton btn8;
+    private JButton btn9;
     
     
 	public static void ResFun() 
@@ -97,61 +99,64 @@ public class ResultPage
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		frame.getContentPane().add(ta);
 		
-		btnPurchase = new JButton("Purchase");
-		btnPurchase.setForeground(new Color(204, 0, 51));
-		btnPurchase.setBackground(new Color(255, 255, 255));
-		btnPurchase.setBounds(566, 300, 87, 23);
-		frame.getContentPane().add(btnPurchase);
+		btn1 = new JButton("Purchase");
+		btn1.setForeground(new Color(204, 0, 51));
+		btn1.setBackground(new Color(255, 255, 255));
+		btn1.setBounds(566, 300, 87, 23);
+		frame.getContentPane().add(btn1);
 		//ta.setIntercellSpacing(new  Dimension(5,5));
 		 ta.setRowHeight(30);
 		 
-		 button = new JButton("Purchase");
-		 button.setForeground(new Color(204, 0, 51));
-		 button.setBackground(Color.WHITE);
-		 button.setBounds(566, 326, 87, 23);
-		 frame.getContentPane().add(button);
+		 btn2 = new JButton("Purchase");
+		 btn2.setForeground(new Color(204, 0, 51));
+		 btn2.setBackground(Color.WHITE);
+		 btn2.setBounds(566, 326, 87, 23);
+		 frame.getContentPane().add(btn2);
 		 
-		 button_1 = new JButton("Purchase");
-		 button_1.setForeground(new Color(204, 0, 51));
-		 button_1.setBackground(Color.WHITE);
-		 button_1.setBounds(566, 356, 87, 23);
-		 frame.getContentPane().add(button_1);
+		 btn3 = new JButton("Purchase");
+		 btn3.setForeground(new Color(204, 0, 51));
+		 btn3.setBackground(Color.WHITE);
+		 btn3.setBounds(566, 356, 87, 23);
+		 frame.getContentPane().add(btn3);
 		 
-		 button_2 = new JButton("Purchase");
-		 button_2.setForeground(new Color(204, 0, 51));
-		 button_2.setBackground(Color.WHITE);
-		 button_2.setBounds(566, 385, 87, 23);
-		 frame.getContentPane().add(button_2);
+		 btn4 = new JButton("Purchase");
+		 btn4.setForeground(new Color(204, 0, 51));
+		 btn4.setBackground(Color.WHITE);
+		 btn4.setBounds(566, 385, 87, 23);
+		 frame.getContentPane().add(btn4);
 		 
-		 button_3 = new JButton("Purchase");
-		 button_3.setForeground(new Color(204, 0, 51));
-		 button_3.setBackground(Color.WHITE);
-		 button_3.setBounds(566, 416, 87, 23);
-		 frame.getContentPane().add(button_3);
+		 btn5 = new JButton("Purchase");
+		 btn5.setForeground(new Color(204, 0, 51));
+		 btn5.setBackground(Color.WHITE);
+		 btn5.setBounds(566, 416, 87, 23);
+		 frame.getContentPane().add(btn5);
 		 
-		 button_4 = new JButton("Purchase");
-		 button_4.setForeground(new Color(204, 0, 51));
-		 button_4.setBackground(Color.WHITE);
-		 button_4.setBounds(566, 447, 87, 23);
-		 frame.getContentPane().add(button_4);
+		 btn6 = new JButton("Purchase");
+		 btn6.setForeground(new Color(204, 0, 51));
+		 btn6.setBackground(Color.WHITE);
+		 btn6.setBounds(566, 447, 87, 23);
+		 frame.getContentPane().add(btn6);
 		 
-		 button_5 = new JButton("Purchase");
-		 button_5.setForeground(new Color(204, 0, 51));
-		 button_5.setBackground(Color.WHITE);
-		 button_5.setBounds(566, 475, 87, 23);
-		 frame.getContentPane().add(button_5);
+		 btn7 = new JButton("Purchase");
+		 btn7.setForeground(new Color(204, 0, 51));
+		 btn7.setBackground(Color.WHITE);
+		 btn7.setBounds(566, 475, 87, 23);
+		 frame.getContentPane().add(btn7);
 		 
-		 button_6 = new JButton("Purchase");
-		 button_6.setForeground(new Color(204, 0, 51));
-		 button_6.setBackground(Color.WHITE);
-		 button_6.setBounds(566, 507, 87, 23);
-		 frame.getContentPane().add(button_6);
+		 btn8 = new JButton("Purchase");
+		 btn8.setForeground(new Color(204, 0, 51));
+		 btn8.setBackground(Color.WHITE);
+		 btn8.setBounds(566, 507, 87, 23);
+		 frame.getContentPane().add(btn8);
 		 
-		 button_7 = new JButton("Purchase");
-		 button_7.setForeground(new Color(204, 0, 51));
-		 button_7.setBackground(Color.WHITE);
-		 button_7.setBounds(566, 540, 87, 23);
-		 frame.getContentPane().add(button_7);
+		 btn9 = new JButton("Purchase");
+	
+		 
+		 
+		 btn9.setForeground(new Color(204, 0, 51));
+		 btn9.setBackground(Color.WHITE);
+		 btn9.setBounds(566, 540, 87, 23);
+		 frame.getContentPane().add(btn9);
 		ta.setValueAt("Dep Date", 0, 0);
 	    ta.setValueAt("Land Date",0, 1);	
 	    ta.setValueAt("vendor",0,2);
