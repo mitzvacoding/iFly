@@ -55,16 +55,8 @@ public class DataBase {
 		
 	}
 	
-	private HashMap<String,HashMap<Integer,Class>> DB;
 	
-	public void createMap(String map)
-	{
-		DB.put(map, new HashMap<Integer, Class>());
-	}
-
-	public void insert(String map, int index, Class cls) 
-	{
-		DB.get(map).put(index, cls);
-	}
+	
+	
 }
 

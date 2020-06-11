@@ -55,11 +55,11 @@ public class MainPage  extends RegistarPage{
 		frame.getContentPane().setLayout(null);
 		
 		JButton loginBtn = new JButton("Log In");
-		loginBtn.addActionListener(new ActionListener() {
+		loginBtn.addActionListener(new ActionListener() {//Log-in button
 			public void actionPerformed(ActionEvent e) 
 			{
-				String Estr=userField.getText();
-				String Pstr=passwordField.getText();
+				String Estr=userField.getText();//email
+				String Pstr=passwordField.getText();///password
 				Server.requestSignInUser(Estr,Pstr);
 				frame.setVisible(false);
 				SearchPage.SpFun();

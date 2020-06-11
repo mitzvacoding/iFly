@@ -3,13 +3,11 @@ package iFly;
 import java.io.Serializable;
 import java.util.HashMap;
 
+
 public class DataObject implements Serializable{
 
 	public HashMap<String, HashMap<Integer, Object>> ext;
-	
-	
-	
-	
+		
 	public DataObject()
 	{
 		this.ext = new HashMap<String, HashMap<Integer, Object>>();
@@ -32,7 +30,18 @@ public class DataObject implements Serializable{
 	{
 		ext.get(category).put(key, value);
 		return value;
-		
+	}
+	
+	public boolean search()
+	{
+		for(Object user :ext.get("users").values())
+		{
+			if( ((User)user).getEmail() == "email"	)
+			{
+				
+			}
+			
+		}
 	}
 	
 }
