@@ -1,16 +1,17 @@
 package iFly;
 
-public class Manger extends User {
+public class Manager extends User
+{
 	
 	private int seniority;
 	
   	
-	public Manger()
+	public Manager() 
 	{
 		super();
 		this.setSeniority(0);
 	}
-	public Manger(String email,String password,String name,int seniority)
+	public Manager(String email,String password,String name,int seniority)
 	{
 	   super(email,password,name);
 		this.setSeniority(seniority);

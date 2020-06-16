@@ -1,14 +1,14 @@
 package iFly;
 
 
-
 public abstract class User 
 {
+	
   private String name; 	
   private String email;
   private String password;
   
- 
+  
  public User(String email,String password,String name)
  {
 	 this.setName(name);
@@ -51,5 +51,6 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-   
+  
+
 }

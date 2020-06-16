@@ -53,7 +53,7 @@ public class SearchPage
 				try {
 					SearchPage window = new SearchPage();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (Exception e) { 
 					e.printStackTrace();
 				}}});
 	} 

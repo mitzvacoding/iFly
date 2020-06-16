@@ -21,7 +21,7 @@ public class ObjectsFactory {
 				obj =new InternationalFlight(depDate, destination);
 			else
 				obj =new Flight(depDate, "ELT");	
-			
+		
 		}
 
 		

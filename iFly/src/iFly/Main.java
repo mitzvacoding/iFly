@@ -16,32 +16,41 @@ import java.util.Map;
 import java.util.Scanner;
 
 import UI.MainPage;
+import UI.ManagerPage;
 import UI.RegistarPage;
 import UI.ResultPage;
 import UI.SearchPage;
 
-public class Main {
+public class Main 
+{
+
+
 	
 	public static void main(String[] args) throws IOException
 
 	{
 		
+		MainPage.MpFun();
+		  
+		
+		
+		
+		
 		//ResultPage.ResFun();
-		 MainPage.MpFun();
 		//String fileName = "try1.txt";
 		//ObjectOutputStream oos = null;
 		//enter2File();
 		//readFromFile();
 		
-		 Customer a = new Customer("ariel","123", "ariel", new HashMap<Integer,String>(), new CreditCard());
+		 //Customer a = new Customer("ariel","123", "ariel", new HashMap<Integer,String>(), new CreditCard());
 
-		 func(a);
+		// func(a);
 	}
 	
-	public static void func(Object cls)
-	{
-		System.out.println(cls.getClass().getSimpleName());
-	}
+	//public static void func(Object cls)
+	//{
+	//	System.out.println(cls.getClass().getSimpleName());
+	//}
 	/*
 	public static void enter2File()
 	{

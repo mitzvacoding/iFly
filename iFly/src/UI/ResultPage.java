@@ -76,7 +76,7 @@ public class ResultPage
 
 	 void initialize() 
 	 {
-		frame = new JFrame();
+		frame = new JFrame();  
 		frame.setBounds(600,600,700,600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);

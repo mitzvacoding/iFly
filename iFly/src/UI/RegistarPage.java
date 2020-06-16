@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.SystemColor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import iFly.Server;
@@ -85,17 +86,29 @@ public class RegistarPage {
 		frame.getContentPane().add(passwordField);
 		
 		JButton btnNewButton = new JButton("Sign up");
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		btnNewButton.addActionListener(new ActionListener() { // SIGN UP Button;
 			public void actionPerformed(ActionEvent e)
 			{
 
 				String name=NameField.getText();
 				String email=EmailField_1.getText();
 				String password=passwordField.getText();
-				frame.setVisible(false);
-				MainPage.MpFun();
-			 	Server.requestSignUpCustomer(name, email,password);		
 				
+				if (Server.requestSignUpCustomer(name, email,password)==true)
+				{	
+					frame.setVisible(false);
+					MainPage.MpFun();
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(frame,
+						    "One of the details you entered is incorrect",
+						    "Login error",
+						    JOptionPane.ERROR_MESSAGE);	
+				}
+					
+			
 			}
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
