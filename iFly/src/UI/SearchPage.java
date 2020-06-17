@@ -239,7 +239,7 @@ public class SearchPage
 		});
 		
 		
-		searchBtn.addActionListener(new ActionListener() {
+		searchBtn.addActionListener(new ActionListener() {    // SEARCH Button
 			public void actionPerformed(ActionEvent e)
 			{
 				int passengers;
@@ -259,9 +259,9 @@ public class SearchPage
 				
 				frame.setVisible(false);
 				ResultPage.ResFun();	
-				//now need to send to server
 				
-				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);
+				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);   			//now need to send to server
+				
 				
 			}
 		});

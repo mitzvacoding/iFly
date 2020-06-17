@@ -12,8 +12,9 @@ public class Flight implements Serializable
   	private String vendor;
     private int price;
     private int quantity;
-    private int flightId;
+    private String flightId;
     public static int num;
+   
     
     public Flight()
     {
@@ -23,10 +24,12 @@ public class Flight implements Serializable
     	this.vendor = "";
     	this.price  = 0;
     	this.quantity = 0;
-    	this.flightId = 0;
+    	this.flightId = " ";
     }
     
-    public Flight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, int flightId)
+    
+    
+    public Flight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId)
     {
     	this.departureDate = departureDate;
     	this.landingDate = landingDate;
@@ -47,8 +50,25 @@ public class Flight implements Serializable
 		
 	}
 
+	public Flight(Date depDatenew, Date landDate, String landAirport, String vendor, String price, String quantity,	String flightId) 
+	{
+		
+		this.departureDate = departureDate;
+    	this.landingDate = landingDate;
+    	this.landingAirport = landingAirport;
+    	this.vendor = vendor;
+    	this.price  = (price.charAt(0)-'0')*100 +(price.charAt(1)-'0')*10+ (price.charAt(2)-'0'); //Price includes 3 digits
+    	this.quantity = (quantity.charAt(0)-'0'); //quantity   includes 1 digits
+    	this.flightId = flightId;
+
+	}
+
+
+	
+
 	public int priceCalculation() {return 1;}
 
+	
 	
 	public Date getDepartureDate()
 	{
@@ -81,7 +101,8 @@ public class Flight implements Serializable
 		 return this.price;
 	 }
 	 public int getQuantity() {return this.quantity;}
-	 public int getFlightId() {return this.flightId;}
+	
+	 public String getFlightId() {return this.flightId;}
 	   
 	 
 	 @Override

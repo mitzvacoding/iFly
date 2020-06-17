@@ -31,43 +31,77 @@ public class DataBase
 		}
 				   
 	}
-	
-	
-	public void addObject(String mapName, Object obj)
-	{//need to implement factory	
-		//big.get(obj.getClass().getSimpleName()).put(1, )
 
-	}
-	
-	public static boolean checkUserDB(String Email)
+	//Check if an object exists, then delete it
+	public static void removeObj(String str,int i)
 	{
-		for(Object user: big.get("users").values())
+		int key=0;
+		
+		if(i==0) //search in User hash Map;
 		{
-			if( ((User)user).getEmail().equals(Email))//user exists
+			for(Object user: big.get("users").values())
 			{
-				return true;
-			}
-		}
-		return false; 
+				 key++;
+				if(((User)user).getEmail().equals(str))	 
+					big.get("users").remove(key);
+			
+			}}
+		
+		else  //search in Flight hash Map;
+		{
+			key=0;
+			
+			for(Object Flight: big.get("Flights").values())
+			{
+				 key++;
+				if(((Flight)Flight).getFlightId().equals(str))	 
+					big.get("Flights").remove(key);
+			}}
+		
+		
+		
+		
 	}
-	
-	public static boolean checkSignInUser(String Email,String password)
+		
+	// check user exists
+	public static boolean checkSignInCustomer(String Email,String password)
 	{//called when user is logging-in
 		for(Object user: big.get("users").values())
 		{
-			if( ((User)user).getEmail().equals(Email) && ((User)user).getPassword().equals(password))//user exists
-			{
+			if( ((User)user).getEmail().equals(Email) && ((User)user).getPassword().equals(password))
 				return true;
-			}
+			
+		}
+		return false;
+
+	}
+
+	 //check Manager exists
+	public static boolean checkSignInManager(String Email,String password)
+	{//called when Manager is logging-in
+		char c='*';
+		for(Object user: big.get("users").values())
+		{
+			if(((User)user).getEmail().equals(Email) && ((User)user).getPassword().equals(password) &&((User)user).getEmail().charAt(0)==c )
+				return true;
+			
 		}
 		return false;
 
 	}
 	
-
 	
-	//public static Object checkFlight(Date departureDate, Date landingDate, Class cls)
-
+	
+	
+	public static void addObject(String mapName, Object obj)
+	{
+		
+	}
+	
+	
+	
+	
+	
 	private static void createFile(String fileName)
 	{
 		ObjectOutputStream oos = null;

@@ -10,9 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import iFly.Customer;
+import iFly.Date;
 import iFly.Flight;
+import iFly.Server;
+import iFly.User;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
@@ -29,8 +34,10 @@ public class ManagerPage
 	private JTextField txt2;
 	private JTextField txt3;
 	private JTextField txt4;
-	private JTextField txt5;
 	private JTextField txt6;
+	private JTextField txt8;
+	private JTextField txt9;
+	private JTextField txt5;
 	private JTextField txt7;
 
 	/**
@@ -106,26 +113,26 @@ public class ManagerPage
 		txt4 = new JTextField();
 		txt4.setEditable(false);
 		txt4.setColumns(10);
-		txt4.setBounds(295, 131, 77, 28);
+		txt4.setBounds(25, 181, 77, 28);
 		frame.getContentPane().add(txt4);
 		
-		txt5 = new JTextField();
-		txt5.setEditable(false);
-		txt5.setColumns(10);
-		txt5.setBounds(393, 131, 77, 28);
-		frame.getContentPane().add(txt5);
-		
 		txt6 = new JTextField();
-		txt6.setEditable(true);
+		txt6.setEditable(false);
 		txt6.setColumns(10);
-		txt6.setBounds(112, 202, 112, 28);
+		txt6.setBounds(201, 181, 77, 28);
 		frame.getContentPane().add(txt6);
 		
-		txt7 = new JTextField();
-		txt7.setEditable(true);
-		txt7.setColumns(10);
-		txt7.setBounds(262, 202, 110, 28);
-		frame.getContentPane().add(txt7);
+		txt8 = new JTextField();
+		txt8.setEditable(true);
+		txt8.setColumns(10);
+		txt8.setBounds(67, 269, 112, 28);
+		frame.getContentPane().add(txt8);
+		
+		txt9 = new JTextField();
+		txt9.setEditable(true);
+		txt9.setColumns(10);
+		txt9.setBounds(224, 269, 110, 28);
+		frame.getContentPane().add(txt9);
 		
 		JButton Addbtn = new JButton("ADD");
 		Addbtn.setForeground(Color.GREEN);
@@ -134,6 +141,7 @@ public class ManagerPage
 		frame.getContentPane().add(Addbtn);
 		
 		JButton Delbtn = new JButton("DELETE");
+	
 		Delbtn.setForeground(Color.RED);
 		Delbtn.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		Delbtn.setBounds(347, 308, 110, 44);
@@ -157,24 +165,24 @@ public class ManagerPage
 		
 		JLabel lblVendor_1 = new JLabel("Vendor");
 		lblVendor_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVendor_1.setBounds(295, 117, 77, 14);
+		lblVendor_1.setBounds(25, 170, 77, 14);
 		frame.getContentPane().add(lblVendor_1);
 		
 		JLabel lblQuantity = new JLabel("quantity");
 		lblQuantity.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuantity.setBounds(393, 117, 77, 14);
+		lblQuantity.setBounds(201, 170, 77, 14);
 		frame.getContentPane().add(lblQuantity);
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblName.setBounds(112, 186, 77, 14);
+		lblName.setBounds(54, 252, 77, 14);
 		frame.getContentPane().add(lblName);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setBounds(262, 186, 77, 14);
+		lblEmail.setBounds(214, 253, 77, 14);
 		frame.getContentPane().add(lblEmail);
 		
 		JRadioButton usrd = new JRadioButton("User");
@@ -199,6 +207,28 @@ public class ManagerPage
 		bg.add(Flird);
 		
 		usrd.setSelected(true);
+		
+		txt5 = new JTextField();
+		txt5.setEditable(false);
+		txt5.setColumns(10);
+		txt5.setBounds(112, 181, 77, 28);
+		frame.getContentPane().add(txt5);
+		
+		txt7 = new JTextField();
+		txt7.setEditable(false);
+		txt7.setColumns(10);
+		txt7.setBounds(309, 163, 54, 28);
+		frame.getContentPane().add(txt7);
+		
+		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrice.setBounds(112, 170, 77, 14);
+		frame.getContentPane().add(lblPrice);
+		
+		JLabel lblFlightId = new JLabel("Flight ID");
+		lblFlightId.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFlightId.setBounds(298, 149, 77, 14);
+		frame.getContentPane().add(lblFlightId);
 		usrd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -208,8 +238,10 @@ public class ManagerPage
 				txt3.setEditable(false);
 				txt4.setEditable(false);
 				txt5.setEditable(false);
-				txt6.setEditable(true);
-				txt7.setEditable(true);
+				txt6.setEditable(false);
+				txt7.setEditable(false);
+				txt8.setEditable(true);
+				txt9.setEditable(true);
 			}
 		});
 			Flird.addActionListener(new ActionListener(){
@@ -221,9 +253,59 @@ public class ManagerPage
 					txt2.setEditable(true);
 					txt3.setEditable(true);
 					txt4.setEditable(true);
-					txt5.setEditable(true);
-					txt6.setEditable(false);
-					txt7.setEditable(false);
+					txt5.setEditable(true);					
+					txt6.setEditable(true);
+					txt7.setEditable(true);
+					txt8.setEditable(false);
+					txt9.setEditable(false);
+				}
+			});
+			
+			
+			Addbtn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) 
+				{
+			      if(Flird.isSelected())	
+			      {
+			    	  Date DepDatenew=new Date(txt1.getText());
+			    	  Date LandDate=new Date(txt2.getText());
+			    	  String LandAirport= txt3.getText(); 
+			    	  String vendor= txt4.getText();
+			    	  String price= txt5.getText();
+			    	  String quantity= txt6.getText();
+			    	  String flightId= txt7.getText();
+			    	  Flight f=new Flight(DepDatenew,LandDate,LandAirport,vendor,price,quantity,flightId);
+			    	  Server.requestAddObject(f);
+			    		
+			    	  
+			      }
+					
+					
+					
+				}
+			});
+			
+			Delbtn.addActionListener(new ActionListener() {    //DELETE button
+				public void actionPerformed(ActionEvent e) 
+				{
+					int i=0;
+					if(usrd.isSelected())
+					{
+						String email=txt7.getText();
+						Server.requestremoveObj(email, i);
+					}
+					else
+					{
+						i=1;
+						String flightId=txt7.getText();
+							Server.requestremoveObj(flightId, i);
+				
+					}
+					
+					
+					
+					
+					
 				}
 			});
 			
@@ -233,12 +315,7 @@ public class ManagerPage
 			
 			
 			
-			
-			
-			
 	}
-	
-
 }
 				
 			

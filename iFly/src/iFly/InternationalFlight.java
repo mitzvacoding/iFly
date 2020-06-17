@@ -13,7 +13,7 @@ public class InternationalFlight extends Flight
 		
 	}
 
-	public InternationalFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, int flightId,String destenation)
+	public InternationalFlight(Date departureDate, Date landingDate,String landingAirport, String vendor,int price, int quantity, String flightId,String destenation)
 	{
 		super(departureDate, landingDate, landingAirport,  vendor, price, quantity,flightId);
 		this.setDestenation(destenation);

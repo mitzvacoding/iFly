@@ -75,6 +75,7 @@ public class ResultPage
 	}
 
 	 void initialize() 
+	 
 	 {
 		frame = new JFrame();  
 		frame.setBounds(600,600,700,600);
@@ -94,7 +95,7 @@ public class ResultPage
 		ta = new JTable(10,6);
 		ta.setColumnSelectionAllowed(true);
 		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ta.setBounds(0, 263, 556, 300);
+		ta.setBounds(0, 185, 556, 300);
 		ta.setBackground(new Color(255, 250, 240));
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		frame.getContentPane().add(ta);
@@ -102,7 +103,7 @@ public class ResultPage
 		btn1 = new JButton("Purchase");
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
-		btn1.setBounds(566, 300, 87, 23);
+		btn1.setBounds(563, 222, 87, 23);
 		frame.getContentPane().add(btn1);
 		//ta.setIntercellSpacing(new  Dimension(5,5));
 		 ta.setRowHeight(30);
@@ -110,43 +111,43 @@ public class ResultPage
 		 btn2 = new JButton("Purchase");
 		 btn2.setForeground(new Color(204, 0, 51));
 		 btn2.setBackground(Color.WHITE);
-		 btn2.setBounds(566, 326, 87, 23);
+		 btn2.setBounds(563, 248, 87, 23);
 		 frame.getContentPane().add(btn2);
 		 
 		 btn3 = new JButton("Purchase");
 		 btn3.setForeground(new Color(204, 0, 51));
 		 btn3.setBackground(Color.WHITE);
-		 btn3.setBounds(566, 356, 87, 23);
+		 btn3.setBounds(563, 278, 87, 23);
 		 frame.getContentPane().add(btn3);
 		 
 		 btn4 = new JButton("Purchase");
 		 btn4.setForeground(new Color(204, 0, 51));
 		 btn4.setBackground(Color.WHITE);
-		 btn4.setBounds(566, 385, 87, 23);
+		 btn4.setBounds(563, 307, 87, 23);
 		 frame.getContentPane().add(btn4);
 		 
 		 btn5 = new JButton("Purchase");
 		 btn5.setForeground(new Color(204, 0, 51));
 		 btn5.setBackground(Color.WHITE);
-		 btn5.setBounds(566, 416, 87, 23);
+		 btn5.setBounds(563, 338, 87, 23);
 		 frame.getContentPane().add(btn5);
 		 
 		 btn6 = new JButton("Purchase");
 		 btn6.setForeground(new Color(204, 0, 51));
 		 btn6.setBackground(Color.WHITE);
-		 btn6.setBounds(566, 447, 87, 23);
+		 btn6.setBounds(563, 369, 87, 23);
 		 frame.getContentPane().add(btn6);
 		 
 		 btn7 = new JButton("Purchase");
 		 btn7.setForeground(new Color(204, 0, 51));
 		 btn7.setBackground(Color.WHITE);
-		 btn7.setBounds(566, 475, 87, 23);
+		 btn7.setBounds(563, 397, 87, 23);
 		 frame.getContentPane().add(btn7);
 		 
 		 btn8 = new JButton("Purchase");
 		 btn8.setForeground(new Color(204, 0, 51));
 		 btn8.setBackground(Color.WHITE);
-		 btn8.setBounds(566, 507, 87, 23);
+		 btn8.setBounds(563, 429, 87, 23);
 		 frame.getContentPane().add(btn8);
 		 
 		 btn9 = new JButton("Purchase");
@@ -155,7 +156,7 @@ public class ResultPage
 		 
 		 btn9.setForeground(new Color(204, 0, 51));
 		 btn9.setBackground(Color.WHITE);
-		 btn9.setBounds(566, 540, 87, 23);
+		 btn9.setBounds(563, 462, 87, 23);
 		 frame.getContentPane().add(btn9);
 		ta.setValueAt("Dep Date", 0, 0);
 	    ta.setValueAt("Land Date",0, 1);	
@@ -163,6 +164,12 @@ public class ResultPage
 	    ta.setValueAt("Air port", 0, 3);
 	    ta.setValueAt("Flight ID",0,4);
 	    ta.setValueAt("Price", 0,5);
+	    
+	  
+	    		
+	    		
+	    
+	    
 	    
 	    
 	    

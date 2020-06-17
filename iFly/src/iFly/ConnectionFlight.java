@@ -17,7 +17,7 @@ public class ConnectionFlight extends InternationalFlight
 	   this.stopAirport= "any place ";	
 	}
 	
-	public ConnectionFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, int flightId,String destenation,Date stopLandingDate,Date stopDepartureDate
+	public ConnectionFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId,String destenation,Date stopLandingDate,Date stopDepartureDate
 	 ,String stopAirport) 	
    
 	{

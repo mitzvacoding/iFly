@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import iFly.Customer;
 import iFly.Server;
 
 import java.awt.Font;
@@ -87,7 +88,7 @@ public class RegistarPage {
 		
 		JButton btnNewButton = new JButton("Sign up");
 		
-		btnNewButton.addActionListener(new ActionListener() { // SIGN UP Button;
+		btnNewButton.addActionListener(new ActionListener() {         // SIGN UP Button;
 			public void actionPerformed(ActionEvent e)
 			{
 
@@ -97,6 +98,9 @@ public class RegistarPage {
 				
 				if (Server.requestSignUpCustomer(name, email,password)==true)
 				{	
+					Customer c= new Customer(name, email,password);
+					
+					Server.requestAddObject(c);
 					frame.setVisible(false);
 					MainPage.MpFun();
 				}

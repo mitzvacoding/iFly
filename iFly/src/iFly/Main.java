@@ -30,9 +30,13 @@ public class Main
 
 	{
 		
-		MainPage.MpFun();
-		  
+		//MainPage.MpFun();
+		/*	ManagerPage.ManPage();
+		RegistarPage.RpFun();
+		SearchPage.SpFun();
 		
+		*/
+		ResultPage.ResFun();
 		
 		
 		

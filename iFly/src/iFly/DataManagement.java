@@ -2,28 +2,52 @@
 
 public class DataManagement 
 {
-	public static boolean SignInUser(String email,String password) 
+
+
+	 // called by server.requestSignInmanager()+server.requestSignUpCustomer() 
+	public static boolean SignInUser(String email,String password)
 	 {  
-		DataBase.checkSignInUser(email, password);
-		return true;
+		if(password.charAt(0)=='*')
+		{
+			if(DataBase.checkSignInManager(email, password))
+				return true;
+				
+			return false;
+			
+		}
+		else
+		{
+			
+			if(DataBase.checkSignInCustomer(email, password))
+				return true;
+				
+			return false;		
+			
+		}
+	}
+
+
+	//called by server.AddObject 
+	public static void addObject(Object o) 
+	{
+		if(o.getClass().equals("Customer"))
+			DataBase.addObject("Customer",o);
+		else
+			DataBase.addObject("Flights",o);
+		
 	}
 	
-	public static boolean upDataDb(){return true;}
-	public static User createUser(){return null;}
-	public static boolean addUser() {return true;}
 	
-
-	public static boolean checkUserExists(String email) 
-	{//called by Server.requestSignInUser()
-	 //
-	      if(DataBase.checkUserDB(email)== true)
-	    	  return true;
-
-	      else 
-	    	  return false;
+	public static void removeObj(String str,int i)
+	{
+		
+		
+		
 	}
 	
-
+	
+	
+	//called by server.requestSearchFlight
 	public static void searchFlights(Flight fl) 
 	{
 	
@@ -31,8 +55,15 @@ public class DataManagement
 
 	}
 
+	public static void searchRoundFlights(Flight fl) 
+	{
+	
+	
+		
+		
+	}
+
 
 	
 	
-
 }

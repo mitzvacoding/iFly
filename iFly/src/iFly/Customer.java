@@ -28,6 +28,12 @@ public class Customer extends User implements Serializable
 
  
 
+
+	public Customer(String name, String email, String password)
+	{
+		super(name, email,password);
+	}
+
 	@Override
 	public  String showDetalis(){return null;}
 	public boolean serachFlight(String dates,String destination) {return true;}
