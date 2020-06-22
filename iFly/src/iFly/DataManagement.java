@@ -5,49 +5,50 @@ public class DataManagement
 
 
 	 // called by server.requestSignInmanager()+server.requestSignUpCustomer() 
-	public static boolean SignInUser(String email,String password)
+	public static boolean SignInCustomer(String email,String password)
 	 {  
-		if(password.charAt(0)=='*')
-		{
-			if(DataBase.checkSignInManager(email, password))
-				return true;
-				
-			return false;
-			
-		}
-		else
-		{
-			
 			if(DataBase.checkSignInCustomer(email, password))
 				return true;
-				
-			return false;		
 			
-		}
+		return false;			
+	 }	
+	
+	
+	public static boolean SignInManager(String email,String password)
+	{
+	if(DataBase.checkSignInManager(email, password))
+		return true;
+		 
+	return false;
 	}
+ 
 
-
+	
 	//called by server.AddObject 
-	public static void addObject(Object o) 
+	public static void addObject( String mapName,Object o) 
 	{
-		if(o.getClass().equals("Customer"))
+		if(mapName=="Customer")
 			DataBase.addObject("Customer",o);
-		else
-			DataBase.addObject("Flights",o);
+		else if(mapName=="Flight")
+			DataBase.addObject("Flight",o); 
+		else 
+			DataBase.addObject("Manager",o);
+	 
 		
 	}
 	
 	
-	public static void removeObj(String str,int i)
+	public static void removeObj(String str,String mapName)
 	{
 		
-		
+		DataBase.removeObj(str, mapName);
 		
 	}
 	
 	
 	
 	//called by server.requestSearchFlight
+	
 	public static void searchFlights(Flight fl) 
 	{
 	

@@ -36,7 +36,7 @@ public class RegistarPage {
 	 */
 	public static void RpFun() {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() { 
 				try {
 					RegistarPage window = new RegistarPage();
 					window.frame.setVisible(true);
@@ -88,7 +88,7 @@ public class RegistarPage {
 		
 		JButton btnNewButton = new JButton("Sign up");
 		
-		btnNewButton.addActionListener(new ActionListener() {         // SIGN UP Button;
+		btnNewButton.addActionListener(new ActionListener() {         // SIGN UP Button-> Only a customer can sign up   ;
 			public void actionPerformed(ActionEvent e)
 			{
 
@@ -96,18 +96,19 @@ public class RegistarPage {
 				String email=EmailField_1.getText();
 				String password=passwordField.getText();
 				
-				if (Server.requestSignUpCustomer(name, email,password)==true)
+				if (Server.requestSignInCustomer(email,password)==false)
 				{	
-					Customer c= new Customer(name, email,password);
 					
-					Server.requestAddObject(c);
+					Object c= new Customer(name, email,password);
+					Server.requestAddObject("Customer",c); 
 					frame.setVisible(false);
 					MainPage.MpFun();
+					
 				}
 				else
-				{
+				{ 
 					JOptionPane.showMessageDialog(frame,
-						    "One of the details you entered is incorrect",
+						    "The email you entered belongs to another account",
 						    "Login error",
 						    JOptionPane.ERROR_MESSAGE);	
 				}
@@ -130,10 +131,10 @@ public class RegistarPage {
 		lblNewLabel_2.setBounds(172, 196, 92, 35);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("Enter password");
+		lblNewLabel_3 = new JLabel("Enter password"); 
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(172, 259, 147, 29);
-		frame.getContentPane().add(lblNewLabel_3);
+		frame.getContentPane().add(lblNewLabel_3); 
 		frame.setBounds(100,100,500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

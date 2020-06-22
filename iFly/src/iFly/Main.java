@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Reader;
+import java.sql.DatabaseMetaData;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,14 +30,19 @@ public class Main
 	public static void main(String[] args) throws IOException
 
 	{
+		 
+		DataBase.init();
+		MainPage.MpFun();
 		
-		//MainPage.MpFun();
+		
+		
+		
 		/*	ManagerPage.ManPage();
 		RegistarPage.RpFun();
 		SearchPage.SpFun();
 		
 		*/
-		ResultPage.ResFun();
+		//ResultPage.ResFun();
 		
 		
 		

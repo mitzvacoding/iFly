@@ -41,7 +41,7 @@ public class Customer extends User implements Serializable
 	@Override
 	public String toString() 
 	{
-	String str="\nEmail "+ this.getEmail()+"\nPassword "+ this.getPassword()+"\nCredit Card: "+this.credit.print();
+	String str="Name:"+ this.getName()+"/Email:"+ this.getEmail()+"/Password "+ this.getPassword();//+"\nCredit Card: "+this.credit.print();
 	return str;
 	}
 	

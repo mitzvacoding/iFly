@@ -9,12 +9,12 @@ public abstract class User
   private String password;
   
   
- public User(String email,String password,String name)
+ public User(String name,String email,String password)
  {
 	 this.setName(name);
 	 this.setEmail(email);
 	 this.setPassword(password);
- }
+ } 
 
  public User()
  {
@@ -44,7 +44,8 @@ public void setPassword(String password) {
 	this.password = password;
 }
 
-public String getName() {
+public String getName() 
+{
 	return name;
 }
 

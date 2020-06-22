@@ -3,36 +3,30 @@ package iFly;
 public class Server 
 {
 	
-	//check if   manager details Does not appear in DB;
-	public  static boolean requestSignUpManger(String email,String password) 
-	
-	{
-		if(DataManagement.SignInUser(email, password))
-			return true;
-		
-		return false;
-	};
-	
-	
-	//check if customer details Does not appear in DB;
-	public static boolean requestSignUpCustomer(String name,String email,String password) 
-	
-	{
-		if(DataManagement.SignInUser(email, password))
-			return true;
-			
-		return false;
-	
-	};
-	
+	 
 	
 	
 	// check if details appears in DB;
-	public static boolean requestSignInUser(String email,String password)
+	public static boolean requestSignInCustomer(String email,String password)
+	{
+		if(DataManagement.SignInCustomer(email,password))
+			return true;
+	else 
+		return false; 
+	};
 	
-	{if(DataManagement.SignInUser(email,password))return true;else return false; };
+ 
+	public static boolean requestSignInManager(String email,String password)
+	{
+		if(DataManagement.SignInManager(email,password))
+			return true;
+	else 
+		return false; 
+	};
+	
 
 	
+	 
 	// Search flight
 	public static void requestSearchFlight(Date depDate, Date returnDate, String Destination, int passengers, Integer abroadFlight, Integer roundTrip) 	
 	{ 
@@ -49,15 +43,13 @@ public class Server
 
 	
 	// add Flight or Customer;
-	public static void requestAddObject(Object o) 
-	
-	
-	{DataManagement.addObject(o);};
-	
+	public static void requestAddObject( String mapName,Object o) 
+	{DataManagement.addObject(mapName,o);};
+	   
+  
+	public static void requestremoveObj( String str,String mapName) 
 
-	public static void requestremoveObj( String str,int i) 
-
-    {DataManagement.removeObj(str, i);}
+    {DataManagement.removeObj(str,mapName);}
 	
 	
 };	

@@ -11,9 +11,9 @@ public class Manager extends User
 		super();
 		this.setSeniority(0);
 	}
-	public Manager(String email,String password,String name,int seniority)
-	{
-	   super(email,password,name);
+	public Manager(String name,String email,String password,int seniority)
+	{ 
+	   super(name,email,password); 
 		this.setSeniority(seniority);
 	}
 

@@ -39,7 +39,7 @@ public class MainPage  extends Observable
 		 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try { 
+				try {  
 					MainPage window = new MainPage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -68,11 +68,11 @@ public class MainPage  extends Observable
 		
 	
 		JButton loginBtn = new JButton("Log In");
-		loginBtn.addActionListener(new ActionListener() {//Log-in button
+		loginBtn.addActionListener(new ActionListener() {				//Log-in button
 			
 			public void actionPerformed(ActionEvent e) 
 			{
-				MainPage m=new MainPage();  // add observer c to Observable;
+				MainPage m=new MainPage();  					// add observer c to Observable;
 				Connected c=new Connected();
 				m.addObserver(c);
 				
@@ -81,33 +81,49 @@ public class MainPage  extends Observable
 				String Estr=userField.getText();//email 
 				String  Pstr=passwordField.getText();///password
 				
-				
-					if(Pstr.charAt(0)=='*' &&Estr.charAt(0)=='m' )	// check if manager is connected;		
-					{	
-						
-						  frame.setVisible(false);  
-						c.update(m, Pstr);
+				if(Pstr.charAt(0)=='*')
+				{
+					if(Server.requestSignInManager(Estr,Pstr)) 			// check if manager is connected;
+					{
+						frame.setVisible(false);  
+						c.update(m, Pstr); 
 						setChanged();
 			    		notifyObservers();
-			          
-					}
+					}				
+
+					else         // ERROR_MESSAGE
+					{
+						JOptionPane.showMessageDialog(frame,
+							    "One of the details you entered is incorrect",
+							    "Login error",
+							    JOptionPane.ERROR_MESSAGE);	
+					} 
+				}
 				
-	 			if( Server.requestSignInUser(Estr,Pstr))  // check if user exists;
+	  			else  // check if user exists;
 				{
-		
-				   frame.setVisible(false);  
-				   SearchPage.SpFun();
-				}
-				else         // ERROR_MESSAGE
-				{
-					JOptionPane.showMessageDialog(frame,
-						    "One of the details you entered is incorrect",
-						    "Login error",
-						    JOptionPane.ERROR_MESSAGE);	
-				}
+  				 if( Server.requestSignInCustomer(Estr,Pstr))
+  				 {
+  					 frame.setVisible(false);  
+  					 SearchPage.SpFun(); 
+	  				 }
+  				 
+  				 
+					else         // ERROR_MESSAGE
+					{
+						JOptionPane.showMessageDialog(frame,
+							    "One of the details you entered is incorrect",
+							    "Login error",
+							    JOptionPane.ERROR_MESSAGE);	
+					} 
+				   
+				} 
+				
 			}
 		});
 	
+		
+		
 		loginBtn.setBounds(149, 213, 143, 32);
 		frame.getContentPane().add(loginBtn);
 		
@@ -121,6 +137,9 @@ public class MainPage  extends Observable
 		frame.getContentPane().add(passwordField);
 		
 		regBtn = new JButton("Sign Up");
+		
+		
+		
 		regBtn.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) //sign up button function
@@ -129,6 +148,12 @@ public class MainPage  extends Observable
 				RegistarPage.RpFun();
 			}
 		});
+		
+		
+		
+		
+		
+		
 		regBtn.setBounds(149, 305, 143, 32);
 		frame.getContentPane().add(regBtn);
 		

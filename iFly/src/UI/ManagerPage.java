@@ -210,7 +210,7 @@ public class ManagerPage
 		
 		txt5 = new JTextField();
 		txt5.setEditable(false);
-		txt5.setColumns(10);
+		txt5.setColumns(10); 
 		txt5.setBounds(112, 181, 77, 28);
 		frame.getContentPane().add(txt5);
 		
@@ -229,6 +229,8 @@ public class ManagerPage
 		lblFlightId.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFlightId.setBounds(298, 149, 77, 14);
 		frame.getContentPane().add(lblFlightId);
+		
+		// user radio button 
 		usrd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -244,7 +246,9 @@ public class ManagerPage
 				txt9.setEditable(true);
 			}
 		});
-			Flird.addActionListener(new ActionListener(){
+			
+		// flight radio button
+		Flird.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) 
 				{
 					
@@ -262,6 +266,7 @@ public class ManagerPage
 			});
 			
 			
+		
 			Addbtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) 
 				{
@@ -274,12 +279,18 @@ public class ManagerPage
 			    	  String price= txt5.getText();
 			    	  String quantity= txt6.getText();
 			    	  String flightId= txt7.getText();
-			    	  Flight f=new Flight(DepDatenew,LandDate,LandAirport,vendor,price,quantity,flightId);
-			    	  Server.requestAddObject(f);
-			    		
-			    	  
+			    	  Object f=new Flight(DepDatenew,LandDate,LandAirport,vendor,price,quantity,flightId);
+			    	  Server.requestAddObject("Flight",f);  
 			      }
-					
+			      else //user radio selected
+			      {
+			    	  String name=txt8.getText();
+			    	  String email=txt9.getText();
+			    	  String password="11111";
+			    	  
+			    	  Object c=new Customer(name,email,password);
+			    	  Server.requestAddObject("Customer",c);  
+			      }
 					
 					
 				}
@@ -288,17 +299,18 @@ public class ManagerPage
 			Delbtn.addActionListener(new ActionListener() {    //DELETE button
 				public void actionPerformed(ActionEvent e) 
 				{
-					int i=0;
+					String mapName;
 					if(usrd.isSelected())
 					{
+						mapName="Customer";
 						String email=txt7.getText();
-						Server.requestremoveObj(email, i);
+						Server.requestremoveObj(email, mapName);
 					}
 					else
 					{
-						i=1;
+						mapName="Flight";
 						String flightId=txt7.getText();
-							Server.requestremoveObj(flightId, i);
+							Server.requestremoveObj(flightId,mapName);
 				
 					}
 					

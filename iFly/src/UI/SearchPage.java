@@ -47,7 +47,7 @@ public class SearchPage
 	private  static Integer abroadFlight=0;
 	private  static Integer roundTrip=0;
 	
-	public static void SpFun() {
+	public static void SpFun() {  
 		EventQueue.invokeLater(new Runnable() {
 			public void run() { 
 				try {

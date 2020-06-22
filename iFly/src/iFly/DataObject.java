@@ -14,14 +14,14 @@ public class DataObject implements Serializable{
 	
 	}
 	 
-	public HashMap<Integer, Object> put(String category)
+	public HashMap<Integer, Object> put(String category) // new hash map for category entered;
 	{
 		HashMap<Integer, Object> hm = new HashMap<Integer, Object>();
 		this.ext.put(category, new HashMap<Integer, Object>());
-		return hm;
-	}  
+		return hm; 
+	}   
 	
-	public HashMap<Integer, Object> get(String str)//getting a category, therefore a hashmap
+	public HashMap<Integer, Object> get(String str) //getting a category, therefore a hashmap
 	{
 		return ext.get(str);
 	}
