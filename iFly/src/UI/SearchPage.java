@@ -256,7 +256,7 @@ public class SearchPage
 				if(rouRad.isSelected())
 					returnDate=new Date( retDateField.getText());
 				
-				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);   			//now need to send to server
+				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
 				frame.setVisible(false);
 				ResultPage.ResFun();	
 				

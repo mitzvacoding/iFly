@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -19,6 +20,11 @@ public class DataBase
 	public static int flightKey=0;
 	public static int managerKey=0;
 	public static String str = null;
+	
+	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
+	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
+	public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
+
 //	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
 	
 	
@@ -57,41 +63,29 @@ public class DataBase
 
 	
 	
-	public static void searchFlight(Object f,int passengers)
+	public static ArrayList<Flight> searchFlight(Object f,int passengers)
 	{
-		
-		int key=0;
-		if(f.getClass().equals("InternationalFlight"))
+		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
+		if(f.getClass().getSimpleName().equals("InternationalFlight"))
 		{
-			
-			for(Object Flight: big.get("Flight").values())
+			for(InternationalFlight flight: internationalFlights.values())// .values() return array of all data.
 				{
-					key++;
-					if( ((InternationalFlight)Flight).getDepartureDate().equals(((InternationalFlight)f).getDepartureDate())&&
-							((InternationalFlight)Flight).getDestenation().equals(((InternationalFlight)f).getDestenation()) )
-						// res.put(key,(Flight) big.get("FLight").get(key));
-						str+=big.get("FLight").get(key)+"\n";
-					
+					if(flight.getDepartureDate().equals(((InternationalFlight)f).getDepartureDate()) &&
+						flight.getDestenation().equals(((InternationalFlight)f).getDestenation()) )
+						resultFlights.add(flight);	
 				} 
 		}
 		
-		else  //Object f= Flight;
+		else if(f.getClass().getSimpleName().equals("Flight")) //Object f= Flight;
 		{
-		
-			for(Object Flight: big.get("Flight").values())
+			for(Flight flight: flights.values())
 			{
-				key++;
-				if( ((Flight)Flight).getDepartureDate().equals(((Flight)f).getDepartureDate()))
-					// res.put(key,(Flight) big.get("FLight").get(key));
-				//	str+=big.get("FLight").get(key)+"\n";
-					System.out.println(  big.get("FLight").get(1));
-				 
-				
-			}
-			
-		}
-			
-			
+				if( flight.getDepartureDate().equals(((Flight)f).getDepartureDate()))
+					resultFlights.add(flight);
+			}		
+		}	
+		
+		return resultFlights;
 	}
 	
 	

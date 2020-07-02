@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.TableColumn;
 
 import iFly.DataBase;
+import iFly.Server;
 
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -47,7 +48,7 @@ public class ResultPage
 {	
 	private JFrame frame;
     private JLabel label;
-    private JTable ta;
+   // private JTable ta;
     private JButton btn1;
     private JButton btn2;
     private JButton btn3;
@@ -67,6 +68,7 @@ public class ResultPage
 					
 					ResultPage window = new ResultPage();
 					window.frame.setVisible(true);
+					window.frame.getContentPane().add(Server.requestFlightResults());
 				}
 				catch (Exception e)
 				{
@@ -98,7 +100,7 @@ public class ResultPage
 		label.setFont(new Font("Aharoni", Font.PLAIN, 75));
 		frame.getContentPane().add(label);
 		
-		
+		/*
 		ta = new JTable(10,6);
 		ta.setColumnSelectionAllowed(true);
 		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -106,7 +108,7 @@ public class ResultPage
 		ta.setBackground(new Color(255, 250, 240));
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		frame.getContentPane().add(ta);
-		
+		*/
 		
 		
 		// ADD value for Jtable;
@@ -119,7 +121,7 @@ public class ResultPage
 		ta.setValueAt(DataBase.res.get(1).getFlightId(),1,5);
 		*/
 		
-		ta.setValueAt(DataBase.big.get("Flight").get(1),1,3);
+		
 			
 
 		
@@ -128,8 +130,7 @@ public class ResultPage
 		btn1.setBackground(new Color(255, 255, 255));
 		btn1.setBounds(563, 222, 87, 23);
 		frame.getContentPane().add(btn1);
-		ta.setIntercellSpacing(new  Dimension(5,5));
-		 ta.setRowHeight(30);
+
 		 
 		 btn2 = new JButton("Purchase");
 		 btn2.setForeground(new Color(204, 0, 51));
@@ -181,12 +182,7 @@ public class ResultPage
 		 btn9.setBackground(Color.WHITE);
 		 btn9.setBounds(563, 462, 87, 23);
 		 frame.getContentPane().add(btn9);
-		ta.setValueAt("Dep Date", 0, 0);
-	    ta.setValueAt("Land Date",0, 1);	
-	    ta.setValueAt("vendor",0,2);
-	    ta.setValueAt("Air port", 0, 3);
-	    ta.setValueAt("Flight ID",0,4);
-	    ta.setValueAt("Price", 0,5);
+
 	    
 	  
 	  

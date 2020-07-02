@@ -33,7 +33,7 @@ public class Flight implements Serializable
     {
     	this.departureDate = departureDate;
     	this.landingDate = landingDate;
-    	this.landingAirport = "ELT";
+    	this.landingAirport = landingAirport;
     	this.vendor = vendor;
     	this.price  = price;
     	this.quantity = quantity;

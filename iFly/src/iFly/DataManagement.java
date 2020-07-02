@@ -1,7 +1,10 @@
  package iFly;
 
+import java.util.ArrayList;
+
 public class DataManagement 
 {
+	public static ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();
 
 
 	 // called by server.requestSignInmanager()+server.requestSignUpCustomer() 
@@ -51,22 +54,31 @@ public class DataManagement
 	
 	public static void searchFlights(Object f,int passengers) 
 	{
-	DataBase.searchFlight(f,passengers);
-		
-		
-		
+		lastFlightResult = DataBase.searchFlight(f,passengers);
 
 	}
+	
 
 	public static void searchRoundFlights(Object f,int passengers) 
 	{
 	
-	
-		
 		
 	}
 
 
+	public static ArrayList<Flight> showFlightResult()
+	{
+		 return lastFlightResult;
+	}
+	
 	
 	
 }
+
+
+
+
+
+
+
+
