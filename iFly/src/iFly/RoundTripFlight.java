@@ -1,11 +1,26 @@
 package iFly;
 
-public class RoundTripFlight extends Flight
-{
+public class RoundTripFlight  extends InternationalFlight
+
+{	
 	
-	public RoundTripFlight(InternationalFlight internationalFlight, InternationalFlight internationalFlight2)
+	
+	public RoundTripFlight(InternationalFlight inFlight, InternationalFlight inFlight2)
 	{
-		// TODO Auto-generated constructor stub
+		
+	/*	super(inFlight.getDepartureDate(),inFlight.getLandingDate(),inFlight.getLandingAirport()
+			,inFlight.getVendor(),inFlight.getPrice(),inFlight.getQuantity(),inFlight.getFlightId(),inFlight.getDestenation());
+		
+				
+		this.returnDate=inFlight2.getDepartureDate();
+		
+		super(inFlight2.getDepartureDate(),inFlight2.getLandingDate(),inFlight2.getLandingAirport()
+				,inFlight2.getVendor(),inFlight2.getPrice(),inFlight2.getQuantity(),inFlight2.getFlightId(),inFlight2.getDestenation());
+			
+		*/	
+		
+		
+		
 	}
 
 	public RoundTripFlight(Flight flight, Flight flight2) {
@@ -13,4 +28,11 @@ public class RoundTripFlight extends Flight
 	}
 
 	public int priceCalculation() {return 1;}
+	
+	
+	
+	
+	
 }
+
+

@@ -7,7 +7,7 @@ public class Flight implements Serializable
 {
 	
 	private Date departureDate;
-	private Date landingDate;
+	private Date landingDate; 				//*** ??צריך את זה ***//
 	private String landingAirport;
   	private String vendor;
     private int price;
@@ -20,7 +20,7 @@ public class Flight implements Serializable
     {
      	this. departureDate = new Date(); 
     	this.landingDate = new Date();
-    	this.landingAirport = "";
+    	this.landingAirport = "ELT";
     	this.vendor = "";
     	this.price  = 0;
     	this.quantity = 0;
@@ -33,7 +33,7 @@ public class Flight implements Serializable
     {
     	this.departureDate = departureDate;
     	this.landingDate = landingDate;
-    	this.landingAirport = landingAirport;
+    	this.landingAirport = "ELT";
     	this.vendor = vendor;
     	this.price  = price;
     	this.quantity = quantity;
@@ -45,7 +45,7 @@ public class Flight implements Serializable
 	{
     	this.departureDate = departureDate;
     	this.landingDate = null;
-    	this.landingAirport = landingAirport;
+    	this.landingAirport ="ELT";
 
 		
 	}
@@ -55,7 +55,7 @@ public class Flight implements Serializable
 		
 		this.departureDate = departureDate;
     	this.landingDate = landingDate;
-    	this.landingAirport = landingAirport;
+    	this.landingAirport ="ELT";
     	this.vendor = vendor;
     	this.price  = (price.charAt(0)-'0')*100 +(price.charAt(1)-'0')*10+ (price.charAt(2)-'0'); //Price includes 3 digits
     	this.quantity = (quantity.charAt(0)-'0'); //quantity   includes 1 digits
@@ -100,6 +100,11 @@ public class Flight implements Serializable
 	 public int getPrice() {
 		 return this.price;
 	 }
+	 public void setPrice(int p)
+	 {
+		 this.price=p;
+	 }
+	 
 	 public int getQuantity() {return this.quantity;}
 	
 	 public String getFlightId() {return this.flightId;}

@@ -102,7 +102,7 @@ public class SearchPage
 		destField = new JTextField();
 		destField.setHorizontalAlignment(SwingConstants.CENTER);
 		destField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		destField.setText("Enter City");
+		destField.setText("ELT");
 		destField.setBounds(364, 217, 122, 42);
 		destField.setEditable(false);
 		destField.setToolTipText("");
@@ -246,21 +246,21 @@ public class SearchPage
 				Date returnDate=null;
 				String destination = null;
 				Date date = new Date(depDate.getText());
-				
 				passengers = Date.convertString(passField.getText());
 				
 				if(eiRad.isSelected())
-					destination= "Eilat";
+					destination= "ELT";
 				else 
 					destination = destField.getText();
 				
 				if(rouRad.isSelected())
 					returnDate=new Date( retDateField.getText());
 				
+				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);   			//now need to send to server
 				frame.setVisible(false);
 				ResultPage.ResFun();	
 				
-				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);   			//now need to send to server
+				
 				
 				
 			}

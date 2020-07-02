@@ -49,14 +49,16 @@ public class DataManagement
 	
 	//called by server.requestSearchFlight
 	
-	public static void searchFlights(Flight fl) 
+	public static void searchFlights(Object f,int passengers) 
 	{
-	
+	DataBase.searchFlight(f,passengers);
+		
+		
 		
 
 	}
 
-	public static void searchRoundFlights(Flight fl) 
+	public static void searchRoundFlights(Object f,int passengers) 
 	{
 	
 	

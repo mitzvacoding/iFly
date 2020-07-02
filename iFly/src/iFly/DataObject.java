@@ -19,7 +19,7 @@ public class DataObject implements Serializable{
 		HashMap<Integer, Object> hm = new HashMap<Integer, Object>();
 		this.ext.put(category, new HashMap<Integer, Object>());
 		return hm; 
-	}   
+	}    
 	
 	public HashMap<Integer, Object> get(String str) //getting a category, therefore a hashmap
 	{

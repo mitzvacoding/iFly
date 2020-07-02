@@ -135,6 +135,7 @@ public class ManagerPage
 		frame.getContentPane().add(txt9);
 		
 		JButton Addbtn = new JButton("ADD");
+		Addbtn.setEnabled(false);
 		Addbtn.setForeground(Color.GREEN);
 		Addbtn.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		Addbtn.setBounds(147, 308, 110, 44);
@@ -165,12 +166,12 @@ public class ManagerPage
 		
 		JLabel lblVendor_1 = new JLabel("Vendor");
 		lblVendor_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVendor_1.setBounds(25, 170, 77, 14);
+		lblVendor_1.setBounds(25, 163, 77, 14);
 		frame.getContentPane().add(lblVendor_1);
 		
 		JLabel lblQuantity = new JLabel("quantity");
 		lblQuantity.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuantity.setBounds(201, 170, 77, 14);
+		lblQuantity.setBounds(201, 163, 77, 14);
 		frame.getContentPane().add(lblQuantity);
 		
 		JLabel lblName = new JLabel("Name");
@@ -222,7 +223,7 @@ public class ManagerPage
 		
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice.setBounds(112, 170, 77, 14);
+		lblPrice.setBounds(102, 163, 77, 14);
 		frame.getContentPane().add(lblPrice);
 		
 		JLabel lblFlightId = new JLabel("Flight ID");
@@ -244,6 +245,7 @@ public class ManagerPage
 				txt7.setEditable(false);
 				txt8.setEditable(true);
 				txt9.setEditable(true);
+				Addbtn.setEnabled(false);
 			}
 		});
 			
@@ -252,7 +254,7 @@ public class ManagerPage
 				public void actionPerformed(ActionEvent e) 
 				{
 					
-					
+					Addbtn.setEnabled(true);	
 					txt1.setEditable(true);
 					txt2.setEditable(true);
 					txt3.setEditable(true);

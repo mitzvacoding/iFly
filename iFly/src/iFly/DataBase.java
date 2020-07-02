@@ -18,8 +18,8 @@ public class DataBase
 	public static int customerKey=0;
 	public static int flightKey=0;
 	public static int managerKey=0;
-	
-	
+	public static String str = null;
+//	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
 	
 	
 	
@@ -29,11 +29,17 @@ public class DataBase
 		
 		try
 		{
-			big.put("Customer");
+			big.put("Customer");  
 			big.put("Flight");
 			big.put("Manager");
-			//big.putInternal("Customer",1,new Customer("uzi","uzi1","1234"));
-			//big.putInternal("Manager",2,new Manager("man","ma","*1",3));
+			big.put("InternationalFlight");
+			big.put("ConnectionFlight");
+			
+			big.putInternal("Flight",1,new Flight(new Date(20,12,2020),new Date(22,12,2020),"ELT","Elal",200,5,"123"));
+			
+			
+			big.putInternal("Customer",1,new Customer("uzi","uz","12"));
+			big.putInternal("Manager",1,new Manager("man","ma","*1",3));
 			
 			
 			//FileInputStream fis = new FileInputStream("data.txt");
@@ -47,6 +53,94 @@ public class DataBase
 		}
 				   
 	}
+	
+
+	
+	
+	public static void searchFlight(Object f,int passengers)
+	{
+		
+		int key=0;
+		if(f.getClass().equals("InternationalFlight"))
+		{
+			
+			for(Object Flight: big.get("Flight").values())
+				{
+					key++;
+					if( ((InternationalFlight)Flight).getDepartureDate().equals(((InternationalFlight)f).getDepartureDate())&&
+							((InternationalFlight)Flight).getDestenation().equals(((InternationalFlight)f).getDestenation()) )
+						// res.put(key,(Flight) big.get("FLight").get(key));
+						str+=big.get("FLight").get(key)+"\n";
+					
+				} 
+		}
+		
+		else  //Object f= Flight;
+		{
+		
+			for(Object Flight: big.get("Flight").values())
+			{
+				key++;
+				if( ((Flight)Flight).getDepartureDate().equals(((Flight)f).getDepartureDate()))
+					// res.put(key,(Flight) big.get("FLight").get(key));
+				//	str+=big.get("FLight").get(key)+"\n";
+					System.out.println(  big.get("FLight").get(1));
+				 
+				
+			}
+			
+		}
+			
+			
+	}
+	
+	
+	
+	
+	
+	public static void searchRoundTripFlight(Object f,int passengers)
+	{
+		
+		int key=0;
+		if(f.getClass().equals("RoundTripFlight"))
+		{
+			
+			for(Object Flight: big.get("Flight").values())
+				{
+					key++;
+					if( ((InternationalFlight)Flight).getDepartureDate().equals(((InternationalFlight)f).getDepartureDate())&&
+							((InternationalFlight)Flight).getLandingDate().equals(((InternationalFlight)f).getLandingDate()) )
+						// res.put(key,(Flight) big.get("FLight").get(key));
+						str+=  big.get("FLight").get(key)+"\n";
+				}
+		}
+		
+		else  //Object f= Flight;
+		{
+		
+			for(Object Flight: big.get("Flight").values())
+			{
+				key++;
+				if( ((Flight)Flight).getDepartureDate().equals(((Flight)f).getDepartureDate()))
+					// res.put(key,(Flight) big.get("FLight").get(key));
+					str+=big.get("FLight").get(key)+"\n";  
+			
+			}
+			
+		}
+			
+			
+	}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//Check if an object exists, then delete it

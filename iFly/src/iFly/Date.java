@@ -22,7 +22,7 @@ public class Date implements Serializable {
 	{
 		this.day = (str.charAt(0)-'0')*10 + (str.charAt(1)-'0');
 		this.month = (str.charAt(3)-'0')*10 +str.charAt(4)-'0';
-		this.year = convertString(str.substring(6,10));
+		this.year = 2020;//convertString(str.substring(6,10));
 	}
 	
 	public String print()
@@ -35,9 +35,15 @@ public class Date implements Serializable {
 	{
 		int size= str.length();
 		int num=0;
-		for(int i= 0; i<size ; i++)
+		
+		if(str.length()==1)
+			num=str.charAt(0)-'0';
+		else
 		{
-			num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
+			for(int i= 0; i<size ; i++)
+			{
+				num += (str.charAt(i)-'0') * Math.pow(10, size - i-1);
+			}
 		}
 		return num;
 	}

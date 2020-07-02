@@ -20,6 +20,9 @@ import java.awt.Dimension;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.TableColumn;
+
+import iFly.DataBase;
+
 import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.GroupLayout;
@@ -61,10 +64,14 @@ public class ResultPage
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					ResultPage window = new ResultPage();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
+					
 				}
 			}
 		});
@@ -100,12 +107,28 @@ public class ResultPage
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		frame.getContentPane().add(ta);
 		
+		
+		
+		// ADD value for Jtable;
+		
+		/*ta.setValueAt(DataBase.res.get(1).getDepartureDate(),1,0);
+		ta.setValueAt(DataBase.res.get(1).getLandingDate(),1,1);
+		ta.setValueAt(DataBase.res.get(1).getLandingAirport(),1,2);
+		ta.setValueAt(DataBase.res.get(1).getVendor(),1,3);
+		ta.setValueAt(DataBase.res.get(1).getPrice(),1,4);
+		ta.setValueAt(DataBase.res.get(1).getFlightId(),1,5);
+		*/
+		
+		ta.setValueAt(DataBase.big.get("Flight").get(1),1,3);
+			
+
+		
 		btn1 = new JButton("Purchase");
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
 		btn1.setBounds(563, 222, 87, 23);
 		frame.getContentPane().add(btn1);
-		//ta.setIntercellSpacing(new  Dimension(5,5));
+		ta.setIntercellSpacing(new  Dimension(5,5));
 		 ta.setRowHeight(30);
 		 
 		 btn2 = new JButton("Purchase");
@@ -166,13 +189,7 @@ public class ResultPage
 	    ta.setValueAt("Price", 0,5);
 	    
 	  
-	    		
-	    		
-	    
-	    
-	    
-	    
-	    
+	  
 	    
 	 }
 }
