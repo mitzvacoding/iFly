@@ -46,6 +46,7 @@ public class SearchPage
 	private JButton SearchBtn;
 	private  static Integer abroadFlight=0;
 	private  static Integer roundTrip=0;
+	private JTextField originField;
 	
 	public static void SpFun() {  
 		EventQueue.invokeLater(new Runnable() {
@@ -84,7 +85,7 @@ public class SearchPage
 		frame.getContentPane().add(lblNewLabel);
 		
 		depDate = new JTextField();
-		depDate.setBounds(44, 216, 122, 42);
+		depDate.setBounds(114, 222, 122, 42);
 		depDate.setText("01/06/2020");
 		depDate.setHorizontalAlignment(SwingConstants.CENTER);
 		depDate.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -100,10 +101,10 @@ public class SearchPage
 		});
 		
 		destField = new JTextField();
+		destField.setBounds(324, 134, 136, 42);
 		destField.setHorizontalAlignment(SwingConstants.CENTER);
 		destField.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		destField.setText("ELT");
-		destField.setBounds(364, 217, 122, 42);
 		destField.setEditable(false);
 		destField.setToolTipText("");
 		frame.getContentPane().add(destField);
@@ -118,7 +119,7 @@ public class SearchPage
 		});
 		
 		passField = new JTextField();
-		passField.setBounds(520, 222, 50, 33);
+		passField.setBounds(407, 222, 50, 42);
 		passField.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -130,29 +131,29 @@ public class SearchPage
 		frame.getContentPane().add(passField);
 		passField.setColumns(10);
 			
-		lblNewLabel_1 = new JLabel("Flying to");
-		lblNewLabel_1.setBounds(363, 183, 97, 35);
+		lblNewLabel_1 = new JLabel("To");
+		lblNewLabel_1.setBounds(332, 109, 97, 35);
 		lblNewLabel_1.setBackground(new Color(255, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Departure date");
-		lblNewLabel_2.setBounds(44, 176, 117, 42);
+		lblNewLabel_2.setBounds(119, 192, 117, 42);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("Passengers");
-		lblNewLabel_3.setBounds(520, 183, 147, 35);
+		lblNewLabel_3.setBounds(407, 196, 147, 35);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		frame.getContentPane().add(lblNewLabel_3);
 		
 				
 		JPanel panel = new JPanel();
+		panel.setBounds(484, 163, 136, 33);
 		panel.setBorder(null);
-		panel.setBounds(299, 121, 136, 33);
 		frame.getContentPane().add(panel);
 		
-		JRadioButton eiRad = new JRadioButton("Eilat");
+		JRadioButton eiRad = new JRadioButton("Local");
 		eiRad.setBackground(new Color(34, 139, 34));
 		panel.add(eiRad);
 		ButtonGroup bg = new ButtonGroup();
@@ -165,11 +166,11 @@ public class SearchPage
 		});
 		eiRad.setSelected(true);
 
-		SearchBtn = new JButton("Search");		
+		SearchBtn = new JButton("Search");
 		SearchBtn.setBounds(126, 397, 129, 55);
 		frame.getContentPane().add(SearchBtn);
 
-		JRadioButton abRad = new JRadioButton("abroad");
+		JRadioButton abRad = new JRadioButton("Abroad");
 		abRad.setBackground(new Color(124, 252, 0));
 		panel.add(abRad);
 	 	bg.add(abRad);
@@ -182,13 +183,13 @@ public class SearchPage
 		});
 
 		retDateField = new JTextField();
+		retDateField.setBounds(262, 222, 122, 42);
 		retDateField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		retDateField.setHorizontalAlignment(SwingConstants.CENTER);
 		retDateField.setText("02/06/2020");
 		retDateField.setToolTipText("");
 		retDateField.setEditable(false);
 		retDateField.setColumns(10);
-		retDateField.setBounds(204, 217, 122, 42);
 		frame.getContentPane().add(retDateField);
 		retDateField.addFocusListener(new FocusAdapter() {
 			@Override
@@ -202,12 +203,12 @@ public class SearchPage
 		
 		
 		JLabel lblNewLabel_4 = new JLabel("Return Date");
+		lblNewLabel_4.setBounds(272, 187, 136, 55);
 		lblNewLabel_4.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_4.setBounds(204, 174, 136, 55);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(43, 121, 177, 33);
+		panel_1.setBounds(484, 109, 177, 33);
 		frame.getContentPane().add(panel_1);
 		
 		ButtonGroup bg1 = new ButtonGroup();		
@@ -222,8 +223,24 @@ public class SearchPage
 		bg1.add(rouRad);
 		
 		JButton searchBtn = new JButton(" Search Flights");
-		searchBtn.setBounds(510, 280, 147, 42);
+		searchBtn.setBounds(260, 309, 147, 42);
 		frame.getContentPane().add(searchBtn);
+		
+		originField = new JTextField();
+		originField.setToolTipText("");
+		originField.setText("TLV");
+		originField.setHorizontalAlignment(SwingConstants.CENTER);
+		originField.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		originField.setEditable(false);
+		originField.setColumns(10);
+		originField.setBounds(186, 134, 136, 42);
+		frame.getContentPane().add(originField);
+		
+		JLabel lblFrom = new JLabel("From");
+		lblFrom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblFrom.setBackground(Color.RED);
+		lblFrom.setBounds(196, 109, 97, 35);
+		frame.getContentPane().add(lblFrom);
 		
 	
 		oneRad.addActionListener(new ActionListener() {
@@ -244,19 +261,26 @@ public class SearchPage
 			{
 				int passengers;
 				Date returnDate=null;
+				
 				String destination = null;
-				Date date = new Date(depDate.getText());
+				String origin = originField.getText();
+				Date depurtureDate = new Date(depDate.getText());
 				passengers = Date.convertString(passField.getText());
 				
 				if(eiRad.isSelected())
-					destination= "ELT";
+				{
+					if(origin == "TLV")
+						destination = "ELT";
+					else
+						destination = "TLV";
+				}
 				else 
 					destination = destField.getText();
 				
 				if(rouRad.isSelected())
 					returnDate=new Date( retDateField.getText());
 				
-				Server.requestSearchFlight(date,returnDate, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
+				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
 				frame.setVisible(false);
 				ResultPage.ResFun();	
 				
@@ -268,8 +292,6 @@ public class SearchPage
 		
 		
 	}
-
-
 }
 
 

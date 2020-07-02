@@ -9,13 +9,14 @@ public class DataManagement
 
 	 // called by server.requestSignInmanager()+server.requestSignUpCustomer() 
 	public static boolean SignInCustomer(String email,String password)
-	 {  
-			if(DataBase.checkSignInCustomer(email, password))
-				return true;
-			
-		return false;			
-	 }	
+	{  
+		return 	DataBase.checkSignInCustomer(new Customer(email));
+	}	
 	
+	public static boolean signUpCustomer(String name, String email, String password)
+	{
+		return DataBase.signUpCustomer(new Customer(name , email, password));
+	}
 	
 	public static boolean SignInManager(String email,String password)
 	{
@@ -26,11 +27,7 @@ public class DataManagement
 	}
  
 
-	public static void signUpCustomer(String name, String email, String password)
-	{
-		Customer cst = new Customer(name , email, password);
-		DataBase.signUpCustomer(cst);
-	}
+	
 	//called by server.AddObject 
 	public static void addObject( String mapName,Object o) 
 	{
@@ -56,7 +53,7 @@ public class DataManagement
 	
 	//called by server.requestSearchFlight
 	
-	public static void searchFlights(Object f,int passengers) 
+	public static void searchFlights(Flight f,int passengers) 
 	{
 		lastFlightResult = DataBase.searchFlight(f,passengers);
 

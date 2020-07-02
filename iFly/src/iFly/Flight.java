@@ -7,7 +7,8 @@ public class Flight implements Serializable
 {
 	
 	private Date departureDate;
-	private Date landingDate; 				//*** ??צריך את זה ***//
+	private Date landingDate; 	
+	private String origin;
 	private String landingAirport;
   	private String vendor;
     private int price;
@@ -29,10 +30,11 @@ public class Flight implements Serializable
     
     
     
-    public Flight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId)
+    public Flight(Date departureDate, Date landingDate, String origin,String landingAirport, String vendor, int price, int quantity, String flightId)
     {
     	this.departureDate = departureDate;
     	this.landingDate = landingDate;
+    	this.origin = origin;
     	this.landingAirport = landingAirport;
     	this.vendor = vendor;
     	this.price  = price;
@@ -41,15 +43,17 @@ public class Flight implements Serializable
     }
 
    
-	public Flight(Date departureDate, String landingAirport)
+	public Flight(Date departureDate,String origin, String landingAirport)
 	{
     	this.departureDate = departureDate;
+    	this.origin = origin;
     	this.landingDate = null;
-    	this.landingAirport ="ELT";
+    	this.landingAirport =landingAirport;
 
 		
 	}
 
+	/*
 	public Flight(Date depDatenew, Date landDate, String landAirport, String vendor, String price, String quantity,	String flightId) 
 	{
 		
@@ -62,7 +66,7 @@ public class Flight implements Serializable
     	this.flightId = flightId;
 
 	}
-
+ */
 
 	
 
@@ -82,9 +86,20 @@ public class Flight implements Serializable
 	}
 	
 	
+	
 	public Date getLandingDate()
 	{
 	return  this.landingDate;
+	}
+	
+	public String getOrigin()
+	{
+		return origin;
+	}
+	
+	public void setOrigin(String origin)
+	{
+		this.origin = origin;
 	}
 	
 	public String getLandingAirport()

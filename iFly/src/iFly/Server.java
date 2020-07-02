@@ -35,17 +35,20 @@ public class Server
 	
 	 
 	// Search flight
-	public static void requestSearchFlight(Date depDate, Date returnDate, String Destination, int passengers, Integer abroadFlight, Integer roundTrip) 	
+	public static void requestSearchFlight(Date depDate, Date returnDate,String origin, String destination, int passengers, Integer abroadFlight, Integer roundTrip) 	
 	{ 
-		Object f=null;
+		Flight f=null;
       
-		f=(Flight)ObjectsFactory.getFlightByButton(depDate, returnDate,Destination);
+		f=(Flight)ObjectsFactory.getFlightByButton(depDate, returnDate,origin, destination);
 
+		DataManagement.searchFlights(f, passengers);
+		
+		/* there's no need to check, because it's being checked in DataBase.
 		if( f.getClass().getSimpleName()=="RoundTripFlight")
 			DataManagement.searchRoundFlights(f,passengers);
 		else
 			DataManagement.searchFlights(f,passengers);
-			
+		*/
 	}
 
 	public static JTable requestFlightResults()

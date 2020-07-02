@@ -68,8 +68,6 @@ public class DataBase
 	}
 	
 
-	
-	
 	public static ArrayList<Flight> searchFlight(Object f,int passengers)
 	{
 		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
@@ -95,8 +93,16 @@ public class DataBase
 		return resultFlights;
 	}
 	
-	
-	
+	public static void addFlights(HashMap<Integer, Flight> addedFlights)
+	{
+		for(Flight flight:addedFlights.values())
+		{
+			if(flight.getClass().getSimpleName().equals("Flight"))
+				flights.put(flightKey++, flight);
+			else if(flight.getClass().getSimpleName().equals("InternationalFlight"))
+					internationalFlights.put(flightKey++, (InternationalFlight)flight);
+		}
+	}
 	
 	
 	public static void searchRoundTripFlight(Object f,int passengers)
@@ -137,7 +143,6 @@ public class DataBase
 	
 	
 	//Check if an object exists, then delete it
-	
 	public static void removeObj(String str,String mapName)
 	{
 		int key=0;
@@ -168,11 +173,18 @@ public class DataBase
 		
 	}
 		
+	public static boolean signUpCustomer(Customer cst)
+	{
+		if(checkSignInCustomer(cst))//if already exists.
+			return false;
+		customers.put(customerKey++, cst);
+		return true;
+			
+	}
 	
-	
-	// check user exists
+	// check user exists, called when user is logging-in.
 	public static boolean checkSignInCustomer(Customer cst)
-	{//called when user is logging-in
+	{
 		for(Customer customer: customers.values())
 		{
 			if(customer.equals(cst))
@@ -196,11 +208,7 @@ public class DataBase
 		return false;
  
 	}
-	
-	public static void signUpCustomer(Customer cst)
-	{
-		checkSignInCustomer(cst);
-	}
+
 	
 	public static void addObject(String mapName, Object obj)
 	{
