@@ -24,6 +24,8 @@ public class DataBase
 	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
 	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
 	public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
+	
+	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 
 //	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
 	
@@ -33,8 +35,13 @@ public class DataBase
 	{	
 		//in case file exists
 		
+		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/4/2000"), "USA"));
+		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/4/2002"), "USB"));
+
+		
 		try
 		{
+			/*
 			big.put("Customer");  
 			big.put("Flight");
 			big.put("Manager");
@@ -51,7 +58,7 @@ public class DataBase
 			//FileInputStream fis = new FileInputStream("data.txt");
 			//ObjectInputStream ois = new ObjectInputStream(fis);
 			//big = (DataObject)ois.readObject();
-			
+			*/
 		}
 		catch(Exception e)
 		{
@@ -127,14 +134,6 @@ public class DataBase
 	}
 
 	
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	//Check if an object exists, then delete it
@@ -172,11 +171,11 @@ public class DataBase
 	
 	
 	// check user exists
-	public static boolean checkSignInCustomer(String email,String password)
+	public static boolean checkSignInCustomer(Customer cst)
 	{//called when user is logging-in
-		for(Object customer: big.get("Customer").values())
+		for(Customer customer: customers.values())
 		{
-			if( ((Customer)customer).getEmail().equals(email) && ((Customer)customer).getPassword().equals(password))
+			if(customer.equals(cst))
 				return true;
 			
 		}
@@ -198,6 +197,10 @@ public class DataBase
  
 	}
 	
+	public static void signUpCustomer(Customer cst)
+	{
+		checkSignInCustomer(cst);
+	}
 	
 	public static void addObject(String mapName, Object obj)
 	{

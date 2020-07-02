@@ -26,7 +26,11 @@ public class DataManagement
 	}
  
 
-	
+	public static void signUpCustomer(String name, String email, String password)
+	{
+		Customer cst = new Customer(name , email, password);
+		DataBase.signUpCustomer(cst);
+	}
 	//called by server.AddObject 
 	public static void addObject( String mapName,Object o) 
 	{

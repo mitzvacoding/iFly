@@ -84,12 +84,9 @@ public class Server
 			ta.setValueAt(flight.getLandingAirport(),row, col++);
 			ta.setValueAt(flight.getFlightId(),row, col++);
 			ta.setValueAt(flight.getPrice(),row, col++);
+			row++;
 
 		}
-		
-		
-		
-		
 		
 		return ta;
 	}

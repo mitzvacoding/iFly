@@ -3,6 +3,8 @@ package iFly;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class Customer extends User implements Serializable
 {
  HashMap<Integer,String> cart;
@@ -43,6 +45,15 @@ public class Customer extends User implements Serializable
 	{
 	String str="Name:"+ this.getName()+"/Email:"+ this.getEmail()+"/Password "+ this.getPassword();//+"\nCredit Card: "+this.credit.print();
 	return str;
+	}
+	
+	@Override
+	public boolean equals(Object c)
+	{
+		String name = ((Customer)c).getName();
+		if(this.getEmail().equals( ((Customer)c).getEmail() ) )
+				return true;
+		return false;
 	}
 	
 }

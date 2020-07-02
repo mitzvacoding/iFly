@@ -31,9 +31,9 @@ public class Main
 
 	{
 		 
-		//DataBase.init();
-		//MainPage.MpFun();
-		ResultPage.ResFun();
+		DataBase.init();
+		MainPage.MpFun();
+		//ResultPage.ResFun();
 		
 		
 		
