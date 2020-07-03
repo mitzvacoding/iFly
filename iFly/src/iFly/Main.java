@@ -33,6 +33,9 @@ public class Main
 		 
 		DataBase.init();
 		MainPage.MpFun();
+		
+		
+		
 		//ResultPage.ResFun();
 		
 		
