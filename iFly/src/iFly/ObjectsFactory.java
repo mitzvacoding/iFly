@@ -4,29 +4,29 @@ public class ObjectsFactory {
 
 	public static Flight getFlightByButton(Date depDate,Date returnDate,String origin, String destination) //Integer abroadType ,Integer roundTripType)
 	{
-		Flight obj = null;
+		Flight flt = null;
 		
 		
 		if(returnDate!=null)
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				obj =new RoundTripFlight(new Flight(depDate,origin, " "), new Flight(depDate,destination, " "));
+				flt = new RoundTripFlight(new Flight(depDate,origin, ""), new Flight(depDate,destination, ""));
 
 			else
-				obj =new RoundTripFlight(new InternationalFlight( depDate, destination),new InternationalFlight(returnDate, destination));
+				flt = new RoundTripFlight(new InternationalFlight( depDate, destination),new InternationalFlight(returnDate, destination));
 		}
 		
 		else
 		{
-			if(destination!=null)
-				obj =new InternationalFlight(depDate, destination);
+			if(origin.equals("ELT") || origin.equals("TLV"))
+				flt =new Flight(depDate,origin, "ELT");
 			else
-				obj =new Flight(depDate, "ELT");	
+				flt =new InternationalFlight(depDate,origin, "ELT");	
 		
 		}
 
 		
-		return obj;
+		return flt;
 	}
 }
 
