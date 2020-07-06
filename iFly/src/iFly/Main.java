@@ -34,7 +34,7 @@ public class Main
 		DataBase.init();
 		MainPage.MpFun();
 		
-		//ariel
+		
 		
 		
 		
