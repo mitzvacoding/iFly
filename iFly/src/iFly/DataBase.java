@@ -39,7 +39,7 @@ public class DataBase
 		managers.put(1, new Manager("123", "123", "*1", 2));
 		customers.put(1,new Customer("123","123","123"));
 		
-		flights.put(flightKey++, new Flight(new Date("14/7/1996"), "TLV",""));
+		flights.put(flightKey++, new Flight(new Date("14/07/1996"), "TLV",""));
 		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/7/1996"),"TLV", "USA"));
 		internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
 

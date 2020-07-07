@@ -46,6 +46,7 @@ public class Flight implements Serializable
    
 	public Flight(Date departureDate,String origin, String landingAirport)
 	{
+		
     	this.departureDate = departureDate;
     	this.origin = origin;
     	this.landingDate = null;
