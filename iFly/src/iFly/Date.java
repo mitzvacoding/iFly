@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.xml.crypto.Data;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 public class Date implements Serializable {
 	
 	public int day,month,year;
@@ -52,12 +50,18 @@ public class Date implements Serializable {
 		return num;
 	}
 	
-	//@Override
+	@Override
 	public boolean equals(Object date)
 	{	
 		if(year == ((Date)date).year && (month == ((Date)date).month) && (day == ((Date)date).day) )
 			return true;
 		return false;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return print(this);
 	}
 
 }

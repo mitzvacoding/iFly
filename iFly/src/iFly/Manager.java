@@ -1,6 +1,8 @@
 package iFly;
 
-public class Manager extends User
+import java.io.Serializable;
+
+public class Manager extends User implements Serializable
 {
 	
 	private int seniority;
@@ -20,16 +22,18 @@ public class Manager extends User
 	@Override
 	public  String showDetalis(){return null;}
 	
-  public boolean addFlight() {return false;};
-  public void removeFlight() {}
-  public boolean addUser() {return false;};
-  public boolean removeUser() {return false;}
+	public boolean addFlight() {return false;};
+	public void removeFlight() {}
+	public boolean addUser() {return false;};
+	public boolean removeUser() {return false;}
   
-  public int getSeniority() {
-	return seniority;
+	public int getSeniority() 
+	{
+		return seniority;
   	}
-  public void setSeniority(int seniority) {
-	this.seniority = seniority;
+	public void setSeniority(int seniority)
+	{
+		this.seniority = seniority;
   	}
   
 @Override

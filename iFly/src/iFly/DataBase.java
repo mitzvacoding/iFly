@@ -2,8 +2,12 @@ package iFly;
 import java.util.List;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -19,11 +23,11 @@ public class DataBase
 	public static int customerKey=0;
 	public static int flightKey=0;
 	public static int managerKey=0;
-	public static String str = null;
+	public static String fileName = "data.txt";
 	
 	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
 	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
-	public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
+	//public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
 	
 	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
@@ -36,40 +40,86 @@ public class DataBase
 	public static void init()
 	{	
 		//in case file exists
-		managers.put(1, new Manager("123", "123", "*1", 2));
-		customers.put(1,new Customer("123","123","123"));
 		
-		flights.put(flightKey++, new Flight(new Date("14/07/1996"), new Date("16/07/1996"), "TLV","", "1",2, 3,"4"));
-		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/07/1996"),"TLV", "USA"));
-		internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
-
+		//managers.put(1, new Manager("123", "123", "*1", 2));
+		//customers.put(1,new Customer("123","123","123"));
+		//customers.put(2,new Customer("321","321","321"));
 		
-		try
+		//flights.put(flightKey++, new Flight(new Date("14/07/1996"), new Date("16/07/1996"), "TLV","", "1",2, 3,"4"));
+		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/07/1996"),"TLV", "USA"));
+		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
+		 
+		//writeToFile();
+		readFromFile();
+		
+		
+		/* a proof that it read from file
+		for(Customer cst: customers.values())
 		{
-			/*
-			big.put("Customer");  
-			big.put("Flight");
-			big.put("Manager");
-			big.put("InternationalFlight");
-			big.put("ConnectionFlight");
+			System.out.println(cst.toString()+"\n");
+		}
+		System.out.println("\n\n");
+		for(Flight flt: flights.values())
+		{
+			System.out.println(flt.toString()+"\n");
+		}
+		System.out.println("\n\n");
+		for(InternationalFlight flt: internationalFlights.values())
+		{
+			System.out.println(flt.toString()+"\n");
+		}
+		*/
+				   
+	}
+	
+	
+	public static void writeToFile()
+	{
+		ObjectOutputStream oos = null;
+		try{
+			FileOutputStream fos = new FileOutputStream(fileName);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(flights);
+			oos.writeObject(internationalFlights);
+			oos.writeObject(customers);
+			oos.writeObject(managers);
 			
-			big.putInternal("Flight",1,new Flight(new Date(20,12,2020),new Date(22,12,2020),"ELT","Elal",200,5,"123"));
-			
-			
-			big.putInternal("Customer",1,new Customer("uzi","uz","12"));
-			big.putInternal("Manager",1,new Manager("man","ma","*1",3));
-			
-			
-			//FileInputStream fis = new FileInputStream("data.txt");
-			//ObjectInputStream ois = new ObjectInputStream(fis);
-			//big = (DataObject)ois.readObject();
-			*/
+			oos.close();
+			fos.close();
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-				   
+		
+	}
+	
+	public static void readFromFile()
+	{
+		Path path = Paths.get(System.getProperty("user.dir") + "\\" + fileName);
+		
+		if(Files.exists(path))
+		{
+			try
+			{
+				FileInputStream fis = new FileInputStream(fileName);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				
+				flights = (HashMap<Integer,Flight>)ois.readObject();
+				internationalFlights = (HashMap<Integer,InternationalFlight>)ois.readObject();
+
+				customers = (HashMap<Integer,Customer>)ois.readObject();
+				managers = (HashMap<Integer,Manager>)ois.readObject();	
+				
+				ois.close();
+				fis.close();
+			}
+			
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
 	}
 	
 
