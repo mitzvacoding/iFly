@@ -88,22 +88,17 @@ public class RegistarPage {
 		
 		JButton btnNewButton = new JButton("Sign up");
 		
-		btnNewButton.addActionListener(new ActionListener() {         // SIGN UP Button-> Only a customer can sign up   ;
+		btnNewButton.addActionListener(new ActionListener() {// SIGN UP Button-> Only a customer can sign up  
 			public void actionPerformed(ActionEvent e)
 			{
-
 				String name=NameField.getText();
 				String email=EmailField_1.getText();
 				String password=passwordField.getText();
-				
-				if (Server.requestSignInCustomer(email,password)==false)
+								
+				if (Server.signUpCustomer(name, email, password))//true if added
 				{	
-					
-					Object c= new Customer(name, email,password);
-					Server.requestAddObject("Customer",c); 
 					frame.setVisible(false);
-					MainPage.MpFun();
-					
+					MainPage.MpFun();					
 				}
 				else
 				{ 
@@ -111,9 +106,7 @@ public class RegistarPage {
 						    "The email you entered belongs to another account",
 						    "Login error",
 						    JOptionPane.ERROR_MESSAGE);	
-				}
-					
-			
+				}		
 			}
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));

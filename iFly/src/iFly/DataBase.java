@@ -26,6 +26,8 @@ public class DataBase
 	public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
 	
 	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
+	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
+
 
 //	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
 	
@@ -34,9 +36,12 @@ public class DataBase
 	public static void init()
 	{	
 		//in case file exists
+		managers.put(1, new Manager("123", "123", "*1", 2));
+		customers.put(1,new Customer("123","123","123"));
 		
-		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/4/2000"), "USA"));
-		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/4/2002"), "USB"));
+		flights.put(flightKey++, new Flight(new Date("14/7/1996"), "TLV",""));
+		internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/7/1996"),"TLV", "USA"));
+		internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
 
 		
 		try
@@ -68,7 +73,7 @@ public class DataBase
 	}
 	
 
-	public static ArrayList<Flight> searchFlight(Object f,int passengers)
+	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
 	{
 		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
 		if(f.getClass().getSimpleName().equals("InternationalFlight"))
@@ -85,7 +90,7 @@ public class DataBase
 		{
 			for(Flight flight: flights.values())
 			{
-				if( flight.getDepartureDate().equals(((Flight)f).getDepartureDate()))
+				if( flight.getDepartureDate().equals(f.getDepartureDate()))
 					resultFlights.add(flight);
 			}		
 		}	
@@ -107,7 +112,6 @@ public class DataBase
 	
 	public static void searchRoundTripFlight(Object f,int passengers)
 	{
-		
 		int key=0;
 		if(f.getClass().equals("RoundTripFlight"))
 		{
@@ -132,15 +136,11 @@ public class DataBase
 					// res.put(key,(Flight) big.get("FLight").get(key));
 					str+=big.get("FLight").get(key)+"\n";  
 			
-			}
-			
+			}	
 		}
-			
-			
+					
 	}
-
-	
-	
+		
 	
 	//Check if an object exists, then delete it
 	public static void removeObj(String str,String mapName)
@@ -173,14 +173,11 @@ public class DataBase
 		
 	}
 		
-	public static boolean signUpCustomer(Customer cst)
+	public static void signUpCustomer(Customer cst)
 	{
-		if(checkSignInCustomer(cst))//if already exists.
-			return false;
-		customers.put(customerKey++, cst);
-		return true;
-			
+		customers.put(customerKey++, cst);		
 	}
+	
 	
 	// check user exists, called when user is logging-in.
 	public static boolean checkSignInCustomer(Customer cst)
@@ -189,24 +186,20 @@ public class DataBase
 		{
 			if(customer.equals(cst))
 				return true;
-			
 		}
 		return false;   
-
 	}
 	 
 	//check Manager exists 
 	public static boolean checkSignInManager(String email,String password)
 	{
 		//called when Manager is logging-in
-		for(Object Manager: big.get("Manager").values())
+		for(Manager manager: managers.values())
 		{
-			if( ((Manager)Manager).getEmail().equals(email) && ((Manager)Manager).getPassword().equals(password)) 
-				return true;
-			
+			if( manager.getEmail().equals(email) && manager.getPassword().equals(password)) 
+				return true;		
 		}
 		return false;
- 
 	}
 
 	

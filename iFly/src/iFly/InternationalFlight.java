@@ -19,11 +19,12 @@ public class InternationalFlight extends Flight
 		this.setDestenation(destenation);
 	}
 
-	public InternationalFlight(Date departureDate, String destination) 
+	public InternationalFlight(Date departureDate,String origin, String destination) 
 	{
 		super();
 		this.setDepartureDate(departureDate);
-	   this.destenation=destination;
+		this.setOrigin(origin);
+		this.destenation=destination;
 	}
 
 	public int priceCalculation() {return 1;}

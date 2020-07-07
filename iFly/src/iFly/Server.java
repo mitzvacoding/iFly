@@ -17,8 +17,8 @@ public class Server
 	{
 		if(DataManagement.SignInCustomer(email,password))
 			return true;
-	else 
-		return false; 
+		else 
+			return false; 
 	};
 	
  
@@ -26,11 +26,15 @@ public class Server
 	{
 		if(DataManagement.SignInManager(email,password))
 			return true;
-	else 
-		return false; 
+		else 
+			return false; 
 	};
 	
 
+	public static boolean signUpCustomer(String name, String email, String password) 
+	{
+		return DataManagement.signUpCustomer(name, email, password);	
+	}
 	
 	
 	 
@@ -88,6 +92,7 @@ public class Server
 			ta.setValueAt(flight.getFlightId(),row, col++);
 			ta.setValueAt(flight.getPrice(),row, col++);
 			row++;
+			col = 0;
 
 		}
 		
@@ -105,6 +110,8 @@ public class Server
 	public static void requestremoveObj( String str,String mapName) 
 
     {DataManagement.removeObj(str,mapName);}
-	
+
+
+
 	
 };	

@@ -32,15 +32,9 @@ public class Main
 	{
 		 
 		DataBase.init();
-		MainPage.MpFun();
 		
-		
-		
-		
-		
-		///edosnsd;;;;
-		
-		
+		SearchPage.SpFun();
+		//MainPage.MpFun();
 		
 		//ResultPage.ResFun();
 		

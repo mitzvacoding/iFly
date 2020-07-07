@@ -194,7 +194,7 @@ public class SearchPage
 		retDateField.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				retDateField.setText("");
+				//retDateField.setText("");
 				
 				
 			}
@@ -231,7 +231,7 @@ public class SearchPage
 		originField.setText("TLV");
 		originField.setHorizontalAlignment(SwingConstants.CENTER);
 		originField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		originField.setEditable(false);
+		originField.setEditable(true);
 		originField.setColumns(10);
 		originField.setBounds(186, 134, 136, 42);
 		frame.getContentPane().add(originField);
@@ -261,7 +261,6 @@ public class SearchPage
 			{
 				int passengers;
 				Date returnDate=null;
-				
 				String destination = null;
 				String origin = originField.getText();
 				Date depurtureDate = new Date(depDate.getText());

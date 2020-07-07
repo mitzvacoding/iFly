@@ -15,15 +15,19 @@ public class DataManagement
 	
 	public static boolean signUpCustomer(String name, String email, String password)
 	{
-		return DataBase.signUpCustomer(new Customer(name , email, password));
+		if(DataBase.checkSignInCustomer(new Customer(email)))
+			return false;
+		DataBase.signUpCustomer(new Customer(name , email, password));
+		return true;
+		
+			
 	}
 	
 	public static boolean SignInManager(String email,String password)
 	{
-	if(DataBase.checkSignInManager(email, password))
-		return true;
-		 
-	return false;
+		if(DataBase.checkSignInManager(email, password))
+			return true;	 
+		return false;
 	}
  
 

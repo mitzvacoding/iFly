@@ -13,15 +13,15 @@ public class ObjectsFactory {
 				flt = new RoundTripFlight(new Flight(depDate,origin, ""), new Flight(depDate,destination, ""));
 
 			else
-				flt = new RoundTripFlight(new InternationalFlight( depDate, destination),new InternationalFlight(returnDate, destination));
+				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate, destination, origin));
 		}
 		
 		else
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				flt =new Flight(depDate,origin, "ELT");
+				flt =new Flight(depDate,origin, "");
 			else
-				flt =new InternationalFlight(depDate,origin, "ELT");	
+				flt =new InternationalFlight(depDate,origin, destination);	
 		
 		}
 

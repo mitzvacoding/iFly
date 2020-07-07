@@ -64,9 +64,7 @@ public class MainPage  extends Observable
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
-		
-	
+
 		JButton loginBtn = new JButton("Log In");
 		loginBtn.addActionListener(new ActionListener() {				//Log-in button
 			
@@ -79,7 +77,7 @@ public class MainPage  extends Observable
 				
 				
 				String Estr=userField.getText();//email 
-				String  Pstr=passwordField.getText();///password
+				String Pstr=passwordField.getText();///password
 				
 				if(Pstr.charAt(0)=='*')
 				{
