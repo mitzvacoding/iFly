@@ -122,12 +122,11 @@ public class Flight implements Serializable
 	 }
 	 
 
-	 public int getQuantity() 
+	 public int getQuantity()
 	 {
-		 System.out.println("fefef");
 		 return this.quantity;
-		 
 	 }
+	
 
 	 public String getFlightId() {return this.flightId;}
 	   
