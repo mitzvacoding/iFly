@@ -33,24 +33,20 @@ public class DataManagement
 
 	
 	//called by server.AddObject 
-	public static void addObject( String mapName,Object o) 
+	public static boolean addObject(Object obj) 
 	{
-		if(mapName=="Customer")
-			DataBase.addObject("Customer",o);
-		else if(mapName=="Flight")
-			DataBase.addObject("Flight",o); 
-		else 
-			DataBase.addObject("Manager",o);
-	 
-		
+			if(DataBase.addObject(obj))
+				return true;
+			return false;
 	}
 	
 	
-	public static void removeObj(String str,String mapName)
+	public static boolean removeObj(String str,String objName)
 	{
 		
-		DataBase.removeObj(str, mapName);
-		
+		if(DataBase.removeObj(str,objName))
+			return true;	 
+		return false;
 	}
 	
 	

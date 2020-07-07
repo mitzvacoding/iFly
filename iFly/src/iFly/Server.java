@@ -97,13 +97,22 @@ public class Server
 	
 	
 	// add Flight or Customer;
-	public static void requestAddObject( String mapName,Object o) 
-	{DataManagement.addObject(mapName,o);};
+	public static boolean requestAddObject(Object obj) 
+	{
+			if(DataManagement.addObject(obj))
+				return true;
+			
+			return false;
+	};
 	   
   
-	public static void requestremoveObj( String str,String mapName) 
+	public static boolean requestremoveObj( String str,String objName) 
 
-    {DataManagement.removeObj(str,mapName);}
+    {
+		if(DataManagement.removeObj(str,objName))
+			return true;
+		return false;
+    }
 
 
 

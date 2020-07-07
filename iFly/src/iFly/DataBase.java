@@ -19,6 +19,7 @@ public class DataBase
 	public static int customerKey=0;
 	public static int flightKey=0;
 	public static int managerKey=0;
+	public static int interFlightKey=0;
 	public static String str = null;
 	
 	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
@@ -142,36 +143,7 @@ public class DataBase
 	}
 		
 	
-	//Check if an object exists, then delete it
-	public static void removeObj(String str,String mapName)
-	{
-		int key=0;
-		
-		if(mapName=="Customer") //search in User hash Map;
-		{
-			for(Object user: big.get("User").values())
-			{
-				 key++;
-				if(((User)user).getEmail().equals(str))	 
-					big.get("User").remove(key);
-			
-			}}
-		
-		else  //search in Flight hash Map;
-		{
-			key=0;
-			
-			for(Object Flight: big.get("Flight").values())
-			{
-				 key++;
-				if(((Flight)Flight).getFlightId().equals(str))	 
-					big.get("Flight").remove(key);
-			}}
-		
-		
-		
-		
-	}
+	
 		
 	public static void signUpCustomer(Customer cst)
 	{
@@ -203,16 +175,102 @@ public class DataBase
 	}
 
 	
-	public static void addObject(String mapName, Object obj)
+	public static Integer findFlight(Object obj)
 	{
-		if(mapName=="Customer")
-			big.putInternal(mapName,customerKey++,obj);	
-		else if(mapName=="Flight")
-			big.putInternal(mapName,flightKey++,obj);	
-		else
-			big.putInternal(mapName,managerKey++,obj);	
+		if(obj.getClass().getSimpleName()=="Flight")
+		{
+			for(Flight flight: flights.values())
+		{
+			if( flight.getFlightId().equals(((Flight) obj).getFlightId()  ) ) {
+				flight.setQuantity(flight.getQuantity()+((Flight) obj).getQuantity());
+			    return 1;
+			    }}}
 		
+		else
+		{
+			for(InternationalFlight flight: internationalFlights.values())
+			{
+				if( flight.getFlightId().equals(((InternationalFlight) obj).getFlightId()  ) ) {
+					flight.setQuantity(flight.getQuantity()+((InternationalFlight) obj).getQuantity());
+				    return 1;
+				    }}}
+		
+		
+		return null;
 	}
+	
+	
+	
+	
+	public static boolean addObject(Object obj)
+	{
+				
+			if(findFlight(obj)==null)
+	
+			{
+				flights.put(flightKey++,(Flight) obj);
+				return true;
+			}
+			else if(findFlight(obj)==null)
+			{ 
+				internationalFlights.put(interFlightKey++, (InternationalFlight) obj);
+				return true;
+						
+			}
+					
+				return false;
+					
+	}
+	
+	//Check if an object exists, then delete it
+	public static boolean removeObj(String str,String objName)
+	{
+		int	key=0;
+		
+		if(objName=="Customer")
+		{	
+			for(Customer customer: customers.values())
+				{
+				
+					if(customer.getEmail()==str)
+					{
+						customers.remove(key);
+						return true;
+					}
+						key++;}}
+			
+		else if(objName=="Flight")
+		{
+				key=0;
+			
+			for(Flight flight: flights.values())
+			{
+				if( flight.getFlightId()==str)
+				{
+					flights.remove(key);
+					return true;
+				}
+					key++;	}}			
+		else
+		{
+			 key=0;
+				for(InternationalFlight flight: internationalFlights.values())
+				{
+					if(	flight.getFlightId()==str)
+					{
+						internationalFlights.remove(key);
+					return true;
+						
+					}
+						key++;}}
+			
+		return false;
+	}
+	
+	
+	
+	
+	
 	
 	private static void createFile(String fileName)
 	{

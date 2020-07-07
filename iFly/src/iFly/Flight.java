@@ -127,6 +127,11 @@ public class Flight implements Serializable
 	 {
 		 return this.quantity;
 	 }
+
+	 public void setQuantity(int q)
+	 {
+		  this.quantity=q;
+	 }
 	
 
 	 public String getFlightId() {return this.flightId;}

@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import iFly.Customer;
 import iFly.Date;
 import iFly.Flight;
+import iFly.InternationalFlight;
 import iFly.Server;
 import iFly.User;
 
@@ -35,10 +36,11 @@ public class ManagerPage
 	private JTextField txt3;
 	private JTextField txt4;
 	private JTextField txt6;
-	private JTextField txt8;
 	private JTextField txt9;
+	private JTextField txt10;
 	private JTextField txt5;
 	private JTextField txt7;
+	private JTextField txt8;
 
 	/**
 	 * Launch the application.
@@ -122,17 +124,17 @@ public class ManagerPage
 		txt6.setBounds(201, 181, 77, 28);
 		frame.getContentPane().add(txt6);
 		
-		txt8 = new JTextField();
-		txt8.setEditable(true);
-		txt8.setColumns(10);
-		txt8.setBounds(67, 269, 112, 28);
-		frame.getContentPane().add(txt8);
-		
 		txt9 = new JTextField();
 		txt9.setEditable(true);
 		txt9.setColumns(10);
-		txt9.setBounds(224, 269, 110, 28);
+		txt9.setBounds(67, 269, 112, 28);
 		frame.getContentPane().add(txt9);
+		
+		txt10 = new JTextField();
+		txt10.setEditable(true);
+		txt10.setColumns(10);
+		txt10.setBounds(224, 269, 110, 28);
+		frame.getContentPane().add(txt10);
 		
 		JButton Addbtn = new JButton("ADD");
 		Addbtn.setEnabled(false);
@@ -218,7 +220,7 @@ public class ManagerPage
 		txt7 = new JTextField();
 		txt7.setEditable(false);
 		txt7.setColumns(10);
-		txt7.setBounds(309, 163, 54, 28);
+		txt7.setBounds(308, 131, 54, 28);
 		frame.getContentPane().add(txt7);
 		
 		JLabel lblPrice = new JLabel("Price");
@@ -228,8 +230,18 @@ public class ManagerPage
 		
 		JLabel lblFlightId = new JLabel("Flight ID");
 		lblFlightId.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFlightId.setBounds(298, 149, 77, 14);
+		lblFlightId.setBounds(298, 117, 77, 14);
 		frame.getContentPane().add(lblFlightId);
+		
+		txt8 = new JTextField();
+		txt8.setEditable(false);
+		txt8.setColumns(10);
+		txt8.setBounds(288, 181, 77, 28);
+		frame.getContentPane().add(txt8);
+		
+		JLabel lblNewLabel_1 = new JLabel("destenation");
+		lblNewLabel_1.setBounds(299, 163, 87, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 		
 		// user radio button 
 		usrd.addActionListener(new ActionListener() {
@@ -243,8 +255,9 @@ public class ManagerPage
 				txt5.setEditable(false);
 				txt6.setEditable(false);
 				txt7.setEditable(false);
-				txt8.setEditable(true);
+				txt8.setEditable(false);
 				txt9.setEditable(true);
+				txt10.setEditable(true);
 				Addbtn.setEnabled(false);
 			}
 		});
@@ -262,8 +275,9 @@ public class ManagerPage
 					txt5.setEditable(true);					
 					txt6.setEditable(true);
 					txt7.setEditable(true);
-					txt8.setEditable(false);
+					txt8.setEditable(true);
 					txt9.setEditable(false);
+					txt10.setEditable(false);
 				}
 			});
 			
@@ -272,51 +286,59 @@ public class ManagerPage
 			Addbtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) 
 				{
-			      if(Flird.isSelected())	
-			      {
+					 Object obj;
 			    	  Date DepDatenew=new Date(txt1.getText());
 			    	  Date LandDate=new Date(txt2.getText());
 			    	  String LandAirport= txt3.getText(); 
 			    	  String vendor= txt4.getText();
-			    	  String price= txt5.getText();
-			    	  String quantity= txt6.getText();
+			    	  int price= Date.convertString(txt5.getText());
+    	  			  int quantity= Date.convertString(txt6.getText());
 			    	  String flightId= txt7.getText();
-			    	  Object f=new Flight(DepDatenew,LandDate,LandAirport,vendor,price,quantity,flightId);
-			    	  Server.requestAddObject("Flight",f);  
-			      }
-			      else //user radio selected
-			      {
-			    	  String name=txt8.getText();
-			    	  String email=txt9.getText();
-			    	  String password="11111";
+			    	  String origin="TLV";	 
+			    	  String destenation=txt8.getText();
 			    	  
-			    	  Object c=new Customer(name,email,password);
-			    	  Server.requestAddObject("Customer",c);  
+			    	  if(destenation==null)
+			    		   obj=new Flight(DepDatenew,LandDate,origin,LandAirport,vendor,price,quantity,flightId);
+			    	  else
+			    		  obj=new InternationalFlight(DepDatenew,LandDate,origin,LandAirport,vendor,price,quantity,flightId,destenation);
+			    	 
+			    	  
+			    	 if(!Server.requestAddObject(obj)) 
+			    		 JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");
+			    	 else
+			    	 JOptionPane.showMessageDialog(null, "Flight successfully added");
 			      }
-					
-					
-				}
+				
+				
 			});
 			
 			Delbtn.addActionListener(new ActionListener() {    //DELETE button
 				public void actionPerformed(ActionEvent e) 
 				{
-					String mapName;
+					String destenation=txt8.getText();
+					String flightId=txt7.getText();
 					if(usrd.isSelected())
 					{
-						mapName="Customer";
-						String email=txt7.getText();
-						Server.requestremoveObj(email, mapName);
+						String email=txt10.getText();
+						if(Server.requestremoveObj(email,"Customer"))
+							JOptionPane.showMessageDialog(null, "Flight successfully added");
+						
 					}
+					
+					else if(destenation!=null)
+					{
+						
+							if(Server.requestremoveObj(flightId,"InternationalFlight"))
+								JOptionPane.showMessageDialog(null, "Flight successfully added");
+					}
+					
 					else
 					{
-						mapName="Flight";
-						String flightId=txt7.getText();
-							Server.requestremoveObj(flightId,mapName);
-				
+						if(Server.requestremoveObj(flightId,"Flight"))
+							JOptionPane.showMessageDialog(null, "Flight successfully added");
+			
+						
 					}
-					
-					
 					
 					
 					
