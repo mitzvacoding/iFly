@@ -2,6 +2,10 @@ package iFly;
 
 import java.io.Serializable;
 
+import javax.xml.crypto.Data;
+
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 public class Date implements Serializable {
 	
 	public int day,month,year;
@@ -25,9 +29,9 @@ public class Date implements Serializable {
 		this.year = 2020;//convertString(str.substring(6,10));
 	}
 	
-	public String print()
+	public static String print(Date date)
 	{
-		String str = day + "/" + month + "/" + year;
+		String str = date.day + "/" + date.month + "/" + date.year;
 		return str;
 	}
 	
@@ -46,6 +50,14 @@ public class Date implements Serializable {
 			}
 		}
 		return num;
+	}
+	
+	//@Override
+	public boolean equals(Object date)
+	{	
+		if(year == ((Date)date).year && (month == ((Date)date).month) && (day == ((Date)date).day) )
+			return true;
+		return false;
 	}
 
 }
