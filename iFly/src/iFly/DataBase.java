@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import com.sun.tools.classfile.Opcode.Set;
 
 
 
@@ -41,7 +44,14 @@ public class DataBase
 	{	
     
 		managers.put(1, new Manager("123", "123", "*1", 2));
-		customers.put(1,new Customer("123","123","123"));
+
+		
+		
+		readFromFile();
+		
+		initKeys();
+		//customers.put(1,new Customer("123","123","123"));
+
 		//customers.put(2,new Customer("321","321","321"));
 			
 		//flights.put(flightKey++, new Flight(new Date("14/07/1996"), new Date("16/07/1996"), "TLV","", "1",2, 3,"4"));
@@ -49,7 +59,7 @@ public class DataBase
 		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
 		 
 		//writeToFile();
-		readFromFile();
+		
 		
 		
 		/* a proof that it read from file
@@ -120,7 +130,15 @@ public class DataBase
 			}
 		}
 	}
-	
+
+	public static void initKeys() 
+	{
+		flightKey = flights.size();
+		interFlightKey = internationalFlights.size();
+		
+		customerKey = customers.size();
+		managerKey = managers.size();
+	}
 
 	
 	
@@ -156,7 +174,7 @@ public class DataBase
 			if(flight.getClass().getSimpleName().equals("Flight"))
 				flights.put(flightKey++, flight);
 			else if(flight.getClass().getSimpleName().equals("InternationalFlight"))
-					internationalFlights.put(flightKey++, (InternationalFlight)flight);
+					internationalFlights.put(interFlightKey++, (InternationalFlight)flight);
 		}
 	}
 	
