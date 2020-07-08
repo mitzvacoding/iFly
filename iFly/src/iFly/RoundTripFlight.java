@@ -1,5 +1,6 @@
 package iFly;
 
+@SuppressWarnings("serial")
 public class RoundTripFlight  extends InternationalFlight
 
 {	

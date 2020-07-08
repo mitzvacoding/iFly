@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.xml.crypto.Data;
 
+@SuppressWarnings({ "unused", "serial" })
 public class Date implements Serializable {
 	
-	public int day,month,year;
+	public static int day;
+	public static int month;
+	public static int year;
 	public Date()
 	{
 		day=month = 1;
@@ -15,18 +18,24 @@ public class Date implements Serializable {
 	}
 	public Date(int day, int month , int year)
 	{
-		this.day = day;
-		this.month = month;
-		this.year = year;
+		Date.day = day;
+		Date.month = month;
+		Date.year = year;
 	}
 	
 	public Date(String str)
 	{
-		this.day = (str.charAt(0)-'0')*10 + (str.charAt(1)-'0');
-		this.month = (str.charAt(3)-'0')*10 +str.charAt(4)-'0';
-		this.year = 2020;//convertString(str.substring(6,10));
+		Date.day = (str.charAt(0)-'0')*10 + (str.charAt(1)-'0');
+		Date.month = (str.charAt(3)-'0')*10 +str.charAt(4)-'0';
+		Date.year = 2020;//convertString(str.substring(6,10));
 	}
 	
+	public static String print()
+	{
+		String str = day + "/" + month + "/" + year;
+		return str;
+	}
+	@SuppressWarnings("static-access")
 	public static String print(Date date)
 	{
 		String str = date.day + "/" + date.month + "/" + date.year;
@@ -50,6 +59,7 @@ public class Date implements Serializable {
 		return num;
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public boolean equals(Object date)
 	{	

@@ -32,6 +32,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Window.Type;
 
+@SuppressWarnings("unused")
 public class SearchPage
 {
 
@@ -48,7 +49,7 @@ public class SearchPage
 	private  static Integer roundTrip=0;
 	private JTextField originField;
 	
-	public static void SpFun() {  
+	public static void SpFun() {   
 		EventQueue.invokeLater(new Runnable() {
 			public void run() { 
 				try {

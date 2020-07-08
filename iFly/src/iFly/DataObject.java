@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 
+@SuppressWarnings("serial")
 public class DataObject implements Serializable{
 
 	public HashMap<String, HashMap<Integer, Object>> ext;

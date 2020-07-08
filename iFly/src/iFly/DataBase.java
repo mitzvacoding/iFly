@@ -34,7 +34,7 @@ public class DataBase
 	
 	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
-
+	
 
 //	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
 	
@@ -43,8 +43,8 @@ public class DataBase
 	public static void init()
 	{	
 
+		managers.put(1, new Manager("123", "123", "*1", 2));
 		
-		//managers.put(1, new Manager("123", "123", "*1", 2));
 		//customers.put(1,new Customer("123","123","123"));
 		//customers.put(2,new Customer("321","321","321"));
 
@@ -73,7 +73,7 @@ public class DataBase
 		}
 		*/
 				   
-	}
+	} 
 	
 	
 	public static void writeToFile()
@@ -324,6 +324,7 @@ public class DataBase
 	
 	
 	
+	@SuppressWarnings("unused")
 	private static void createFile(String fileName)
 	{
 		ObjectOutputStream oos = null;

@@ -24,6 +24,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings({ "unused", "deprecation" })
 public class MainPage  extends Observable 
 {
 
@@ -91,7 +92,7 @@ public class MainPage  extends Observable
 				
 			}
 			
-			@Override	
+			@Override	 
 			public void windowClosing(WindowEvent e) {
 				// TODO Auto-generated method stub
 				System.out.println("lala");
@@ -206,12 +207,15 @@ public class MainPage  extends Observable
 		lblNewLabel.setBounds(110, 23, 223, 67);
 		frame.getContentPane().add(lblNewLabel);
 		
+		JLabel lblNewLabel_1 = new JLabel("Enter email:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(25, 115, 95, 32);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblEnterPassword = new JLabel("Enter password:");
+		lblEnterPassword.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblEnterPassword.setBounds(25, 165, 110, 32);
+		frame.getContentPane().add(lblEnterPassword);
+		
 	}
-	
-
-	
-
-	
-	
-	
 }

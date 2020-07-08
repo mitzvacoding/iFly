@@ -19,7 +19,7 @@ public class DataManagement
 			return false;
 		DataBase.signUpCustomer(new Customer(name , email, password));
 		return true;
-		
+		 
 			
 	}
 	

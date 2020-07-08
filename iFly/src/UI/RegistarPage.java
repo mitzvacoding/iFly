@@ -21,6 +21,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("unused")
 public class RegistarPage {
 
 	private JFrame frame;
@@ -93,6 +94,7 @@ public class RegistarPage {
 			{
 				String name=NameField.getText();
 				String email=EmailField_1.getText();
+				@SuppressWarnings("deprecation")
 				String password=passwordField.getText();
 								
 				if (Server.signUpCustomer(name, email, password))//true if added

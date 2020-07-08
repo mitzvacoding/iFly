@@ -25,6 +25,7 @@ import UI.RegistarPage;
 import UI.ResultPage;
 import UI.SearchPage;
 
+@SuppressWarnings("unused")
 public class Main 
 {
 
@@ -35,12 +36,14 @@ public class Main
 
 	{
 		 
-		//DataBase.init();
+		DataBase.init();
+		MainPage.MpFun();
+		
 		//SearchPage.SpFun();
 		
 		//enter2File();
 		//readFromFile();
-		MainPage.MpFun();
+		
 	}
 	
 	

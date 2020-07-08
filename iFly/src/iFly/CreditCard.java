@@ -2,6 +2,7 @@ package iFly;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class CreditCard implements Serializable {
 	
 	private int creditNumber;

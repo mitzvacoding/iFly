@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.JProgressBar;
 import java.awt.Component;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.BoxLayout;
 import javax.swing.JSplitPane;
 import java.awt.Dimension;
@@ -44,6 +45,7 @@ import java.awt.event.ActionEvent;
 
 
 
+@SuppressWarnings("unused")
 public class ResultPage 
 {	
 	private JFrame frame;
@@ -152,6 +154,21 @@ public class ResultPage
 
 		
 		btn1 = new JButton("Purchase");
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+			
+				JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+				frame.setVisible(false);
+				
+			}
+		});
+		
+		
+		
+		
+		
+		
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
 		btn1.setBounds(563, 222, 97, 23);

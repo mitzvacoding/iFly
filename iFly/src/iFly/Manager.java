@@ -2,6 +2,7 @@ package iFly;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Manager extends User implements Serializable
 {
 	

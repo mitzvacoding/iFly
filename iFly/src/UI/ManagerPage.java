@@ -27,6 +27,7 @@ import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.JPanel;
 
+@SuppressWarnings("unused")
 public class ManagerPage 
 {
 
@@ -67,7 +68,8 @@ public class ManagerPage
 
 	/**
 	 * Initialize the contents of the frame.
-	 */
+	 */ 
+	@SuppressWarnings("rawtypes")
 	private void initialize()
 	{
 		frame = new JFrame();  

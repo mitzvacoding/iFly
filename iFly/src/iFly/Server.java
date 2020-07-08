@@ -20,7 +20,7 @@ public class Server
 		else 
 			return false; 
 	};
-	
+	 
  
 	public static boolean requestSignInManager(String email,String password)
 	{

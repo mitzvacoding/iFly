@@ -1,5 +1,6 @@
 package iFly;
 
+@SuppressWarnings("serial")
 public class InternationalFlight extends Flight 
 {
 
@@ -38,6 +39,7 @@ public class InternationalFlight extends Flight
 		this.destenation = destenation;
 	}
 	
+	@SuppressWarnings("static-access")
 	public  void print()
 	    {
 	    	System.out.println("Departure Date: "+ getDepartureDate().print() + "\nLanding Date: "+ getLandingDate().print());

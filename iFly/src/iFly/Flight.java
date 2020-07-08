@@ -4,6 +4,7 @@ import java.io.Serializable;
 import org.junit.Test;
 
 
+@SuppressWarnings({ "unused", "serial" })
 public class Flight implements Serializable
 {
 	
