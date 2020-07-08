@@ -14,8 +14,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.sun.tools.classfile.Opcode.Set;
-
+  
 
 
 public class DataBase 
@@ -40,7 +39,7 @@ public class DataBase
 
 
 	
-	public static void init()
+	public static void init()  
 	{	
     
 		managers.put(1, new Manager("123", "123", "*1", 2));
@@ -50,34 +49,7 @@ public class DataBase
 		readFromFile();
 		
 		initKeys();
-		//customers.put(1,new Customer("123","123","123"));
-
-		//customers.put(2,new Customer("321","321","321"));
-			
-		//flights.put(flightKey++, new Flight(new Date("14/07/1996"), new Date("16/07/1996"), "TLV","", "1",2, 3,"4"));
-		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/07/1996"),"TLV", "USA"));
-		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
-		 
-		//writeToFile();
-		
-		
-		
-		/* a proof that it read from file
-		for(Customer cst: customers.values())
-		{
-			System.out.println(cst.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(Flight flt: flights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(InternationalFlight flt: internationalFlights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		*/
+	
 				   
 	} 
 	

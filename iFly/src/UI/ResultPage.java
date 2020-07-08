@@ -55,11 +55,6 @@ public class ResultPage
     private JButton btn2;
     private JButton btn3;
     private JButton btn4;
-    private JButton btn5;
-    private JButton btn6;
-    private JButton btn7;
-    private JButton btn8;
-    private JButton btn9;
     
     
 	public static void ResFun() 
@@ -80,7 +75,7 @@ public class ResultPage
 			}
 		});
 	}
-	
+	 
 	public ResultPage() {
 		initialize();
 	}
@@ -189,38 +184,11 @@ public class ResultPage
 		 btn4.setBounds(563, 307, 97, 23);
 		 frame.getContentPane().add(btn4);
 		 
-		 btn5 = new JButton("Purchase");
+		 JButton btn5 = new JButton("Purchase");
 		 btn5.setForeground(new Color(204, 0, 51));
 		 btn5.setBackground(Color.WHITE);
-		 btn5.setBounds(563, 338, 97, 23);
+		 btn5.setBounds(563, 337, 97, 23);
 		 frame.getContentPane().add(btn5);
-		 
-		 btn6 = new JButton("Purchase");
-		 btn6.setForeground(new Color(204, 0, 51));
-		 btn6.setBackground(Color.WHITE);
-		 btn6.setBounds(563, 369, 97, 23);
-		 frame.getContentPane().add(btn6);
-		 
-		 btn7 = new JButton("Purchase");
-		 btn7.setForeground(new Color(204, 0, 51));
-		 btn7.setBackground(Color.WHITE);
-		 btn7.setBounds(563, 397, 97, 23);
-		 frame.getContentPane().add(btn7);
-		 
-		 btn8 = new JButton("Purchase");
-		 btn8.setForeground(new Color(204, 0, 51));
-		 btn8.setBackground(Color.WHITE);
-		 btn8.setBounds(563, 429, 97, 23);
-		 frame.getContentPane().add(btn8);
-		 
-		 btn9 = new JButton("Purchase");
-	
-		 
-		 
-		 btn9.setForeground(new Color(204, 0, 51));
-		 btn9.setBackground(Color.WHITE);
-		 btn9.setBounds(563, 462, 97, 23);
-		 frame.getContentPane().add(btn9);
 		 
 			btn1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
@@ -251,52 +219,6 @@ public class ResultPage
 				}
 			});
 			btn4.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn5.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn6.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			
-			btn7.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn8.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn9.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
 				{
 				
