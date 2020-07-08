@@ -37,10 +37,10 @@ public class Main
 	{
 		 
 		DataBase.init();
-		MainPage.MpFun();
+		MainPage.MpFun(); 
 		
 		//SearchPage.SpFun();
-		
+		//RegistarPage.RpFun();
 		//enter2File();
 		//readFromFile();
 		

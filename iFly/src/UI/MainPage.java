@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import iFly.Connected;
+import iFly.DataBase;
 import iFly.Server;
 
 import java.awt.Font;
@@ -36,7 +37,7 @@ public class MainPage  extends Observable
 	private JLabel lblNewLabel;
 
 	
-	public static void MpFun()
+	public static void MpFun()  
 	{
 		
 		 
@@ -66,51 +67,19 @@ public class MainPage  extends Observable
 		frame.setBounds(100, 100, 450, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.addWindowListener(new WindowListener() {
-			
-			@Override
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowIconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowDeiconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowDeactivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override	 
-			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println("lala");
-			}
-			
-			@Override
-			public void windowClosed(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowActivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-
+		
+		
+		
+	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+	          
+	    	 @Override
+	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+	               DataBase.writeToFile();
+	            }
+	        });
+	    
+		
+	
 		JButton loginBtn = new JButton("Log In");
 		loginBtn.addActionListener(new ActionListener() {				//Log-in button
 			
@@ -129,7 +98,8 @@ public class MainPage  extends Observable
 				{
 					if(Server.requestSignInManager(Estr,Pstr)) 			// check if manager is connected;
 					{
-						frame.setVisible(false);  
+						//frame.setVisible(false);
+						frame.dispose(); 
 						c.update(m, Pstr); 
 						setChanged();
 			    		notifyObservers();
@@ -148,7 +118,8 @@ public class MainPage  extends Observable
 				{
   				 if( Server.requestSignInCustomer(Estr,Pstr))
   				 {
-  					 frame.setVisible(false);  
+  					//frame.setVisible(false);
+ 					frame.dispose();
   					 SearchPage.SpFun(); 
 	  				 }
   				 
@@ -188,7 +159,8 @@ public class MainPage  extends Observable
 			
 			public void actionPerformed(ActionEvent e) //sign up button function
 			{
-				frame.setVisible(false);
+				//frame.setVisible(false);
+				frame.dispose();
 				RegistarPage.RpFun();
 			}
 		});

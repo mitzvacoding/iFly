@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import iFly.Customer;
+import iFly.DataBase;
 import iFly.Server;
 
 import java.awt.Font;
@@ -33,7 +34,7 @@ public class RegistarPage {
 	private JLabel lblNewLabel_3;
 
 	/**
-	 * Launch the application.
+	 * Launch the application. 
 	 */
 	public static void RpFun() {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,7 +44,7 @@ public class RegistarPage {
 					window.frame.setVisible(true);
 				} catch (Exception e) { 
 					e.printStackTrace();
-				}
+				} 
 			}
 		});
 	}
@@ -62,6 +63,18 @@ public class RegistarPage {
 		frame.getContentPane().setForeground(SystemColor.controlText);
 		frame.getContentPane().setBackground(SystemColor.activeCaption);
 		frame.getContentPane().setLayout(null);
+		
+
+	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+	          
+	    	 @Override
+	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+	               DataBase.writeToFile();
+	            }
+	        });
+	    
+		
+		
 		
 		JLabel lblNewLabel = new JLabel("IFLY");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 45));
@@ -99,7 +112,7 @@ public class RegistarPage {
 								
 				if (Server.signUpCustomer(name, email, password))//true if added
 				{	
-					frame.setVisible(false);
+					frame.dispose();
 					MainPage.MpFun();					
 				}
 				else
