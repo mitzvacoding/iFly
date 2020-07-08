@@ -25,6 +25,8 @@ public class Date implements Serializable {
 	
 	public Date(String str)
 	{
+		if(str.isEmpty())
+			day= -1;
 		int i=0, beginIndex = 0, counter = 0;
 		for(i=0 ; i<str.length() ; i++)
 		{
@@ -98,6 +100,13 @@ public class Date implements Serializable {
 	public String toString()
 	{
 		return print(this);
+	}
+	
+	public boolean isEmpty()
+	{
+		if(day == -1)
+			return true;
+		return false;
 	}
 
 }

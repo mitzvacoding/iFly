@@ -44,6 +44,10 @@ public class Main
 		//enter2File();
 		//readFromFile();
 		
+		//Flight flt = ObjectsFactory.getFlightByButton(new Date("11/11/1111"), new Date(""), "TLV", "");
+		
+	//	System.out.println(ObjectsFactory.getClassName(flt).equals("Flight"));
+				
 
 	}
 	

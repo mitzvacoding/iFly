@@ -62,7 +62,7 @@ public class ResultPage
 					
 					ResultPage window = new ResultPage();
 					window.frame.setVisible(true);
-				//	window.frame.getContentPane().add(Server.requestFlightResults());
+					window.frame.getContentPane().add(Server.requestFlightResults());
 				}
 				catch (Exception e)
 				{
@@ -98,23 +98,7 @@ public class ResultPage
 	        });
 	    
 		
-		    JTable ta = new JTable(6,7);
-			ta.setColumnSelectionAllowed(true);
-			ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			ta.setBounds(0, 217, 556, 180);
-			ta.setBackground(new Color(255, 250, 240));
-			ta.setBorder(new LineBorder(new Color(0, 0, 0)));
-			ta.setValueAt("Dep Date", 0, 0);
-		    ta.setValueAt("Land Date",0, 1);	
-		    ta.setValueAt("vendor",0,2);
-		    ta.setValueAt("Origin", 0, 3);
-		    ta.setValueAt("Destination", 0, 4);
-		    ta.setValueAt("Flight ID",0,5);
-		    ta.setValueAt("Price", 0,6);
-		
-			ta.setIntercellSpacing(new  Dimension(5,5));
-			ta.setRowHeight(30);
-			frame.getContentPane().add(ta);
+
 						
 	     
 	     

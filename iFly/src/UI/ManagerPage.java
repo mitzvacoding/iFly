@@ -299,16 +299,16 @@ public class ManagerPage
 				public void actionPerformed(ActionEvent e) 
 				{
 					Object obj;
-					Date DepDatenew=new Date(txt1.getText());
-					Date LandDate=new Date(txt2.getText());
+					String DepDatenew=txt1.getText();
+					String returnDate=txt2.getText();
 					String origin=txt3.getText();	 
 					String vendor= txt4.getText();
 					int price= Date.convertString(txt5.getText());
 					int quantity= Date.convertString(txt6.getText());
 					int flightId= Date.convertString(txt7.getText());
 					String destenation=txt8.getText();
-			    	  					
-					if(!Server.requestAddObject(DepDatenew,LandDate,origin,destenation,vendor,price,quantity,flightId)) 
+					
+					if(!Server.requestAddObject(DepDatenew,returnDate,origin,destenation,vendor,price,quantity,flightId)) 
 						JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");
 					else
 						JOptionPane.showMessageDialog(null, "Flight successfully added");

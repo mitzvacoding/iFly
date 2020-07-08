@@ -52,17 +52,7 @@ public class DataBase
 		managers.put(1, new Manager("123", "123", "*1", 2));
 		customers.put(1,new Customer("123","123","123"));
 		
-		
 
-		//customers.put(2,new Customer("321","321","321"));
-			
-		//flights.put(flightKey++, new Flight(new Date("14/07/1996"), new Date("16/07/1996"), "TLV","", "1",2, 3,"4"));
-		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("14/07/1996"),"TLV", "USA"));
-		//internationalFlights.put(flightKey++, new InternationalFlight(new Date("25/11/1996"),"USA", "USB"));
-		 
-		//writeToFile();
-		
-		
 		
 		/* a proof that it read from file
 		for(Customer cst: customers.values())

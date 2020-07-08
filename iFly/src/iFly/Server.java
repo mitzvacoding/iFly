@@ -60,10 +60,10 @@ public class Server
 		ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();
 		lastFlightResult = DataManagement.showFlightResult();
 		
-	    JTable ta = new JTable(5,7);
+	    JTable ta = new JTable(6,7);
 		ta.setColumnSelectionAllowed(true);
 		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ta.setBounds(0, 185, 556, 300);
+		ta.setBounds(0, 217, 556, 180);
 		ta.setBackground(new Color(255, 250, 240));
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		ta.setValueAt("Dep Date", 0, 0);
@@ -73,7 +73,7 @@ public class Server
 	    ta.setValueAt("Destination", 0, 4);
 	    ta.setValueAt("Flight ID",0,5);
 	    ta.setValueAt("Price", 0,6);
-		
+	
 		ta.setIntercellSpacing(new  Dimension(5,5));
 		ta.setRowHeight(30);
 				
@@ -101,7 +101,7 @@ public class Server
 	
 	
 	// add Flight or Customer;
-	public static boolean requestAddObject(Date depDate,Date landDate,String origin,String destenation,String vendor,int price,int quantity,int flightId) 
+	public static boolean requestAddObject(String depDate,String landDate,String origin,String destenation,String vendor,int price,int quantity,int flightId) 
 	{
 		if(DataManagement.addFlight(depDate,landDate,destenation,origin,vendor,price,quantity,flightId))
 			return true;
