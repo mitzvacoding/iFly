@@ -28,7 +28,7 @@ public class DataManagement
 		if(DataBase.checkSignInManager(email, password))
 			return true;	 
 		return false;
-	}
+	} 
  
 
 	

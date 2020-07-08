@@ -23,7 +23,7 @@ public class ObjectsFactory {
 			else
 				flt =new InternationalFlight(depDate,origin, destination);	
 		
-		}
+		}  
 
 		
 		return flt;

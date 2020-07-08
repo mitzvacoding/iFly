@@ -17,7 +17,7 @@ public abstract class User implements Serializable
 	 this.setEmail(email);
 	 this.setPassword(password);
  } 
-
+ 
  public User()
  {
 	 this.setName(null);
@@ -26,8 +26,7 @@ public abstract class User implements Serializable
  }
   
  
- 
- 
+
   public  abstract String showDetalis();
 
 public String getEmail() {

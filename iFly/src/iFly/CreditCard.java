@@ -20,7 +20,8 @@ public class CreditCard implements Serializable {
 		this.creditNumber=creditNumber;
 		this.validity=validity;
 		this.cvv=cvv;
-	}
+	} 
+	
 	
 	public String print()
 	{

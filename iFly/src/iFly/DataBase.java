@@ -29,17 +29,14 @@ public class DataBase
 	
 	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
 	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
-	//public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
-	
+
 	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
 	
 
-//	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
+
 	
-	
-	
-	public static void init()
+	public static void init()  
 	{	
     
 		
@@ -50,6 +47,7 @@ public class DataBase
 		readFromFile();
 		
 		initKeys();
+
 		
 		managers.put(1, new Manager("123", "123", "*1", 2));
 		customers.put(1,new Customer("123","123","123"));
@@ -82,6 +80,7 @@ public class DataBase
 			System.out.println(flt.toString()+"\n");
 		}
 		*/
+
 				   
 	} 
 	

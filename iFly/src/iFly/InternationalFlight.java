@@ -12,7 +12,7 @@ public class InternationalFlight extends Flight
 		super();
 		this.destenation="any place";
 		
-	}
+	}  
 
 	public InternationalFlight(Date departureDate, Date landingDate,String origin, String vendor,int price, int quantity, String flightId,String destenation)
 	{

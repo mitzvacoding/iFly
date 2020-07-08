@@ -1,6 +1,7 @@
 package iFly;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Customer extends User implements Serializable
@@ -9,7 +10,7 @@ public class Customer extends User implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = 1703155466131389119L;
-	HashMap<Integer,String> cart;
+	ArrayList<Flight> cart=new ArrayList<Flight>(); 
 	CreditCard  credit;
 	
  
@@ -17,7 +18,6 @@ public class Customer extends User implements Serializable
  public Customer()
  { 
 	 super();
-	 this.cart=new HashMap<Integer, String>(0);
      this.credit= new CreditCard();
 
  }
@@ -32,7 +32,6 @@ public class Customer extends User implements Serializable
  public Customer(String email,String password,String name,HashMap<Integer,String> cart,CreditCard  credit)
  {
 	 super(email,password,name);
-	 this.cart=new HashMap<Integer, String>(0);
      this.credit= new CreditCard();
 
  }

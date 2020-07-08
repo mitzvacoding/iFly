@@ -28,8 +28,8 @@ public class Server
 			return true;
 		else 
 			return false; 
-	};
-	
+	};  
+	 
 
 	public static boolean signUpCustomer(String name, String email, String password) 
 	{

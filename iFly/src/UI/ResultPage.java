@@ -3,7 +3,6 @@ package UI;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -21,10 +20,8 @@ import java.awt.Dimension;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.TableColumn;
-
 import iFly.DataBase;
 import iFly.Server;
-
 import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.GroupLayout;
@@ -55,11 +52,6 @@ public class ResultPage
     private JButton btn2;
     private JButton btn3;
     private JButton btn4;
-    private JButton btn5;
-    private JButton btn6;
-    private JButton btn7;
-    private JButton btn8;
-    private JButton btn9;
     
     
 	public static void ResFun() 
@@ -70,7 +62,7 @@ public class ResultPage
 					
 					ResultPage window = new ResultPage();
 					window.frame.setVisible(true);
-					window.frame.getContentPane().add(Server.requestFlightResults());
+				//	window.frame.getContentPane().add(Server.requestFlightResults());
 				}
 				catch (Exception e)
 				{
@@ -80,36 +72,12 @@ public class ResultPage
 			}
 		});
 	}
-	
+	 
 	public ResultPage() {
 		initialize();
 	}
 
-	public static JTable func()
-	{
-		 JTable ta = new JTable(10,6);
-			ta.setColumnSelectionAllowed(true);
-			ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			ta.setBounds(0, 185, 556, 300);
-			ta.setBackground(new Color(255, 250, 240));
-			ta.setBorder(new LineBorder(new Color(0, 0, 0)));
-			ta.setValueAt("Dep Date", 0, 0);
-		    ta.setValueAt("Land Date",0, 1);	
-		    ta.setValueAt("vendor",0,2);
-		    ta.setValueAt("Air port", 0, 3);
-		    ta.setValueAt("Flight ID",0,4);
-		    ta.setValueAt("Price", 0,5);
-		    ta = new JTable(10,6);
-			ta.setColumnSelectionAllowed(true);
-			ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			ta.setBounds(0, 185, 556, 300);
-			ta.setBackground(new Color(255, 250, 240));
-			ta.setBorder(new LineBorder(new Color(0, 0, 0)));
-			
-			ta.setIntercellSpacing(new  Dimension(5,5));
-			ta.setRowHeight(30);
-			return ta;
-	}
+	
 	
 	 void initialize() 
 	 
@@ -130,7 +98,27 @@ public class ResultPage
 	        });
 	    
 		
+		    JTable ta = new JTable(6,7);
+			ta.setColumnSelectionAllowed(true);
+			ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			ta.setBounds(0, 217, 556, 180);
+			ta.setBackground(new Color(255, 250, 240));
+			ta.setBorder(new LineBorder(new Color(0, 0, 0)));
+			ta.setValueAt("Dep Date", 0, 0);
+		    ta.setValueAt("Land Date",0, 1);	
+		    ta.setValueAt("vendor",0,2);
+		    ta.setValueAt("Origin", 0, 3);
+		    ta.setValueAt("Destination", 0, 4);
+		    ta.setValueAt("Flight ID",0,5);
+		    ta.setValueAt("Price", 0,6);
 		
+			ta.setIntercellSpacing(new  Dimension(5,5));
+			ta.setRowHeight(30);
+			frame.getContentPane().add(ta);
+						
+	     
+	     
+	     
 		label = new JLabel("IFly");
 		label.setBounds(247, 11, 126, 76);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,65 +131,38 @@ public class ResultPage
 		
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
-		btn1.setBounds(563, 222, 97, 23);
+		btn1.setBounds(566, 251, 97, 23);
 		frame.getContentPane().add(btn1);
 
 		 
 		 btn2 = new JButton("Purchase");
 		 btn2.setForeground(new Color(204, 0, 51));
 		 btn2.setBackground(Color.WHITE);
-		 btn2.setBounds(563, 248, 97, 23);
+		 btn2.setBounds(566, 281, 97, 23);
 		 frame.getContentPane().add(btn2);
 		 
 		 btn3 = new JButton("Purchase");
 		 btn3.setForeground(new Color(204, 0, 51));
 		 btn3.setBackground(Color.WHITE);
-		 btn3.setBounds(563, 278, 97, 23);
+		 btn3.setBounds(566, 310, 97, 23);
 		 frame.getContentPane().add(btn3);
 		 
 		 btn4 = new JButton("Purchase");
 		 btn4.setForeground(new Color(204, 0, 51));
 		 btn4.setBackground(Color.WHITE);
-		 btn4.setBounds(563, 307, 97, 23);
+		 btn4.setBounds(566, 340, 97, 23);
 		 frame.getContentPane().add(btn4);
 		 
-		 btn5 = new JButton("Purchase");
+		 JButton btn5 = new JButton("Purchase");
 		 btn5.setForeground(new Color(204, 0, 51));
 		 btn5.setBackground(Color.WHITE);
-		 btn5.setBounds(563, 338, 97, 23);
+		 btn5.setBounds(566, 374, 97, 23);
 		 frame.getContentPane().add(btn5);
-		 
-		 btn6 = new JButton("Purchase");
-		 btn6.setForeground(new Color(204, 0, 51));
-		 btn6.setBackground(Color.WHITE);
-		 btn6.setBounds(563, 369, 97, 23);
-		 frame.getContentPane().add(btn6);
-		 
-		 btn7 = new JButton("Purchase");
-		 btn7.setForeground(new Color(204, 0, 51));
-		 btn7.setBackground(Color.WHITE);
-		 btn7.setBounds(563, 397, 97, 23);
-		 frame.getContentPane().add(btn7);
-		 
-		 btn8 = new JButton("Purchase");
-		 btn8.setForeground(new Color(204, 0, 51));
-		 btn8.setBackground(Color.WHITE);
-		 btn8.setBounds(563, 429, 97, 23);
-		 frame.getContentPane().add(btn8);
-		 
-		 btn9 = new JButton("Purchase");
-	
-		 
-		 
-		 btn9.setForeground(new Color(204, 0, 51));
-		 btn9.setBackground(Color.WHITE);
-		 btn9.setBounds(563, 462, 97, 23);
-		 frame.getContentPane().add(btn9);
 		 
 			btn1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
 				{
-				
+					
 					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
 					frame.setVisible(false);
 					
@@ -219,7 +180,7 @@ public class ResultPage
 			});
 			btn3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
-				{
+				{  
 				
 					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
 					frame.setVisible(false);
@@ -227,52 +188,6 @@ public class ResultPage
 				}
 			});
 			btn4.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn5.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn6.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			
-			btn7.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn8.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e)
-				{
-				
-					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
-					
-				}
-			});
-			btn9.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
 				{
 				
