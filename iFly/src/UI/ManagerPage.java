@@ -305,25 +305,20 @@ public class ManagerPage
 					String vendor= txt4.getText();
 					int price= Date.convertString(txt5.getText());
 					int quantity= Date.convertString(txt6.getText());
-					String flightId= txt7.getText();
+					int flightId= Date.convertString(txt7.getText());
 					String destenation=txt8.getText();
-			    	  
-					if(destenation==null)
-						obj=new Flight(DepDatenew,LandDate,origin,vendor,price,quantity,flightId);
-					else
-						obj=new InternationalFlight(DepDatenew,LandDate,origin,vendor,price,quantity,flightId,destenation);
-			    	 
-					
-					if(!Server.requestAddObject(obj)) 
+			    	  					
+					if(!Server.requestAddObject(DepDatenew,LandDate,origin,destenation,vendor,price,quantity,flightId)) 
 						JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");
 					else
 						JOptionPane.showMessageDialog(null, "Flight successfully added");
+					
 			      }
 				
 				
 			});
-			
-			Delbtn.addActionListener(new ActionListener() {    //DELETE button
+			//DELETE button
+			Delbtn.addActionListener(new ActionListener() {    
 				public void actionPerformed(ActionEvent e) 
 				{
 					String destenation=txt8.getText();

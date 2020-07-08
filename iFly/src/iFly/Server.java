@@ -101,13 +101,14 @@ public class Server
 	
 	
 	// add Flight or Customer;
-	public static boolean requestAddObject(Object obj) 
+	public static boolean requestAddObject(Date depDate,Date landDate,String origin,String destenation,String vendor,int price,int quantity,int flightId) 
 	{
-			if(DataManagement.addObject(obj))
-				return true;
+		if(DataManagement.addFlight(depDate,landDate,destenation,origin,vendor,price,quantity,flightId))
+			return true;
 			
-			return false;
+		return false;
 	};
+	
 	   
   
 	public static boolean requestremoveObj( String str,String objName) 

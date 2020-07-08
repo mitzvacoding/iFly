@@ -19,10 +19,10 @@ public class DataBase
 	
 	public static DataObject big=new DataObject();
 	public static HashMap<String,String> files;
-	public static int customerKey=0;
-	public static int flightKey=0;
-	public static int managerKey=0;
-	public static int interFlightKey=0;  
+	public static int customerKey=1;
+	public static int flightKey=1;
+	public static int managerKey=1;
+	public static int interFlightKey=1;  
 	public static String str = null;
 	public static String fileName = "data.txt";
 
@@ -42,14 +42,19 @@ public class DataBase
 	public static void init()
 	{	
     
-		managers.put(1, new Manager("123", "123", "*1", 2));
+		
 
+		
 		
 		
 		readFromFile();
 		
 		initKeys();
-		//customers.put(1,new Customer("123","123","123"));
+		
+		managers.put(1, new Manager("123", "123", "*1", 2));
+		customers.put(1,new Customer("123","123","123"));
+		
+		
 
 		//customers.put(2,new Customer("321","321","321"));
 			
@@ -241,51 +246,51 @@ public class DataBase
 		return false;
 	}
 
-	
-	public static Integer findFlight(Object obj)
+	//being called when adding a flight
+	public static Boolean findExistFlight(Flight flt)
 	{
-		if(obj.getClass().getSimpleName()=="Flight")
+		if(flt.getClass().getSimpleName()=="Flight")
 		{
 			for(Flight flight: flights.values())
-		{
-			if( flight.getFlightId().equals(((Flight) obj).getFlightId()  ) ) {
-				flight.setQuantity(flight.getQuantity()+((Flight) obj).getQuantity());
-			    return 1;
-			    }}}
+			{
+				if( flight.getFlightId().equals( flt.getFlightId() ) ) 
+				{
+					flight.setQuantity(flight.getQuantity()+flt.getQuantity());
+					return true; 
+				}		
+			}	
+		}
 		
-		else
+		else if(flt.getClass().getSimpleName()=="InternationalFlight")
 		{
 			for(InternationalFlight flight: internationalFlights.values())
 			{
-				if( flight.getFlightId().equals(((InternationalFlight) obj).getFlightId()  ) ) {
-					flight.setQuantity(flight.getQuantity()+((InternationalFlight) obj).getQuantity());
-				    return 1;
-				    }}}
-		
-		
-		return null;
+				if( flight.getFlightId().equals(((InternationalFlight) flt).getFlightId()  ) ) 
+				{
+					flight.setQuantity(flight.getQuantity()+((InternationalFlight) flt).getQuantity());
+				    return true;				    
+				}	
+			}		
+		}		
+		return false;	
 	}
 	
 	
 	
 	
-	public static boolean addObject(Object obj)
+	public static boolean addObject(Flight flt)
 	{
-				
-			if(findFlight(obj)==null)
-	
+		String className = 	ObjectsFactory.getClassName(flt);	
+			if(findExistFlight(flt)==false)
 			{
-				flights.put(flightKey++,(Flight) obj);
+				if(className.equals("Flight"))
+					flights.put(flightKey++, flt);
+				else if(className.equals("InternationalFlight"))
+						internationalFlights.put(interFlightKey++, (InternationalFlight) flt);
 				return true;
 			}
-			else if(findFlight(obj)==null)
-			{ 
-				internationalFlights.put(interFlightKey++, (InternationalFlight) obj);
-				return true;
-						
-			}
-					
-				return false;
+
+			return false;
 					
 	}
 	
@@ -332,32 +337,6 @@ public class DataBase
 						key++;}}
 			
 		return false;
-	}
-	
-	
-	
-	
-	
-	
-	@SuppressWarnings("unused")
-	private static void createFile(String fileName)
-	{
-		ObjectOutputStream oos = null;
-		try {
-			oos = new ObjectOutputStream(new FileOutputStream(fileName));
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-
-			
-			
-			    
-			
-			
-			
-		}
-	
 	}
 	
 }

@@ -7,9 +7,9 @@ import javax.xml.crypto.Data;
 @SuppressWarnings({ "unused", "serial" })
 public class Date implements Serializable {
 	
-	public static int day;
-	public static int month;
-	public static int year;
+	public int day;
+	public int month;
+	public int year;
 	public Date()
 	{
 		day=month = 1;
@@ -18,16 +18,42 @@ public class Date implements Serializable {
 	}
 	public Date(int day, int month , int year)
 	{
-		Date.day = day;
-		Date.month = month;
-		Date.year = year;
+		this.day = day;
+		this.month = month;
+		this.year = year;
 	}
 	
 	public Date(String str)
 	{
-		Date.day = (str.charAt(0)-'0')*10 + (str.charAt(1)-'0');
-		Date.month = (str.charAt(3)-'0')*10 +str.charAt(4)-'0';
-		Date.year = 2020;//convertString(str.substring(6,10));
+		int i=0, beginIndex = 0, counter = 0;
+		for(i=0 ; i<str.length() ; i++)
+		{
+			if((str.charAt(i) == '/') || (str.charAt(i)== '\\') || (str.charAt(i)=='.') )
+			{
+				switch(counter) {
+					
+					case 0:
+						day = convertString(str.substring(beginIndex, i));
+						break;
+					case 1:
+						month = convertString(str.substring(beginIndex, i));
+						break;
+					case 2:
+						year = convertString(str.substring(beginIndex, i));
+						break;
+				
+				}
+				counter++;
+				beginIndex = i+1;
+				i= beginIndex;
+				
+			}
+			else if((i==str.length() -1))
+				year = convertString(str.substring(beginIndex, i+1));
+				
+				
+				
+		}
 	}
 	
 	public String print()

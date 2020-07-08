@@ -45,5 +45,10 @@ public class ObjectsFactory {
 		return destination;
 		
 	}
+	
+	public static String getClassName(Object obj)
+	{
+		return obj.getClass().getSimpleName();
+	}
 }
 

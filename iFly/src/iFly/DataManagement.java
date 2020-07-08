@@ -33,11 +33,12 @@ public class DataManagement
 
 	
 	//called by server.AddObject 
-	public static boolean addObject(Object obj) 
+	public static boolean addFlight(Date depDate,Date landDate,String origin,String destination,String vendor,int price,int quantity,int flightId) 
 	{
-			if(DataBase.addObject(obj))
-				return true;
-			return false;
+		Flight flt = ObjectsFactory.getFlightByButton(depDate, landDate, origin, destination);
+		if(DataBase.addObject(flt))
+			return true;
+		return false;
 	}
 	
 	
