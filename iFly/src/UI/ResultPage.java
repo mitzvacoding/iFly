@@ -75,7 +75,7 @@ public class ResultPage
 				catch (Exception e)
 				{
 					e.printStackTrace();
-					
+					 
 				}
 			}
 		});
@@ -120,6 +120,15 @@ public class ResultPage
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
 		frame.setFocusable(true);
 		frame.getContentPane().setLayout(null);
+
+	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+	          
+	    	 @Override
+	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+	               DataBase.writeToFile();
+	            }
+	        });
+	    
 		
 		
 		label = new JLabel("IFly");
@@ -154,20 +163,7 @@ public class ResultPage
 
 		
 		btn1 = new JButton("Purchase");
-		btn1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-			
-				JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-				frame.setVisible(false);
-				
-			}
-		});
-		
-		
-		
-		
-		
+	
 		
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
@@ -225,8 +221,97 @@ public class ResultPage
 		 btn9.setBackground(Color.WHITE);
 		 btn9.setBounds(563, 462, 97, 23);
 		 frame.getContentPane().add(btn9);
-
+		 
+			btn1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			
+			btn2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn6.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			
+			btn7.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn8.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			btn9.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+			
+			
+			
+			
 	    
+		 
+		 
 	  
 	  
 	    

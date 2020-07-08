@@ -2,6 +2,8 @@ package UI;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+
+import iFly.DataBase;
 import iFly.Date;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -85,6 +87,13 @@ public class SearchPage
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(lblNewLabel);
 		
+
+	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+	          
+	    	 @Override
+	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+	               DataBase.writeToFile(); }});
+	   
 		depDate = new JTextField();
 		depDate.setBounds(114, 222, 122, 42);
 		depDate.setText("01/06/2020");
@@ -281,7 +290,8 @@ public class SearchPage
 					returnDate=new Date( retDateField.getText());
 				
 				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
-				frame.setVisible(false);
+				//frame.setVisible(false);
+				frame.dispose();
 				ResultPage.ResFun();	
 				
 				

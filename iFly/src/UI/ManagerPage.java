@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import iFly.Customer;
+import iFly.DataBase;
 import iFly.Date;
 import iFly.Flight;
 import iFly.InternationalFlight;
@@ -79,7 +80,16 @@ public class ManagerPage
 		frame.setFocusable(true);
 		frame.getContentPane().setLayout(null);
 		
-	
+
+	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+	          
+	    	 @Override
+	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+	               DataBase.writeToFile();
+	            }
+	        });
+	    
+		
 		
 
 		JLabel label = new JLabel("IFly");
@@ -114,7 +124,7 @@ public class ManagerPage
 		txt3.setBounds(201, 131, 77, 28);
 		frame.getContentPane().add(txt3);
 		
-		txt4 = new JTextField();
+		txt4 = new JTextField(); 
 		txt4.setEditable(false);
 		txt4.setColumns(10);
 		txt4.setBounds(25, 181, 77, 28);
