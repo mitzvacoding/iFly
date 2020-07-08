@@ -30,7 +30,7 @@ public class Date implements Serializable {
 		Date.year = 2020;//convertString(str.substring(6,10));
 	}
 	
-	public static String print()
+	public String print()
 	{
 		String str = day + "/" + month + "/" + year;
 		return str;

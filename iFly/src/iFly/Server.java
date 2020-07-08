@@ -28,7 +28,7 @@ public class Server
 			return true;
 		else 
 			return false; 
-	};
+	};  
 	 
 
 	public static boolean signUpCustomer(String name, String email, String password) 
@@ -60,7 +60,7 @@ public class Server
 		ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();
 		lastFlightResult = DataManagement.showFlightResult();
 		
-	    JTable ta = new JTable(10,6);
+	    JTable ta = new JTable(5,7);
 		ta.setColumnSelectionAllowed(true);
 		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		ta.setBounds(0, 185, 556, 300);
@@ -69,9 +69,10 @@ public class Server
 		ta.setValueAt("Dep Date", 0, 0);
 	    ta.setValueAt("Land Date",0, 1);	
 	    ta.setValueAt("vendor",0,2);
-	    ta.setValueAt("Air port", 0, 3);
-	    ta.setValueAt("Flight ID",0,4);
-	    ta.setValueAt("Price", 0,5);
+	    ta.setValueAt("Origin", 0, 3);
+	    ta.setValueAt("Destination", 0, 4);
+	    ta.setValueAt("Flight ID",0,5);
+	    ta.setValueAt("Price", 0,6);
 		
 		ta.setIntercellSpacing(new  Dimension(5,5));
 		ta.setRowHeight(30);
@@ -79,12 +80,15 @@ public class Server
 		int row = 1, col=0;
 		for(Flight flight: lastFlightResult)
 		{
+			String destination = ObjectsFactory.getDestinationByFlight(flight);
+			
 			ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
 			ta.setValueAt(Date.print(flight.getLandingDate()),row, col++);
 			ta.setValueAt(flight.getVendor(),row, col++);
-			ta.setValueAt(flight.getLandingAirport(),row, col++);
+			ta.setValueAt(flight.getOrigin(),row, col++);
+			ta.setValueAt(destination, row, col++);
 			ta.setValueAt(flight.getFlightId(),row, col++);
-			ta.setValueAt(flight.getPrice(),row, col++);
+			ta.setValueAt(flight.getPrice(),row, col++);//7
 			row++;
 			col = 0;
 
