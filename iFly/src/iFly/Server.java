@@ -29,7 +29,7 @@ public class Server
 		else 
 			return false; 
 	};
-	
+	 
 
 	public static boolean signUpCustomer(String name, String email, String password) 
 	{

@@ -30,15 +30,12 @@ public class DataBase
 	
 	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
 	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
-	//public static HashMap<Integer, RoundTripFlight> flight = new HashMap<Integer, RoundTripFlight>();
-	
+
 	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
 	
 
-//	public static HashMap<Integer,Flight> res=new HashMap<Integer,Flight>();
-	
-	
+
 	
 	public static void init()
 	{	
