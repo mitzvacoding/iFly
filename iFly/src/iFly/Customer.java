@@ -3,12 +3,14 @@ package iFly;
 import java.io.Serializable;
 import java.util.HashMap;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 public class Customer extends User implements Serializable
 {
- HashMap<Integer,String> cart;
- CreditCard  credit;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1703155466131389119L;
+	HashMap<Integer,String> cart;
+	CreditCard  credit;
 	
  
  
@@ -48,9 +50,9 @@ public class Customer extends User implements Serializable
 	public boolean serachFlight(String dates,String destination) {return true;}
 
 	@Override
-	public String toString() 
+	public String toString()
 	{
-	String str="Name:"+ this.getName()+"/Email:"+ this.getEmail()+"/Password "+ this.getPassword();//+"\nCredit Card: "+this.credit.print();
+	String str="Name:"+ this.getName()+"\nEmail:"+ this.getEmail()+"\nPassword "+ this.getPassword();//+"\nCredit Card: "+this.credit.print();
 	return str;
 	}
 	

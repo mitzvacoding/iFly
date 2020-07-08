@@ -1,7 +1,8 @@
 package iFly;
 
+import java.io.Serializable;
 
-public abstract class User 
+public abstract class User implements Serializable
 {
 	
   private String name; 	

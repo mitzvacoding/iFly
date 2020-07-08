@@ -140,7 +140,7 @@ public class Flight implements Serializable
 	 @Override
 	 public String toString()
 	 {
-		String str =  "Departure Date: "+ this.departureDate.print()+ "\nLanding Date: "+ this.landingDate.print();
+		String str =  "Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString();
 		str += "\nLandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$";
 		str += "\nQuantity: " + this.quantity + "\nFlight ID: " + this.flightId;
 		return str;
@@ -148,7 +148,7 @@ public class Flight implements Serializable
 	 
 	    public void print()
 	    {
-	    	System.out.println("Departure Date: "+ this.departureDate.print()+ "\nLanding Date: "+ this.landingDate.print());
+	    	System.out.println("Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString());
 	    	System.out.println("LandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$");
 	    	System.out.println("Quantity: " + this.quantity + "\nFlight ID: " + this.flightId);
 	    }
