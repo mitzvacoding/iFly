@@ -11,7 +11,6 @@ public class Flight implements Serializable
 	private Date departureDate;
 	private Date landingDate; 	
 	private String origin;
-	private String landingAirport;
   	private String vendor;
     private int price;
     private int quantity;
@@ -23,7 +22,6 @@ public class Flight implements Serializable
     {
      	this. departureDate = new Date(); 
     	this.landingDate = new Date();
-    	this.landingAirport = "ELT";
     	this.vendor = "";
     	this.price  = 0;
     	this.quantity = 0;
@@ -32,12 +30,11 @@ public class Flight implements Serializable
     
     
     
-    public Flight(Date departureDate, Date landingDate, String origin,String landingAirport, String vendor, int price, int quantity, String flightId)
+    public Flight(Date departureDate, Date landingDate, String origin, String vendor, int price, int quantity, String flightId)
     {
     	this.departureDate = departureDate;
     	this.landingDate = landingDate;
     	this.origin = origin;
-    	this.landingAirport = landingAirport;
     	this.vendor = vendor;
     	this.price  = price;
     	this.quantity = quantity;
@@ -45,33 +42,15 @@ public class Flight implements Serializable
     }
 
    
-	public Flight(Date departureDate,String origin, String landingAirport)
+	public Flight(Date departureDate,String origin)
 	{
 		
     	this.departureDate = departureDate;
     	this.origin = origin;
     	this.landingDate = null;
-    	this.landingAirport =landingAirport;
 
 		
 	}
-
-	/*
-	public Flight(Date depDatenew, Date landDate, String landAirport, String vendor, String price, String quantity,	String flightId) 
-	{
-		
-		this.departureDate = departureDate;
-    	this.landingDate = landingDate;
-    	this.landingAirport ="ELT";
-    	this.vendor = vendor;
-    	this.price  = (price.charAt(0)-'0')*100 +(price.charAt(1)-'0')*10+ (price.charAt(2)-'0'); //Price includes 3 digits
-    	this.quantity = (quantity.charAt(0)-'0'); //quantity   includes 1 digits
-    	this.flightId = flightId;
-
-	}
- */
-
-	
 
 	public int priceCalculation() {return 1;}
 
@@ -105,10 +84,6 @@ public class Flight implements Serializable
 		this.origin = origin;
 	}
 	
-	public String getLandingAirport()
-	{
-	return  this.landingAirport;
-	}
 	 
 	public String getVendor()
 	{
@@ -142,7 +117,7 @@ public class Flight implements Serializable
 	 public String toString()
 	 {
 		String str =  "Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString();
-		str += "\nLandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$";
+		str += "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$";
 		str += "\nQuantity: " + this.quantity + "\nFlight ID: " + this.flightId;
 		return str;
 	 }
@@ -150,7 +125,7 @@ public class Flight implements Serializable
 	    public void print()
 	    {
 	    	System.out.println("Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString());
-	    	System.out.println("LandingAirport: "+this.landingAirport + "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$");
+	    	System.out.println("Vendor: "+this.vendor +"\nPrice: "+this.price+"$");
 	    	System.out.println("Quantity: " + this.quantity + "\nFlight ID: " + this.flightId);
 	    }
 	   	    

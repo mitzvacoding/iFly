@@ -121,19 +121,19 @@ public class ManagerPage
 		txt3 = new JTextField();
 		txt3.setEditable(false);
 		txt3.setColumns(10);
-		txt3.setBounds(201, 131, 77, 28);
+		txt3.setBounds(199, 181, 77, 28);
 		frame.getContentPane().add(txt3);
 		
 		txt4 = new JTextField(); 
 		txt4.setEditable(false);
 		txt4.setColumns(10);
-		txt4.setBounds(25, 181, 77, 28);
+		txt4.setBounds(199, 131, 77, 28);
 		frame.getContentPane().add(txt4);
 		
 		txt6 = new JTextField();
 		txt6.setEditable(false);
 		txt6.setColumns(10);
-		txt6.setBounds(201, 181, 77, 28);
+		txt6.setBounds(25, 181, 77, 28);
 		frame.getContentPane().add(txt6);
 		
 		txt9 = new JTextField();
@@ -173,19 +173,19 @@ public class ManagerPage
 		lblLandDate.setBounds(112, 117, 77, 14);
 		frame.getContentPane().add(lblLandDate);
 		
-		JLabel lblVendor = new JLabel("Land Airport");
+		JLabel lblVendor = new JLabel("Origin");
 		lblVendor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVendor.setBounds(201, 117, 77, 14);
+		lblVendor.setBounds(199, 167, 77, 14);
 		frame.getContentPane().add(lblVendor);
 		
 		JLabel lblVendor_1 = new JLabel("Vendor");
 		lblVendor_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVendor_1.setBounds(25, 163, 77, 14);
+		lblVendor_1.setBounds(199, 117, 77, 14);
 		frame.getContentPane().add(lblVendor_1);
 		
 		JLabel lblQuantity = new JLabel("quantity");
 		lblQuantity.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuantity.setBounds(201, 163, 77, 14);
+		lblQuantity.setBounds(25, 167, 77, 14);
 		frame.getContentPane().add(lblQuantity);
 		
 		JLabel lblName = new JLabel("Name");
@@ -232,27 +232,27 @@ public class ManagerPage
 		txt7 = new JTextField();
 		txt7.setEditable(false);
 		txt7.setColumns(10);
-		txt7.setBounds(308, 131, 54, 28);
+		txt7.setBounds(285, 131, 54, 28);
 		frame.getContentPane().add(txt7);
 		
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice.setBounds(102, 163, 77, 14);
+		lblPrice.setBounds(112, 167, 77, 14);
 		frame.getContentPane().add(lblPrice);
 		
 		JLabel lblFlightId = new JLabel("Flight ID");
 		lblFlightId.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFlightId.setBounds(298, 117, 77, 14);
+		lblFlightId.setBounds(275, 117, 77, 14);
 		frame.getContentPane().add(lblFlightId);
 		
 		txt8 = new JTextField();
 		txt8.setEditable(false);
 		txt8.setColumns(10);
-		txt8.setBounds(288, 181, 77, 28);
+		txt8.setBounds(286, 179, 77, 28);
 		frame.getContentPane().add(txt8);
 		
 		JLabel lblNewLabel_1 = new JLabel("destenation");
-		lblNewLabel_1.setBounds(299, 163, 87, 14);
+		lblNewLabel_1.setBounds(295, 167, 87, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		// user radio button 
@@ -294,31 +294,30 @@ public class ManagerPage
 			});
 			
 			
-		
+			//Add Button
 			Addbtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) 
 				{
-					 Object obj;
-			    	  Date DepDatenew=new Date(txt1.getText());
-			    	  Date LandDate=new Date(txt2.getText());
-			    	  String LandAirport= txt3.getText(); 
-			    	  String vendor= txt4.getText();
-			    	  int price= Date.convertString(txt5.getText());
-    	  			  int quantity= Date.convertString(txt6.getText());
-			    	  String flightId= txt7.getText();
-			    	  String origin="TLV";	 
-			    	  String destenation=txt8.getText();
+					Object obj;
+					Date DepDatenew=new Date(txt1.getText());
+					Date LandDate=new Date(txt2.getText());
+					String origin=txt3.getText();	 
+					String vendor= txt4.getText();
+					int price= Date.convertString(txt5.getText());
+					int quantity= Date.convertString(txt6.getText());
+					String flightId= txt7.getText();
+					String destenation=txt8.getText();
 			    	  
-			    	  if(destenation==null)
-			    		   obj=new Flight(DepDatenew,LandDate,origin,LandAirport,vendor,price,quantity,flightId);
-			    	  else
-			    		  obj=new InternationalFlight(DepDatenew,LandDate,origin,LandAirport,vendor,price,quantity,flightId,destenation);
+					if(destenation==null)
+						obj=new Flight(DepDatenew,LandDate,origin,vendor,price,quantity,flightId);
+					else
+						obj=new InternationalFlight(DepDatenew,LandDate,origin,vendor,price,quantity,flightId,destenation);
 			    	 
-			    	  
-			    	 if(!Server.requestAddObject(obj)) 
-			    		 JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");
-			    	 else
-			    	 JOptionPane.showMessageDialog(null, "Flight successfully added");
+					
+					if(!Server.requestAddObject(obj)) 
+						JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");
+					else
+						JOptionPane.showMessageDialog(null, "Flight successfully added");
 			      }
 				
 				

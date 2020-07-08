@@ -10,7 +10,7 @@ public class ObjectsFactory {
 		if(returnDate!=null)
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				flt = new RoundTripFlight(new Flight(depDate,origin, ""), new Flight(depDate,destination, ""));
+				flt = new RoundTripFlight(new Flight(depDate,origin), new Flight(depDate,destination));
 
 			else
 				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate, destination, origin));
@@ -19,7 +19,7 @@ public class ObjectsFactory {
 		else
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				flt =new Flight(depDate,origin, "");
+				flt =new Flight(depDate,origin);
 			else
 				flt =new InternationalFlight(depDate,origin, destination);	
 		
@@ -27,6 +27,23 @@ public class ObjectsFactory {
 
 		
 		return flt;
+	}
+	
+	public static String getDestinationByFlight(Flight flight)
+	{
+		String destination;
+		if(Flight.class.getClass().getSimpleName().equals("Flight"))
+		{
+			if(flight.getOrigin() == "TLV")
+				destination = "ELT";
+			else
+				destination = "TLV";
+		}
+		else
+			destination = ((InternationalFlight)flight).getDestenation();
+		
+		return destination;
+		
 	}
 }
 

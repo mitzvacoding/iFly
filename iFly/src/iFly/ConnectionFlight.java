@@ -59,11 +59,11 @@ public class ConnectionFlight extends InternationalFlight
 
 	public int priceCalculation() {return 1;}
 	
-	@SuppressWarnings("static-access")
+	@Override
 	public  void print()  
 	{
 		System.out.println("Departure Date: "+ getDepartureDate().print() + "\nLanding Date: "+ getLandingDate().print());
-	   	System.out.println("LandingAirport: "+getLandingAirport() + "\nVendor: "+getVendor() +"\nPrice: "+getPrice()+"$");
+	   	System.out.println("Vendor: "+getVendor() +"\nPrice: "+getPrice()+"$");
 	   	System.out.println("Quantity: " + getQuantity() + "\nFlight ID: " + getFlightId()+"\nDestenation: "+ getDestenation());
 	   	System.out.println("stopLandingDate:"+this.stopLandingDate.print()+ "\nstopDepartureDate:"+this.stopDepartureDate.print()+"\nstopAirport:"+this.stopAirport);
 	}

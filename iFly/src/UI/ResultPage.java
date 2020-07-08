@@ -137,30 +137,6 @@ public class ResultPage
 		label.setFont(new Font("Aharoni", Font.PLAIN, 75));
 		frame.getContentPane().add(label);
 		
-		/*
-		ta = new JTable(10,6);
-		ta.setColumnSelectionAllowed(true);
-		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ta.setBounds(0, 185, 556, 300);
-		ta.setBackground(new Color(255, 250, 240));
-		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
-		frame.getContentPane().add(ta);
-		*/
-		
-		
-		// ADD value for Jtable;
-		
-		/*ta.setValueAt(DataBase.res.get(1).getDepartureDate(),1,0);
-		ta.setValueAt(DataBase.res.get(1).getLandingDate(),1,1);
-		ta.setValueAt(DataBase.res.get(1).getLandingAirport(),1,2);
-		ta.setValueAt(DataBase.res.get(1).getVendor(),1,3);
-		ta.setValueAt(DataBase.res.get(1).getPrice(),1,4);
-		ta.setValueAt(DataBase.res.get(1).getFlightId(),1,5);
-		*/
-		
-		
-			
-
 		
 		btn1 = new JButton("Purchase");
 	

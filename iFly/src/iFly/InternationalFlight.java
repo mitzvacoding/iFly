@@ -14,9 +14,9 @@ public class InternationalFlight extends Flight
 		
 	}
 
-	public InternationalFlight(Date departureDate, Date landingDate,String origin, String landingAirport, String vendor,int price, int quantity, String flightId,String destenation)
+	public InternationalFlight(Date departureDate, Date landingDate,String origin, String vendor,int price, int quantity, String flightId,String destenation)
 	{
-		super(departureDate, landingDate, origin, landingAirport,  vendor, price, quantity,flightId);
+		super(departureDate, landingDate, origin,  vendor, price, quantity,flightId);
 		this.setDestenation(destenation);
 	}
 
@@ -39,11 +39,11 @@ public class InternationalFlight extends Flight
 		this.destenation = destenation;
 	}
 	
-	@SuppressWarnings("static-access")
+	@Override
 	public  void print()
 	    {
 	    	System.out.println("Departure Date: "+ getDepartureDate().print() + "\nLanding Date: "+ getLandingDate().print());
-	    	System.out.println("LandingAirport: "+getLandingAirport() + "\nVendor: "+getVendor() +"\nPrice: "+getPrice()+"$");
+	    	System.out.println("Vendor: "+getVendor() +"\nPrice: "+getPrice()+"$");
 	    	System.out.println("Quantity: " + getQuantity() + "\nFlight ID: " + getFlightId()+"\nDestenation:"+ this.destenation);
         }
 	 
