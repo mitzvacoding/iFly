@@ -39,13 +39,11 @@ public class Server
 	
 	 
 	// Search flight
-	public static void requestSearchFlight(Date depDate, Date returnDate,String origin, String destination, int passengers, Integer abroadFlight, Integer roundTrip) 	
+	public static void requestSearchFlight(String depDate, String returnDate,String origin, String destination, int passengers) 	
 	{ 
 		Flight f=null;
       
-		f=(Flight)ObjectsFactory.getFlightByButton(depDate, returnDate,origin, destination);
-
-		DataManagement.searchFlights(f, passengers); 
+		DataManagement.searchFlights(depDate, returnDate,origin, destination, passengers); 
 		
 		/* there's no need to check, because it's being checked in DataBase.
 		if( f.getClass().getSimpleName()=="RoundTripFlight")
@@ -101,9 +99,9 @@ public class Server
 	
 	
 	// add Flight or Customer;
-	public static boolean requestAddObject(String depDate,String landDate,String origin,String destenation,String vendor,int price,int quantity,int flightId) 
+	public static boolean requestAddObject(String depDate,String landDate,String origin,String destenation,String vendor,int price,int quantity,String flightId) 
 	{
-		if(DataManagement.addFlight(depDate,landDate,destenation,origin,vendor,price,quantity,flightId))
+		if(DataManagement.addFlight(depDate,landDate,origin,destenation,vendor,price,quantity,flightId))
 			return true;
 			
 		return false;

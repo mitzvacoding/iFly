@@ -306,8 +306,8 @@ public class ManagerPage
 					String vendor= txt4.getText(); 
 					int price= Date.convertString(txt5.getText());
 					int quantity= Date.convertString(txt6.getText());
-					int flightId= Date.convertString(txt7.getText());
-					String destenation=txt8.getText();
+					String flightId= txt7.getText();
+					String destenation=txt8.getText();// 8
 					
 					if(!Server.requestAddObject(DepDatenew,returnDate,origin,destenation,vendor,price,quantity,flightId)) 
 						JOptionPane.showMessageDialog(null, "Added to the amount of existing flight.");

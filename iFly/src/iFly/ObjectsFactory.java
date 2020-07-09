@@ -2,12 +2,12 @@ package iFly;
 
 public class ObjectsFactory {
 
-	public static Flight getFlightByButton(Date depDate,Date returnDate,String origin, String destination) //Integer abroadType ,Integer roundTripType)
+	public static Flight getFlightByButton(Date depDate,Date returnDate,String origin,String destination,String vendor,int price,int quantity,String flightId, boolean flag) //Integer abroadType ,Integer roundTripType)
 	{
 		Flight flt = null;
 		
 		
-		if((returnDate.isEmpty() == false) || (returnDate!=null))
+		if(returnDate!=null)
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
 				flt = new RoundTripFlight(new Flight(depDate,origin), new Flight(depDate,destination));
@@ -24,6 +24,14 @@ public class ObjectsFactory {
 		
 		}
 
+		if(flag)
+		{
+			
+			flt.setVendor(vendor);
+			flt.setPrice(price);
+			flt.setQuantity(quantity);
+			flt.setFlightId(flightId);
+		}
 		
 		return flt;
 	}

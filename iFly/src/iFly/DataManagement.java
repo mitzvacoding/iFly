@@ -33,13 +33,14 @@ public class DataManagement
 
 	
 	//called by server.AddObject 
-	public static boolean addFlight(String depDateString,String landDateString,String origin,String destination,String vendor,int price,int quantity,int flightId) 
+	public static boolean addFlight(String depDateString,String landDateString,String origin,String destination,String vendor,int price,int quantity,String flightId) 
 	{
 		Date landDate = null;
 		if(landDateString.isEmpty()== false)
 			landDate = new Date(landDateString);
 		
-		Flight flt = ObjectsFactory.getFlightByButton(new Date(depDateString), landDate, origin, destination);
+		Flight flt = ObjectsFactory.getFlightByButton(new Date(depDateString), landDate, origin, destination, vendor, price, quantity, flightId, true);
+		
 		if(DataBase.addObject(flt))
 			return true;
 		return false;
@@ -58,9 +59,16 @@ public class DataManagement
 	
 	//called by server.requestSearchFlight
 	
-	public static void searchFlights(Flight f,int passengers) 
+	public static void searchFlights(String depDateString, String returnDateString,String origin, String destination, int passengers) 
 	{
-		lastFlightResult = DataBase.searchFlight(f,passengers);
+		Date depDate = new Date(depDateString);
+		Date returnDate = null;
+		if(!returnDateString.isBlank())
+			returnDate = new Date(returnDateString);
+		
+		Flight flt = ObjectsFactory.getFlightByButton(depDate, returnDate, origin, destination, "", 0, 0, "", false);
+		
+		lastFlightResult = DataBase.searchFlight(flt,passengers);
 
 	} 
 	

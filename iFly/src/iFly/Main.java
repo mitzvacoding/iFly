@@ -39,6 +39,21 @@ public class Main
 		DataBase.init();
 		MainPage.MpFun(); 
 		
+		/*
+		Date depDate = new Date();
+		Date returnDate = null;
+		String origin = "TLV";
+		String destination = "";
+		String vendor = "ELAL";
+		int price = 5;
+		int quantity = 5;
+		String flightId = "1";
+		Boolean flag = true;
+		Flight flt = ObjectsFactory.getFlightByButton(depDate, returnDate, origin, destination, vendor, price, quantity, flightId, flag);
+		
+		System.out.println(flt.toString());
+		*/
+		
 		//SearchPage.SpFun();
 		//RegistarPage.RpFun();
 		//enter2File();

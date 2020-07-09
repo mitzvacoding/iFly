@@ -15,13 +15,13 @@ public class Flight implements Serializable
     private int price;
     private int quantity;
     private String flightId;
-    public static int num;
    
     
     public Flight()
     {
      	this. departureDate = new Date(); 
     	this.landingDate = new Date();
+    	this.origin = "";
     	this.vendor = ""; 
     	this.price  = 0;
     	this.quantity = 0;
@@ -69,54 +69,28 @@ public class Flight implements Serializable
 	
 	
 	
-	public Date getLandingDate()
-	{
-	return  this.landingDate;
-	}
+	public Date getLandingDate(){return  this.landingDate;}
 	
-	public String getOrigin()
-	{
-		return origin;
-	}
-	
-	public void setOrigin(String origin)
-	{
-		this.origin = origin;
-	}
-	
+	public String getOrigin(){return origin;}
+	public void setOrigin(String origin){this.origin = origin;}
+	 	
+	public String getVendor(){return  this.vendor;}
+	public void setVendor(String vendor) {this.vendor = vendor;}
 	 
-	public String getVendor()
-	{
-	return  this.vendor;
-	}
+	public int getPrice() {return this.price;}  
+	public void setPrice(int p){this.price=p;}
 	
-	 public int getPrice() {
-		 return this.price;
-	 }
-	 public void setPrice(int p)
-	 {
-		 this.price=p;
-	 }
+	public int getQuantity(){	return this.quantity;}
+	public void setQuantity(int q){this.quantity=q;}
 	 
-
-	 public int getQuantity()
-	 {
-		 return this.quantity;
-	 }
-
-	 public void setQuantity(int q)
-	 {
-		  this.quantity=q;
-	 }
-	
-
-	 public String getFlightId() {return this.flightId;}
+	public String getFlightId() {return this.flightId;} 	 
+	public void setFlightId(String flightId) {this.flightId = flightId;}
 	   
 	 
 	 @Override
 	 public String toString()
 	 {
-		String str =  "Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString();
+		String str = "Origin: " + this.origin + "\nDeparture Date: "+ this.departureDate.toString();
 		str += "\nVendor: "+this.vendor +"\nPrice: "+this.price+"$";
 		str += "\nQuantity: " + this.quantity + "\nFlight ID: " + this.flightId;
 		return str;
@@ -124,7 +98,7 @@ public class Flight implements Serializable
 	 
 	    public void print()
 	    {
-	    	System.out.println("Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString());
+	    	System.out.println("origin: " + this.origin+ "Departure Date: "+ this.departureDate.toString()+ "\nLanding Date: "+ this.landingDate.toString());
 	    	System.out.println("Vendor: "+this.vendor +"\nPrice: "+this.price+"$");
 	    	System.out.println("Quantity: " + this.quantity + "\nFlight ID: " + this.flightId);
 	    }

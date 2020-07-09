@@ -48,6 +48,10 @@ public class DataBase
 		customers.put(1,new Customer("123","123","123"));
 		
 
+		for(Flight flt: flights.values())
+		{
+			System.out.println(flt.toString()+"\n");
+		}
 		
 		/* a proof that it read from file
 		for(Customer cst: customers.values())
@@ -80,7 +84,6 @@ public class DataBase
 			oos.writeObject(internationalFlights);
 			oos.writeObject(customers);
 			oos.writeObject(managers);
-			//oos.write
 			oos.close();
 			fos.close();
 		}
@@ -267,9 +270,9 @@ public class DataBase
 		String className = 	ObjectsFactory.getClassName(flt);	
 			if(findExistFlight(flt)==false)
 			{
-		//		if(className.equals("Flight"))
+				if(className.equals("Flight"))
 					flights.put(flightKey++, flt);
-				//else 
+				else 
 					if(className.equals("InternationalFlight"))
 						internationalFlights.put(interFlightKey++, (InternationalFlight) flt);
 				return true;

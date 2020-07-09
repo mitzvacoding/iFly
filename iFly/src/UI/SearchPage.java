@@ -46,8 +46,6 @@ public class SearchPage
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JTextField retDateField;
-	private  static Integer abroadFlight=0;
-	private  static Integer roundTrip=0;
 	private JTextField originField;
 	
 	public static void SpFun() {   
@@ -170,7 +168,6 @@ public class SearchPage
 		eiRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				destField.setEditable(false);
-				abroadFlight=0;
 			}
 		});
 		eiRad.setSelected(true);
@@ -183,7 +180,6 @@ public class SearchPage
 			public void actionPerformed(ActionEvent e) 
 			{
 		      destField.setEditable(true);
-		      abroadFlight=1;
 			}
 		});
 
@@ -256,7 +252,6 @@ public class SearchPage
 		rouRad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				retDateField.setEditable(true);
-				roundTrip=1;
 			}
 		});
 		
@@ -264,27 +259,28 @@ public class SearchPage
 		searchBtn.addActionListener(new ActionListener() {    // SEARCH Button
 			public void actionPerformed(ActionEvent e)
 			{
-				int passengers;
-				Date returnDate=null;
+				int passengers = Date.convertString(passField.getText());
+				String depurtureDate = depDate.getText();
+				String returnDate= "";
 				String destination = null;
 				String origin = originField.getText();
-				Date depurtureDate = new Date(depDate.getText());
-				passengers = Date.convertString(passField.getText());
+				
 				
 				if(eiRad.isSelected())
 				{
-					if(origin == "TLV") 
+					if(origin.equals("TLV")) 
 						destination = "ELT";
 					else
 						destination = "TLV";
 				}
-				else {
+				else 
 		 			destination = destField.getText();
-			}		  
-				if(rouRad.isSelected()) {
-			}returnDate=new Date( retDateField.getText());
-				 
-				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
+				
+				if(rouRad.isSelected())
+					returnDate = retDateField.getText();
+				
+					  			 
+				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers);  //now need to send to server
 				frame.dispose();
 				ResultPage.ResFun();	
 				
