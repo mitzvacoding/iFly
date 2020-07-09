@@ -82,7 +82,9 @@ public class ResultPage
 	 
 	 {
 		frame = new JFrame();  
-		frame.setBounds(600,600,700,600);
+		frame.setBounds(600,600,700,600);    
+	//	frame.setBounds(1200,600,900,600);  
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
 		frame.setFocusable(true);

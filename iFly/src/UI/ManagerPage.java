@@ -301,7 +301,7 @@ public class ManagerPage
 				{
 					Object obj;
 					String DepDatenew=txt1.getText();
-					String returnDate=txt2.getText();
+					String returnDate=txt2.getText(); 
 					String origin=txt3.getText();	 
 					String vendor= txt4.getText(); 
 					int price= Date.convertString(txt5.getText());

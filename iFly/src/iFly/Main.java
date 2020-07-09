@@ -35,11 +35,13 @@ public class Main
 	public static void main(String[] args) throws IOException
 
 	{
-		 
-		DataBase.init();
-		MainPage.MpFun(); 
+		// SearchPage.SpFun();
+		//DataBase.init();
+		//MainPage.MpFun(); 
 		
-		/*
+		ResultPage.ResFun();
+	
+		/*	
 		Date depDate = new Date();
 		Date returnDate = null;
 		String origin = "TLV";
@@ -52,8 +54,8 @@ public class Main
 		Flight flt = ObjectsFactory.getFlightByButton(depDate, returnDate, origin, destination, vendor, price, quantity, flightId, flag);
 		
 		System.out.println(flt.toString());
-		*/
 		
+	*/	
 		//SearchPage.SpFun();
 		//RegistarPage.RpFun();
 		//enter2File();
@@ -61,7 +63,7 @@ public class Main
 		
 		//Flight flt = ObjectsFactory.getFlightByButton(new Date("11/11/1111"), new Date(""), "TLV", "");
 		
-	//	System.out.println(ObjectsFactory.getClassName(flt).equals("Flight"));
+		//System.out.println(ObjectsFactory.getClassName(flt).equals("Flight"));
 				
 
 	}

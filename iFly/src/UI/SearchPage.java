@@ -281,8 +281,10 @@ public class SearchPage
 				
 					  			 
 				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers);  //now need to send to server
+				
 				frame.dispose();
 				ResultPage.ResFun();	
+				
 				
 			}
 		});

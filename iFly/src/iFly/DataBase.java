@@ -153,7 +153,7 @@ public class DataBase
 				if( flight.getDepartureDate().equals(f.getDepartureDate()))
 					resultFlights.add(flight);
 			}		
-		}	
+		}	 
 		
 		return resultFlights;
 	}
@@ -236,7 +236,7 @@ public class DataBase
 	//being called when adding a flight
 	public static Boolean findExistFlight(Flight flt)
 	{
-		if(flt.getClass().getSimpleName()=="Flight")
+		if(ObjectsFactory.getClassName(flt).equals("Flight"))
 		{
 			for(Flight flight: flights.values())
 			{
@@ -248,7 +248,7 @@ public class DataBase
 			}	
 		}
 		
-		else if(flt.getClass().getSimpleName()=="InternationalFlight")
+		else if(ObjectsFactory.getClassName(flt).equals("InternationalFlight"))
 		{
 			for(InternationalFlight flight: internationalFlights.values())
 			{

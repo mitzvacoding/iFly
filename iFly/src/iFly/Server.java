@@ -62,6 +62,7 @@ public class Server
 		ta.setColumnSelectionAllowed(true);
 		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		ta.setBounds(0, 217, 556, 180);
+		
 		ta.setBackground(new Color(255, 250, 240));
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		ta.setValueAt("Dep Date", 0, 0);
@@ -72,8 +73,9 @@ public class Server
 	    ta.setValueAt("Flight ID",0,5);
 	    ta.setValueAt("Price", 0,6);
 	
-		ta.setIntercellSpacing(new  Dimension(5,5));
-		ta.setRowHeight(30);
+		ta.setIntercellSpacing(new  Dimension(10,5));
+		ta.setRowHeight(40);
+		//ta.set
 				
 		int row = 1, col=0;
 		for(Flight flight: lastFlightResult)
@@ -81,7 +83,8 @@ public class Server
 			String destination = ObjectsFactory.getDestinationByFlight(flight);
 			//System.out.println(flight);
 			ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
-			ta.setValueAt(Date.print(flight.getLandingDate()),row, col++);
+			
+			//ta.setValueAt(Date.print(flight.getLandingDate()),row, col++);
 			ta.setValueAt(flight.getVendor(),row, col++);
 			ta.setValueAt(flight.getOrigin(),row, col++);
 			ta.setValueAt(destination, row, col++);

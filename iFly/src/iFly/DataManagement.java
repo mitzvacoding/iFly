@@ -36,7 +36,7 @@ public class DataManagement
 	public static boolean addFlight(String depDateString,String landDateString,String origin,String destination,String vendor,int price,int quantity,String flightId) 
 	{
 		Date landDate = null;
-		if(landDateString.isEmpty()== false)
+		if(landDateString.isEmpty()== false) 
 			landDate = new Date(landDateString);
 		
 		Flight flt = ObjectsFactory.getFlightByButton(new Date(depDateString), landDate, origin, destination, vendor, price, quantity, flightId, true);
