@@ -17,7 +17,6 @@ public class DataObject
 	private int managerKey=1;
 	private int interFlightKey=1;  
 	private String str = null;
-	private String fileName = "data.txt";
 
 	
 	private HashMap<Integer, Flight> flights;
@@ -35,58 +34,9 @@ public class DataObject
 		customers = new HashMap<Integer, Customer>();
 		managers = new HashMap<Integer, Manager>();
 		
-		readFromFile();
 		initKeys();
 	}
 	
-	public void writeToFile()
-	{
-		ObjectOutputStream oos = null;
-		try{
-			FileOutputStream fos = new FileOutputStream(fileName);
-			oos = new ObjectOutputStream(fos);
-			oos.writeObject(flights);
-			oos.writeObject(internationalFlights);
-			oos.writeObject(customers);
-			oos.writeObject(managers);
-			oos.close();
-			fos.close();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void readFromFile()
-	{
-		Path path = Paths.get(System.getProperty("user.dir") + "\\" + fileName);
-		
-		if(Files.exists(path))
-		{
-			try
-			{
-				FileInputStream fis = new FileInputStream(fileName);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				
-				flights = (HashMap<Integer,Flight>)ois.readObject();
-				internationalFlights = (HashMap<Integer,InternationalFlight>)ois.readObject();
-
-				customers = (HashMap<Integer,Customer>)ois.readObject();
-				managers = (HashMap<Integer,Manager>)ois.readObject();	
-				
-				ois.close();
-				fis.close();
-			}
-			
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
-	}
 
 	public void initKeys() 
 	{
@@ -137,34 +87,7 @@ public class DataObject
 	
 	
 	public void searchRoundTripFlight(Object f,int passengers)
-	{
-		int key=0;
-		if(f.getClass().equals("RoundTripFlight"))
-		{
-			
-			for(Object Flight: big.get("Flight").values())
-				{
-					key++;
-					if( ((InternationalFlight)Flight).getDepartureDate().equals(((InternationalFlight)f).getDepartureDate())&&
-							((InternationalFlight)Flight).getLandingDate().equals(((InternationalFlight)f).getLandingDate()) )
-						// res.put(key,(Flight) big.get("FLight").get(key));
-						str+=  big.get("FLight").get(key)+"\n";
-				}
-		}
-		
-		else  //Object f= Flight;
-		{
-		
-			for(Object Flight: big.get("Flight").values())
-			{
-				key++;
-				if( ((Flight)Flight).getDepartureDate().equals(((Flight)f).getDepartureDate()))
-					// res.put(key,(Flight) big.get("FLight").get(key));
-					str+=big.get("FLight").get(key)+"\n";  
-			
-			}	
-		}
-					
+	{				
 	}
 		
 	
@@ -177,7 +100,7 @@ public class DataObject
 	
 	
 	// check user exists, called when user is logging-in.
-	public static boolean checkSignInCustomer(Customer cst)
+	public boolean checkSignInCustomer(Customer cst)
 	{
 		for(Customer customer: customers.values())
 		{
@@ -310,6 +233,16 @@ public class DataObject
 	*/
 	public void setCustomerKey(int value) {customerKey = value;}
 	
+	public HashMap<Integer, Flight> getFlights(){return flights;}
+	public void setFlights(HashMap<Integer, Flight> flights) {this.flights = flights;}
 	
+	public HashMap<Integer, InternationalFlight> getInternationalFlights(){return internationalFlights;}
+	public void setInternationalFlights(HashMap<Integer, InternationalFlight> internationalFlights) {this.internationalFlights = internationalFlights;}
+	
+	public HashMap<Integer, Customer> getCustomers(){return customers;}
+	public void setCustomers(HashMap<Integer, Customer> customers) {this.customers = customers;}
+	
+	public HashMap<Integer, Manager> getManagers(){return managers;}
+	public void setManagers(HashMap<Integer, Manager> managers) {this.managers = managers;}
 }
 
