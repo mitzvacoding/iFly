@@ -17,7 +17,7 @@ import java.util.Map;
 public class DataBase 
 {
 	
-	public static DataObject big=new DataObject();
+	
 	public static HashMap<String,String> files;
 	public static int customerKey=1;
 	public static int flightKey=1;
@@ -176,32 +176,8 @@ public class DataBase
 	
 	public static void searchRoundTripFlight(Object f,int passengers)
 	{
-		int key=0;
-		if(f.getClass().equals("RoundTripFlight"))
-		{
-			
-			for(Object Flight: big.get("Flight").values())
-				{
-					key++;
-					if( ((InternationalFlight)Flight).getDepartureDate().equals(((InternationalFlight)f).getDepartureDate())&&
-							((InternationalFlight)Flight).getLandingDate().equals(((InternationalFlight)f).getLandingDate()) )
-						// res.put(key,(Flight) big.get("FLight").get(key));
-						str+=  big.get("FLight").get(key)+"\n";
-				}
-		}
 		
-		else  //Object f= Flight;
-		{
 		
-			for(Object Flight: big.get("Flight").values())
-			{
-				key++;
-				if( ((Flight)Flight).getDepartureDate().equals(((Flight)f).getDepartureDate()))
-					// res.put(key,(Flight) big.get("FLight").get(key));
-					str+=big.get("FLight").get(key)+"\n";  
-			
-			}	
-		}
 					
 	}
 		
