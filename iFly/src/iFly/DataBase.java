@@ -18,6 +18,38 @@ public class DataBase
 {
 	
 	
+	
+	
+	/*
+	public static boolean removeObj(String str,String objName);
+	public static boolean addObject(Flight flt)
+	public static Boolean findExistFlight(Flight flt)
+	public static boolean checkSignInManager(String email,String password)
+	public static boolean checkSignInCustomer(Customer cst)
+	public static void searchRoundTripFlight(Object f,int passengers)
+	public static void addFlights(HashMap<Integer, Flight> addedFlights)
+	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
+	public static void initKeys()
+	public static void readFromFile()
+	public static void writeToFile()
+	public static void init()
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	
 	public static HashMap<String,String> files;
 	public static int customerKey=1;
 	public static int flightKey=1;
@@ -74,7 +106,7 @@ public class DataBase
 		}
 		*/
 
-				   
+	/*			   
 	} 
 	
 	
@@ -307,5 +339,7 @@ public class DataBase
 		return false;
 	}
 	
+	 */
+
 }
 
