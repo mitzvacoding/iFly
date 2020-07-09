@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 
+import UI.ResultPage;
+
 public class Server 
 {
 	
@@ -58,25 +60,22 @@ public class Server
 		ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();
 		lastFlightResult = DataManagement.showFlightResult();
 		
-	    JTable ta = new JTable(6,7);
-		ta.setColumnSelectionAllowed(true);
-		ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		ta.setBounds(0, 217, 556, 180);
-		
-		ta.setBackground(new Color(255, 250, 240));
-		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
-		ta.setValueAt("Dep Date", 0, 0);
-	    ta.setValueAt("Return Date",0, 1);	
-	    ta.setValueAt("vendor",0,2);
-	    ta.setValueAt("Origin", 0, 3);
-	    ta.setValueAt("Destination", 0, 4);
-	    ta.setValueAt("Flight ID",0,5);
-	    ta.setValueAt("Price", 0,6);
-	
-		ta.setIntercellSpacing(new  Dimension(10,5));
-		ta.setRowHeight(40);
-		//ta.set
-				
+	     JTable ta = new JTable(6,7);
+				ta.setColumnSelectionAllowed(true);
+				ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+				ta.setBounds(47, 248, 706, 180);
+				ta.setBackground(new Color(255, 250, 240));
+				ta.setBorder(new LineBorder(new Color(0, 0, 0)));
+				ta.setValueAt("Dep Date", 0, 0);
+			    ta.setValueAt("Return Date",0, 1);	
+			    ta.setValueAt("vendor",0,2);
+			    ta.setValueAt("Origin", 0, 3);
+			    ta.setValueAt("Destination", 0, 4);
+			    ta.setValueAt("Flight ID",0,5);
+			    ta.setValueAt("Price", 0,6);
+			
+				ta.setIntercellSpacing(new  Dimension(10,5));
+				ta.setRowHeight(30);	
 		int row = 1, col=0;
 		for(Flight flight: lastFlightResult)
 		{
@@ -94,7 +93,7 @@ public class Server
 			ta.setValueAt(flight.getOrigin(),row, col++);
 			ta.setValueAt(destination, row, col++);
 			ta.setValueAt(flight.getFlightId(),row, col++);
-			ta.setValueAt(flight.getPrice(),row, col++);//7
+			ta.setValueAt(flight.getPrice()+"$",row, col++);//7
 			row++;
 			col = 0;
 

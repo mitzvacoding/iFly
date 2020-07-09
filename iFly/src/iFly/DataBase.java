@@ -53,6 +53,10 @@ public class DataBase
 			System.out.println(flt.toString()+"\n");
 		}
 		
+		for(InternationalFlight flt: internationalFlights.values())
+		{
+			System.out.println(flt.toString()+"\n");
+		}
 		/* a proof that it read from file
 		for(Customer cst: customers.values())
 		{

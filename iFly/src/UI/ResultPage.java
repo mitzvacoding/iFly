@@ -22,6 +22,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.TableColumn;
 import iFly.DataBase;
 import iFly.Server;
+
+
 import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.GroupLayout;
@@ -55,14 +57,17 @@ public class ResultPage
     
 	public static void ResFun() 
 	{
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+				
+					JTable ta = Server.requestFlightResults();
+					ResultPage window = new ResultPage(ta);
+					window.frame.setVisible(true);		
+					//window.frame.getContentPane().add(ta);
 					
-					ResultPage window = new ResultPage();
-					window.frame.setVisible(true);
-					window.frame.getContentPane().add(Server.requestFlightResults());
-				}
+					}
 				catch (Exception e)
 				{
 					e.printStackTrace();
@@ -70,20 +75,22 @@ public class ResultPage
 				}
 			}
 		});
-	}
+	} 
 	 
-	public ResultPage() {
-		initialize();
+	
+	
+	public ResultPage(JTable ta) {
+		initialize(ta);
 	}
 
 	
 	
-	 void initialize() 
+	 void initialize(JTable ta) 
 	 
 	 {
 		frame = new JFrame();  
-		frame.setBounds(600,600,700,600);    
-	//	frame.setBounds(1200,600,900,600);  
+		//frame.setBounds(600,600,700,600);    
+		frame.setBounds(1200,600,900,600);      
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
@@ -97,16 +104,11 @@ public class ResultPage
 	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 	               DataBase.writeToFile();
 	            }
-	        }); 
-	    
-		
-
-						
-	     
+	        });
 	     
 	     
 		label = new JLabel("IFly");
-		label.setBounds(247, 11, 126, 76);
+		label.setBounds(359, 11, 126, 76);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Aharoni", Font.PLAIN, 75));
 		frame.getContentPane().add(label);
@@ -117,40 +119,42 @@ public class ResultPage
 		
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
-		btn1.setBounds(566, 251, 97, 23);
+		btn1.setBounds(763, 282, 97, 23);
 		frame.getContentPane().add(btn1);
 
 		 
 		 btn2 = new JButton("Purchase");
 		 btn2.setForeground(new Color(204, 0, 51));
 		 btn2.setBackground(Color.WHITE);
-		 btn2.setBounds(566, 281, 97, 23);
+		 btn2.setBounds(763, 312, 97, 23);
 		 frame.getContentPane().add(btn2);
 		 
 		 btn3 = new JButton("Purchase");
 		 btn3.setForeground(new Color(204, 0, 51));
 		 btn3.setBackground(Color.WHITE);
-		 btn3.setBounds(566, 310, 97, 23);
+		 btn3.setBounds(763, 341, 97, 23);
 		 frame.getContentPane().add(btn3);
 		 
 		 btn4 = new JButton("Purchase");
 		 btn4.setForeground(new Color(204, 0, 51));
 		 btn4.setBackground(Color.WHITE);
-		 btn4.setBounds(566, 340, 97, 23);
+		 btn4.setBounds(763, 371, 97, 23);
 		 frame.getContentPane().add(btn4);
 		 
 		 JButton btn5 = new JButton("Purchase");
 		 btn5.setForeground(new Color(204, 0, 51));
 		 btn5.setBackground(Color.WHITE);
-		 btn5.setBounds(566, 374, 97, 23);
+		 btn5.setBounds(763, 405, 97, 23);
 		 frame.getContentPane().add(btn5);
+		 
+		 
 		 
 			btn1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)
 				{
 					
 					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
-					frame.setVisible(false);
+					frame.setVisible(false); 
 					
 				}
 			});
@@ -183,14 +187,60 @@ public class ResultPage
 				}
 			});
 			
-			
-			
-			
-	    
-		 
-		 
+		
+			btn5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+				
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.setVisible(false);
+					
+				}
+			});
+	
+			frame.getContentPane().add(ta);
 	  
-	  
-	    
+			  for(int i=1 ; i<6 ; i++)
+			  {
+				  if(ta.getValueAt(i, 0)==null) 
+				  {
+					  switch(i)
+					  {
+						  case 1:
+							  btn1.setEnabled(false);
+							  break;
+							  
+						 case 2:
+							 btn2.setEnabled(false);				  
+							 	break;
+						 case 3:
+							 btn3.setEnabled(false);
+							  break;
+					 	 case 4:
+					 		 btn4.setEnabled(false);
+							  break;
+						 case 5:
+							 btn5.setEnabled(false);
+							  break;  
+					  }
+					  
+					  
+					  
+					  
+				
+				  }
+			  }
+	
+	 
+	 
+	 
 	 }
-}
+			
+
+	 
+	 
+	 
+	 
+	 
+ }
+
