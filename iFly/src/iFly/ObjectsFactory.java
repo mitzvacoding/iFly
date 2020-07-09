@@ -17,7 +17,7 @@ public class ObjectsFactory {
 		//problem.
 		else
 		{
-			if(origin.equals("ELT") || origin.equals("TLV"))
+			if(destination.isBlank())
 				flt =new Flight(depDate,origin);  
 			else
 				flt =new InternationalFlight(depDate,origin, destination);	
@@ -39,9 +39,9 @@ public class ObjectsFactory {
 	public static String getDestinationByFlight(Flight flight)
 	{
 		String destination;
-		if(Flight.class.getClass().getSimpleName().equals("Flight"))
+		if(getClassName(flight).equals("Flight"))
 		{
-			if(flight.getOrigin() == "TLV")
+			if(flight.getOrigin().equals("TLV"))
 				destination = "ELT";
 			else
 				destination = "TLV";

@@ -66,7 +66,7 @@ public class Server
 		ta.setBackground(new Color(255, 250, 240));
 		ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 		ta.setValueAt("Dep Date", 0, 0);
-	    ta.setValueAt("Land Date",0, 1);	
+	    ta.setValueAt("Return Date",0, 1);	
 	    ta.setValueAt("vendor",0,2);
 	    ta.setValueAt("Origin", 0, 3);
 	    ta.setValueAt("Destination", 0, 4);
@@ -83,8 +83,13 @@ public class Server
 			String destination = ObjectsFactory.getDestinationByFlight(flight);
 			//System.out.println(flight);
 			ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
+
+			if(ObjectsFactory.getClassName(flight).equals("RoundTripFlight"));//needs to be implemented
 			
-			//ta.setValueAt(Date.print(flight.getLandingDate()),row, col++);
+			else
+				ta.setValueAt("NA",row, col++);
+			
+
 			ta.setValueAt(flight.getVendor(),row, col++);
 			ta.setValueAt(flight.getOrigin(),row, col++);
 			ta.setValueAt(destination, row, col++);
