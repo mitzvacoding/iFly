@@ -1,8 +1,7 @@
 package iFly;
-import java.util.List;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
@@ -10,75 +9,37 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
-
-public class DataBase 
+public class DataObject
 {
-	
-	public static DataObject big=new DataObject();
-	public static HashMap<String,String> files;
-	public static int customerKey=1;
-	public static int flightKey=1;
-	public static int managerKey=1;
-	public static int interFlightKey=1;  
-	public static String str = null;
-	public static String fileName = "data.txt";
+	private int customerKey=1;
+	private int flightKey=1;
+	private int managerKey=1;
+	private int interFlightKey=1;  
+	private String str = null;
+	private String fileName = "data.txt";
 
 	
-	public static HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
-	public static HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
+	private HashMap<Integer, Flight> flights;
+	private HashMap<Integer, InternationalFlight> internationalFlights;
 
-	public static HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
-	public static HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
-	
-
+	private HashMap<Integer, Customer> customers;
+	private HashMap<Integer, Manager> managers;
 
 	
-	public static void init()  
-	{	
-    
+	public DataObject()
+	{
+		flights = new HashMap<Integer, Flight>();
+		internationalFlights = new HashMap<Integer, InternationalFlight>();
+		
+		customers = new HashMap<Integer, Customer>();
+		managers = new HashMap<Integer, Manager>();
+		
 		readFromFile();
-	
 		initKeys();
-
-		
-		managers.put(1, new Manager("123", "123", "*1", 2));
-		customers.put(1,new Customer("123","123","123"));
-		
-
-		for(Flight flt: flights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		
-		for(InternationalFlight flt: internationalFlights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		/* a proof that it read from file
-		for(Customer cst: customers.values())
-		{
-			System.out.println(cst.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(Flight flt: flights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(InternationalFlight flt: internationalFlights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		*/
-
-				   
-	} 
+	}
 	
-	
-	public static void writeToFile()
+	public void writeToFile()
 	{
 		ObjectOutputStream oos = null;
 		try{
@@ -98,7 +59,8 @@ public class DataBase
 		
 	}
 	
-	public static void readFromFile()
+	@SuppressWarnings("unchecked")
+	public void readFromFile()
 	{
 		Path path = Paths.get(System.getProperty("user.dir") + "\\" + fileName);
 		
@@ -126,7 +88,7 @@ public class DataBase
 		}
 	}
 
-	public static void initKeys() 
+	public void initKeys() 
 	{
 		flightKey = flights.size();
 		interFlightKey = internationalFlights.size();
@@ -137,7 +99,7 @@ public class DataBase
 
 	
 	
-	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
+	public ArrayList<Flight> searchFlight(Flight f,int passengers)
 	{
 		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
 		if(f.getClass().getSimpleName().equals("InternationalFlight")) 
@@ -162,7 +124,7 @@ public class DataBase
 		return resultFlights;
 	}
 	
-	public static void addFlights(HashMap<Integer, Flight> addedFlights)
+	public void addFlights(HashMap<Integer, Flight> addedFlights)
 	{
 		for(Flight flight:addedFlights.values())
 		{
@@ -174,7 +136,7 @@ public class DataBase
 	}
 	
 	
-	public static void searchRoundTripFlight(Object f,int passengers)
+	public void searchRoundTripFlight(Object f,int passengers)
 	{
 		int key=0;
 		if(f.getClass().equals("RoundTripFlight"))
@@ -208,7 +170,7 @@ public class DataBase
 	
 	
 		
-	public static void signUpCustomer(Customer cst)
+	public void signUpCustomer(Customer cst)
 	{
 		customers.put(customerKey++, cst);		
 	}
@@ -226,7 +188,7 @@ public class DataBase
 	}
 	 
 	//check Manager exists 
-	public static boolean checkSignInManager(String email,String password)
+	public boolean checkSignInManager(String email,String password)
 	{
 		//called when Manager is logging-in
 		for(Manager manager: managers.values())
@@ -238,7 +200,7 @@ public class DataBase
 	}
 
 	//being called when adding a flight
-	public static Boolean findExistFlight(Flight flt)
+	public Boolean findExistFlight(Flight flt)
 	{
 		if(ObjectsFactory.getClassName(flt).equals("Flight"))
 		{
@@ -269,7 +231,7 @@ public class DataBase
 	  
 	
 	
-	public static boolean addObject(Flight flt)
+	public boolean addObject(Flight flt)
 	{
 		String className = 	ObjectsFactory.getClassName(flt);	
 			if(findExistFlight(flt)==false)
@@ -287,7 +249,7 @@ public class DataBase
 	}
 	
 	//Check if an object exists, then delete it
-	public static boolean removeObj(String str,String objName)
+	public boolean removeObj(String str,String objName)
 	{
 		int	key=0;
 		
@@ -330,6 +292,24 @@ public class DataBase
 			
 		return false;
 	}
+	
+	/*
+	private int customerKey=1;
+	private int flightKey=1;
+	private int managerKey=1;
+	private int interFlightKey=1;  
+	private String str = null;
+	private String fileName = "data.txt";
+
+	
+	private HashMap<Integer, Flight> flights = new HashMap<Integer, Flight>();
+	private HashMap<Integer, InternationalFlight> internationalFlights = new HashMap<Integer, InternationalFlight>();
+
+	private HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
+	private HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
+	*/
+	public void setCustomerKey(int value) {customerKey = value;}
+	
 	
 }
 

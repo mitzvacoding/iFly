@@ -24,7 +24,7 @@ public class DataBaseTest extends TestCase
 	{
 		Flight flt=new Flight(); 
 		
-		flights.put(key, value)
+	//	flights.put(key, value)
 	}
 	
 	
