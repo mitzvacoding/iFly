@@ -39,13 +39,8 @@ public class DataBase
 	public static void init()  
 	{	
     
-		
-
-		
-		
-		
 		readFromFile();
-		
+	
 		initKeys();
 
 		
@@ -138,7 +133,7 @@ public class DataBase
 	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
 	{
 		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
-		if(f.getClass().getSimpleName().equals("InternationalFlight"))
+		if(f.getClass().getSimpleName().equals("InternationalFlight")) 
 		{
 			for(InternationalFlight flight: internationalFlights.values())// .values() return array of all data.
 				{
@@ -148,7 +143,7 @@ public class DataBase
 				} 
 		}
 		
-		else if(f.getClass().getSimpleName().equals("Flight")) //Object f= Flight;
+		else if(f.getClass().getSimpleName().equals("Flight")) //Object f= Flight;  ,   ///this is the problem;
 		{
 			for(Flight flight: flights.values())
 			{
@@ -264,7 +259,7 @@ public class DataBase
 		return false;	
 	}
 	
-	
+	  
 	
 	
 	public static boolean addObject(Flight flt)
@@ -272,9 +267,10 @@ public class DataBase
 		String className = 	ObjectsFactory.getClassName(flt);	
 			if(findExistFlight(flt)==false)
 			{
-				if(className.equals("Flight"))
+		//		if(className.equals("Flight"))
 					flights.put(flightKey++, flt);
-				else if(className.equals("InternationalFlight"))
+				//else 
+					if(className.equals("InternationalFlight"))
 						internationalFlights.put(interFlightKey++, (InternationalFlight) flt);
 				return true;
 			}

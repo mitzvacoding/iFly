@@ -67,7 +67,7 @@ public class MainPage  extends Observable
 		frame.setBounds(100, 100, 450, 530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setLocationRelativeTo(null);
 		
 		
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -98,7 +98,7 @@ public class MainPage  extends Observable
 				{
 					if(Server.requestSignInManager(Estr,Pstr)) 			// check if manager is connected;
 					{
-						//frame.setVisible(false);
+						//frame.setVisible(false); 
 						frame.dispose(); 
 						c.update(m, Pstr); 
 						setChanged();

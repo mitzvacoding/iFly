@@ -63,6 +63,7 @@ public class RegistarPage {
 		frame.getContentPane().setForeground(SystemColor.controlText);
 		frame.getContentPane().setBackground(SystemColor.activeCaption);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -112,6 +113,7 @@ public class RegistarPage {
 								
 				if (Server.signUpCustomer(name, email, password))//true if added
 				{	
+					JOptionPane.showMessageDialog(frame, "The details were saved successfully");
 					frame.dispose();
 					MainPage.MpFun();					
 				}
@@ -127,7 +129,7 @@ public class RegistarPage {
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBackground(new Color(0, 128, 0));
 		btnNewButton.setBounds(186, 348, 102, 35);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(btnNewButton); 
 		
 		lblNewLabel_1 = new JLabel("Enter Name");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));

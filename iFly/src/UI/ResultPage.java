@@ -47,7 +47,6 @@ public class ResultPage
 {	
 	private JFrame frame;
     private JLabel label;
-   // private JTable ta;
     private JButton btn1;
     private JButton btn2;
     private JButton btn3;
@@ -88,14 +87,15 @@ public class ResultPage
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
 		frame.setFocusable(true);
 		frame.getContentPane().setLayout(null);
-
+		frame.setLocationRelativeTo(null);
+		
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
 	          
 	    	 @Override
 	            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 	               DataBase.writeToFile();
 	            }
-	        });
+	        }); 
 	    
 		
 

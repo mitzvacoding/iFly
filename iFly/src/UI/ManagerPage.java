@@ -53,10 +53,10 @@ public class ManagerPage
 				try {
 					ManagerPage window = new ManagerPage();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (Exception e) { 
 					e.printStackTrace();
 				}
-			}
+			} 
 		});
 	}
 
@@ -79,6 +79,7 @@ public class ManagerPage
 		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
 		frame.setFocusable(true);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -302,7 +303,7 @@ public class ManagerPage
 					String DepDatenew=txt1.getText();
 					String returnDate=txt2.getText();
 					String origin=txt3.getText();	 
-					String vendor= txt4.getText();
+					String vendor= txt4.getText(); 
 					int price= Date.convertString(txt5.getText());
 					int quantity= Date.convertString(txt6.getText());
 					int flightId= Date.convertString(txt7.getText());
@@ -347,7 +348,7 @@ public class ManagerPage
 					}
 					
 					
-					
+					  
 				}
 			});
 			

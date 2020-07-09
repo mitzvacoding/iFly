@@ -62,7 +62,7 @@ public class DataManagement
 	{
 		lastFlightResult = DataBase.searchFlight(f,passengers);
 
-	}
+	} 
 	
 
 	public static void searchRoundFlights(Object f,int passengers) 

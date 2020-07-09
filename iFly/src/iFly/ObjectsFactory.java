@@ -14,11 +14,11 @@ public class ObjectsFactory {
 			else
 				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate, destination, origin));
 		}
-		
+		//problem.
 		else
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				flt =new Flight(depDate,origin);
+				flt =new Flight(depDate,origin);  
 			else
 				flt =new InternationalFlight(depDate,origin, destination);	
 		

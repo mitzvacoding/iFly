@@ -20,7 +20,7 @@ public class Server
 		else 
 			return false; 
 	};
-	 
+	  
  
 	public static boolean requestSignInManager(String email,String password)
 	{
@@ -45,7 +45,7 @@ public class Server
       
 		f=(Flight)ObjectsFactory.getFlightByButton(depDate, returnDate,origin, destination);
 
-		DataManagement.searchFlights(f, passengers);
+		DataManagement.searchFlights(f, passengers); 
 		
 		/* there's no need to check, because it's being checked in DataBase.
 		if( f.getClass().getSimpleName()=="RoundTripFlight")
@@ -81,7 +81,7 @@ public class Server
 		for(Flight flight: lastFlightResult)
 		{
 			String destination = ObjectsFactory.getDestinationByFlight(flight);
-			
+			//System.out.println(flight);
 			ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
 			ta.setValueAt(Date.print(flight.getLandingDate()),row, col++);
 			ta.setValueAt(flight.getVendor(),row, col++);

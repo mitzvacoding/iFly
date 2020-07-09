@@ -46,21 +46,20 @@ public class SearchPage
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JTextField retDateField;
-	private JButton SearchBtn;
 	private  static Integer abroadFlight=0;
 	private  static Integer roundTrip=0;
 	private JTextField originField;
 	
 	public static void SpFun() {   
 		EventQueue.invokeLater(new Runnable() {
-			public void run() { 
+			public void run() {  
 				try {
 					SearchPage window = new SearchPage();
 					window.frame.setVisible(true);
 				} catch (Exception e) { 
 					e.printStackTrace();
 				}}});
-	} 
+	}  
 	
 	public SearchPage() 
 	{
@@ -74,7 +73,7 @@ public class SearchPage
 	private void initialize() 
 	{
 		frame = new JFrame();
-		frame.setBounds(700,400,700, 400);
+		frame.setBounds(700,400,700, 400);  
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setForeground(SystemColor.controlText);
 		frame.getContentPane().setForeground(SystemColor.controlText);
@@ -86,7 +85,7 @@ public class SearchPage
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 45));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(lblNewLabel);
-		
+		frame.setLocationRelativeTo(null);
 
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {
 	          
@@ -175,10 +174,6 @@ public class SearchPage
 			}
 		});
 		eiRad.setSelected(true);
-
-		SearchBtn = new JButton("Search");
-		SearchBtn.setBounds(126, 397, 129, 55);
-		frame.getContentPane().add(SearchBtn);
 
 		JRadioButton abRad = new JRadioButton("Abroad");
 		abRad.setBackground(new Color(124, 252, 0));
@@ -278,24 +273,20 @@ public class SearchPage
 				
 				if(eiRad.isSelected())
 				{
-					if(origin == "TLV")
+					if(origin == "TLV") 
 						destination = "ELT";
 					else
 						destination = "TLV";
 				}
-				else 
-					destination = destField.getText();
-				
-				if(rouRad.isSelected())
-					returnDate=new Date( retDateField.getText());
-				
+				else {
+		 			destination = destField.getText();
+			}		  
+				if(rouRad.isSelected()) {
+			}returnDate=new Date( retDateField.getText());
+				 
 				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers,abroadFlight,roundTrip);  //now need to send to server
-				//frame.setVisible(false);
 				frame.dispose();
 				ResultPage.ResFun();	
-				
-				
-				
 				
 			}
 		});
