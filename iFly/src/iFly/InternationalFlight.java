@@ -1,9 +1,10 @@
 package iFly;
 
-@SuppressWarnings("serial")
-public class InternationalFlight extends Flight 
-{
+import java.io.Serializable;
 
+public class InternationalFlight extends Flight implements Serializable
+{
+	private static final long serialVersionUID = -7937976656848651896L;
 	private String destenation;
 
 		
@@ -25,7 +26,7 @@ public class InternationalFlight extends Flight
 		super();
 		this.setDepartureDate(departureDate);
 		this.setOrigin(origin);
-		this.destenation=destination;
+		this.destenation = destination;
 	}
 
 	public int priceCalculation() {return 1;}

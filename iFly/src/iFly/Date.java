@@ -88,7 +88,6 @@ public class Date implements Serializable {
 		return num;
 	}
 	
-	@SuppressWarnings("static-access")
 	@Override
 	public boolean equals(Object date)
 	{	

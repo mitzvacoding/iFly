@@ -169,7 +169,7 @@ public class ManagerPage
 		lblNewLabel.setBounds(25, 117, 77, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblLandDate = new JLabel("Land Date");
+		JLabel lblLandDate = new JLabel("Return Date");
 		lblLandDate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLandDate.setBounds(112, 117, 77, 14);
 		frame.getContentPane().add(lblLandDate);

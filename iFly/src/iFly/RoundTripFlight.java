@@ -1,10 +1,11 @@
 package iFly;
 
-@SuppressWarnings("serial")
-public class RoundTripFlight  extends InternationalFlight
+import java.io.Serializable;
 
+@SuppressWarnings("serial")
+public class RoundTripFlight extends InternationalFlight implements Serializable
 {	
-	
+	private Flight forthFlight, backFlight;
 	
 	public RoundTripFlight(InternationalFlight inFlight, InternationalFlight inFlight2)
 	{
