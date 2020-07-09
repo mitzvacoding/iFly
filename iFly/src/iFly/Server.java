@@ -43,18 +43,15 @@ public class Server
 	// Search flight
 	public static void requestSearchFlight(String depDate, String returnDate,String origin, String destination, int passengers) 	
 	{ 
-		Flight f=null;
-      
-		DataManagement.searchFlights(depDate, returnDate,origin, destination, passengers); 
-		
-		/* there's no need to check, because it's being checked in DataBase.
-		if( f.getClass().getSimpleName()=="RoundTripFlight")
-			DataManagement.searchRoundFlights(f,passengers);
-		else
-			DataManagement.searchFlights(f,passengers);
-		*/
+		DataManagement.searchFlights(depDate, returnDate,origin, destination, passengers); 	
 	}
 
+	
+	
+	
+	
+	
+	
 	public static JTable requestFlightResults()
 	{
 		ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();

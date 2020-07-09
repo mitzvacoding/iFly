@@ -20,14 +20,26 @@ public class DataBase
 	private static String fileName = "data.txt";
 	
 	public static boolean removeObj(String str,String objName){return dataObj.removeObj(str, objName);}
+	
 	public static boolean addObject(Flight flt) {return dataObj.addObject(flt);}
+	
 	public static Boolean findExistFlight(Flight flt) {return dataObj.findExistFlight(flt);}
+	
 	public static boolean checkSignInManager(String email,String password) {return dataObj.checkSignInManager(email, password);}
+	
 	public static boolean checkSignInCustomer(Customer cst) {return dataObj.checkSignInCustomer(cst);}
+	
 	public static void signUpCustomer(Customer cst) {dataObj.signUpCustomer(cst);}
+	
 	public static void searchRoundTripFlight(Object f,int passengers) {dataObj.searchRoundTripFlight(f, passengers);}
+	
 	public static void addFlights(HashMap<Integer, Flight> addedFlights) {dataObj.addFlights(addedFlights);}
-	public static ArrayList<Flight> searchFlight(Flight f,int passengers){return dataObj.searchFlight(f, passengers);}
+	
+	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
+	{
+		return dataObj.searchFlight(f, passengers);	
+	}
+	
 
 
 
@@ -44,29 +56,7 @@ public class DataBase
 		dataObj.getCustomers().put(customerKey++, new Customer("123","123","123"));
 		
 		dataObj.setCustomerKey(customerKey);
-		dataObj.setManagerKey(managerKey);
-		
-		//managers.put(1, new Manager("123", "123", "*1", 2));
-		//customers.put(1,new Customer("123","123","123"));
-		
-		/* a proof that it read from file
-		for(Customer cst: customers.values())
-		{
-			System.out.println(cst.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(Flight flt: flights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		System.out.println("\n\n");
-		for(InternationalFlight flt: internationalFlights.values())
-		{
-			System.out.println(flt.toString()+"\n");
-		}
-		*/
-
-				   
+		dataObj.setManagerKey(managerKey);				   
 	} 
 	
 	
@@ -90,6 +80,7 @@ public class DataBase
 		
 	}
 	
+	@SuppressWarnings(value = "unchecked")
 	public static void readFromFile()
 	{
 		Path path = Paths.get(System.getProperty("user.dir") + "\\" + fileName);

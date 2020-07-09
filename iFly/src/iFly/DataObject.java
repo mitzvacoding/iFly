@@ -1,5 +1,6 @@
 package iFly;
 
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -10,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@SuppressWarnings("unused")
 public class DataObject
 {
 	private int customerKey=1;
@@ -20,7 +22,7 @@ public class DataObject
 	
 	private HashMap<Integer, Flight> flights;
 	private HashMap<Integer, InternationalFlight> internationalFlights;
-
+	
 	private HashMap<Integer, Customer> customers;
 	private HashMap<Integer, Manager> managers;
 
@@ -33,12 +35,7 @@ public class DataObject
 		customers = new HashMap<Integer, Customer>();
 		managers = new HashMap<Integer, Manager>();
 		
-		//managers.put(1, new Manager("123", "123", "*1", 2));
-		//customers.put(1,new Customer("123","123","123"));
-		
-		initKeys();
-		
-		
+		initKeys();		
 	}
 	
 

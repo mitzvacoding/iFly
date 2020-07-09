@@ -79,9 +79,9 @@ public class MainPage  extends Observable
 	        });
 	    
 		
-	
+	   //Log-in button
 		JButton loginBtn = new JButton("Log In");
-		loginBtn.addActionListener(new ActionListener() {				//Log-in button
+		loginBtn.addActionListener(new ActionListener() {				
 			
 			public void actionPerformed(ActionEvent e) 
 			{

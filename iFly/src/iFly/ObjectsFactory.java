@@ -14,7 +14,6 @@ public class ObjectsFactory {
 			else
 				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate, destination, origin));
 		}
-		//problem.
 		else
 		{
 			if(destination.isBlank())

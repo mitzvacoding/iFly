@@ -58,7 +58,6 @@ public class DataManagement
 	
 	
 	//called by server.requestSearchFlight
-	
 	public static void searchFlights(String depDateString, String returnDateString,String origin, String destination, int passengers) 
 	{
 		Date depDate = new Date(depDateString);

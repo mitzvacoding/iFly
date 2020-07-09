@@ -256,6 +256,19 @@ public class ManagerPage
 		lblNewLabel_1.setBounds(295, 167, 87, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
+		JButton btnSignout = new JButton("Sign-Out");
+		btnSignout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MainPage.MpFun();
+			}
+		});
+		btnSignout.setBackground(Color.RED);
+		btnSignout.setForeground(Color.BLACK);
+		btnSignout.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnSignout.setBounds(10, 11, 104, 28);
+		frame.getContentPane().add(btnSignout);
+		
 		// user radio button 
 		usrd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
