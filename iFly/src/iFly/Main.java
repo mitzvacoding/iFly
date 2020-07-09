@@ -36,10 +36,10 @@ public class Main
 
 	{
 		// SearchPage.SpFun();
-		//DataBase.init();
-		//MainPage.MpFun(); 
+		DataBase.init();
+		MainPage.MpFun(); 
 		
-	ResultPage.ResFun();
+	//ResultPage.ResFun();
 	
 		/*	
 		Date depDate = new Date();

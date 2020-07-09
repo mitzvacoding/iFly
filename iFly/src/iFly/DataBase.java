@@ -33,11 +33,18 @@ public class DataBase
 
 	
 	public static void init()  
-	{	
-		
+	{		
+		dataObj = new DataObject();
 		readFromFile();
-	
-
+		
+		int managerKey = dataObj.getManagerKey();
+		dataObj.getManagers().put(managerKey++, new Manager("123", "123", "*1", 2));
+		
+		int customerKey = dataObj.getCustomerKey();
+		dataObj.getCustomers().put(customerKey++, new Customer("123","123","123"));
+		
+		dataObj.setCustomerKey(customerKey);
+		dataObj.setManagerKey(managerKey);
 		
 		//managers.put(1, new Manager("123", "123", "*1", 2));
 		//customers.put(1,new Customer("123","123","123"));

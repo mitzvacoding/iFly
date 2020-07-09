@@ -1,5 +1,6 @@
 package iFly;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.Before;
@@ -10,21 +11,26 @@ import junit.framework.TestCase;
 public class DataBaseTest extends TestCase
 {
 
-	public static HashMap<Integer, Flight>  flights;
+	DataObject dataObj;
 	
 	@Before 
 	public void setUp()
 	{
-		 flights = new HashMap<Integer, Flight>();	
+		 dataObj = new DataObject();
 	}
 	
 	
 	@Test
 	public void addFlight()
 	{
-		Flight flt=new Flight(); 
+		Flight flt=new Flight(), actFlt; 
+		dataObj.addObject(flt);
 		
-	//	flights.put(key, value)
+		ArrayList<Flight> arr = dataObj.searchFlight(flt, 1);
+		actFlt = arr.get(1);
+		
+		assertEquals(flt, actFlt);
+		
 	}
 	
 	

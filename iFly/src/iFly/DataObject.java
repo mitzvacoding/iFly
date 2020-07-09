@@ -16,7 +16,6 @@ public class DataObject
 	private int flightKey=1;
 	private int managerKey=1;
 	private int interFlightKey=1;  
-	private String str = null;
 
 	
 	private HashMap<Integer, Flight> flights;
@@ -34,17 +33,22 @@ public class DataObject
 		customers = new HashMap<Integer, Customer>();
 		managers = new HashMap<Integer, Manager>();
 		
+		//managers.put(1, new Manager("123", "123", "*1", 2));
+		//customers.put(1,new Customer("123","123","123"));
+		
 		initKeys();
+		
+		
 	}
 	
 
 	public void initKeys() 
 	{
-		flightKey = flights.size();
-		interFlightKey = internationalFlights.size();
+		flightKey = flights.size()+1;
+		interFlightKey = internationalFlights.size()+1;
 		
-		customerKey = customers.size();
-		managerKey = managers.size();
+		customerKey = customers.size()+1;
+		managerKey = managers.size()+1;
 	}
 
 	
@@ -231,7 +235,18 @@ public class DataObject
 	private HashMap<Integer, Customer> customers = new HashMap<Integer, Customer>();
 	private HashMap<Integer, Manager> managers = new HashMap<Integer, Manager>();
 	*/
+	public int getFlightKey() {return flightKey;}
+	public void setFlightKey(int key) {flightKey = key;}
+	
+	public int getInternationalFlightKey() {return interFlightKey;}
+	
+	
+	public int getCustomerKey() {return customerKey;}
 	public void setCustomerKey(int value) {customerKey = value;}
+	
+	public int getManagerKey() {return managerKey;}
+	public void setManagerKey(int value) {managerKey = value;}
+	
 	
 	public HashMap<Integer, Flight> getFlights(){return flights;}
 	public void setFlights(HashMap<Integer, Flight> flights) {this.flights = flights;}
