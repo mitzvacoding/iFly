@@ -10,9 +10,9 @@ public class ObjectsFactory {
 		if(returnDate!=null)
 		{
 			if(origin.equals("ELT") || origin.equals("TLV"))
-				flt = new RoundTripFlight(new Flight(depDate,origin), new Flight(depDate,destination));
+				flt = new RoundTripFlight(new Flight(depDate,origin), new Flight(returnDate,destination));
 			else
-				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate, destination, origin));
+				flt = new RoundTripFlight(new InternationalFlight(depDate,origin, destination),new InternationalFlight(returnDate,destination,origin));
 		}
 		else
 		{

@@ -39,7 +39,7 @@ public class Main
 		DataBase.init();
 		MainPage.MpFun(); 
 		
-	//ResultPage.ResFun();
+		//ResultPage.ResFun();
 	
 		/*	
 		Date depDate = new Date();

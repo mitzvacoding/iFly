@@ -22,7 +22,7 @@ public class ConnectionFlight extends InternationalFlight
 	}
 	
 	
-	/*public ConnectionFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId,String destenation,Date stopLandingDate,Date stopDepartureDate
+	public ConnectionFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId,String destenation,Date stopLandingDate,Date stopDepartureDate
 	 ,String stopAirport) 	
    
 	{
@@ -31,7 +31,7 @@ public class ConnectionFlight extends InternationalFlight
 		this.setStopLandingDate(stopLandingDate);
 		this.setStopDepartureDate(stopDepartureDate);
 		
-	}*/
+	}
 
 	public Date getStopLandingDate() {
 		return stopLandingDate;

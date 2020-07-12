@@ -27,11 +27,10 @@ public class DataBaseTest
 		Flight flt=new Flight(), actFlt; 
 		dataObj.addObject(flt);
 		
-		ArrayList<Flight> arr = dataObj.searchFlight(flt, 1);
+		ArrayList<Flight> arr = dataObj.searchFlight(flt);
+		
 		actFlt = arr.get(0);
-		
 		assertEquals(flt, actFlt);
-		
 	}
 	
 	@Test

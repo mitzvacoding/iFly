@@ -47,10 +47,10 @@ public class DataManagement
 	}
 	
 	
-	public static boolean removeObj(String str,String objName)
+	public static boolean removeObj(String str,int quantity,String objName)
 	{
 		
-		if(DataBase.removeObj(str,objName))
+		if(DataBase.removeObj(str,quantity,objName))
 			return true;	 
 		return false;
 	}
@@ -58,7 +58,7 @@ public class DataManagement
 	
 	
 	//called by server.requestSearchFlight
-	public static void searchFlights(String depDateString, String returnDateString,String origin, String destination, int passengers) 
+	public static void searchFlights(String depDateString, String returnDateString,String origin, String destination) 
 	{
 		Date depDate = new Date(depDateString);
 		Date returnDate = null;
@@ -67,7 +67,7 @@ public class DataManagement
 		
 		Flight flt = ObjectsFactory.getFlightByButton(depDate, returnDate, origin, destination, "", 0, 0, "", false);
 		
-		lastFlightResult = DataBase.searchFlight(flt,passengers);
+		lastFlightResult = DataBase.searchFlight(flt);
 
 	} 
 	

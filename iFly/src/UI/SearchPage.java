@@ -41,10 +41,8 @@ public class SearchPage
 	private JFrame frame;
 	private JTextField depDate;
 	private JTextField destField;
-	private JTextField passField;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
 	private JTextField retDateField;
 	private JTextField originField;
 	
@@ -92,7 +90,7 @@ public class SearchPage
 	               DataBase.writeToFile(); }});
 	   
 		depDate = new JTextField();
-		depDate.setBounds(114, 222, 122, 42);
+		depDate.setBounds(200, 222, 122, 42);
 		depDate.setText("01/06/2020");
 		depDate.setHorizontalAlignment(SwingConstants.CENTER);
 		depDate.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -124,19 +122,6 @@ public class SearchPage
 				
 			}
 		});
-		
-		passField = new JTextField();
-		passField.setBounds(407, 222, 50, 42);
-		passField.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				passField.setText("");
-			}
-		});
-		passField.setText("1-9");
-		passField.setToolTipText("");
-		frame.getContentPane().add(passField);
-		passField.setColumns(10);
 			
 		lblNewLabel_1 = new JLabel("To");
 		lblNewLabel_1.setBounds(332, 109, 97, 35);
@@ -145,18 +130,13 @@ public class SearchPage
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Departure date");
-		lblNewLabel_2.setBounds(119, 192, 117, 42);
+		lblNewLabel_2.setBounds(200, 192, 117, 42);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("Passengers");
-		lblNewLabel_3.setBounds(407, 196, 147, 35);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		frame.getContentPane().add(lblNewLabel_3);
-		
 				
 		JPanel panel = new JPanel();
-		panel.setBounds(484, 163, 136, 33);
+		panel.setBounds(493, 165, 136, 33);
 		panel.setBorder(null);
 		frame.getContentPane().add(panel);
 		
@@ -184,7 +164,7 @@ public class SearchPage
 		});
 
 		retDateField = new JTextField();
-		retDateField.setBounds(262, 222, 122, 42);
+		retDateField.setBounds(326, 222, 122, 42);
 		retDateField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		retDateField.setHorizontalAlignment(SwingConstants.CENTER);
 		retDateField.setText("02/06/2020");
@@ -204,12 +184,12 @@ public class SearchPage
 		
 		
 		JLabel lblNewLabel_4 = new JLabel("Return Date");
-		lblNewLabel_4.setBounds(272, 187, 136, 55);
+		lblNewLabel_4.setBounds(324, 187, 136, 55);
 		lblNewLabel_4.setFont(new Font("Arial", Font.PLAIN, 15));
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(484, 109, 177, 33);
+		panel_1.setBounds(470, 209, 177, 33);
 		frame.getContentPane().add(panel_1);
 		
 		ButtonGroup bg1 = new ButtonGroup();		
@@ -224,7 +204,7 @@ public class SearchPage
 		bg1.add(rouRad);
 		
 		JButton searchBtn = new JButton(" Search Flights");
-		searchBtn.setBounds(260, 309, 147, 42);
+		searchBtn.setBounds(260, 310, 147, 42);
 		frame.getContentPane().add(searchBtn);
 		
 		originField = new JTextField();
@@ -259,7 +239,6 @@ public class SearchPage
 		searchBtn.addActionListener(new ActionListener() {    // SEARCH Button
 			public void actionPerformed(ActionEvent e)
 			{
-				int passengers = Date.convertString(passField.getText());
 				String depurtureDate = depDate.getText();
 				String returnDate= "";
 				String destination = null;
@@ -280,12 +259,11 @@ public class SearchPage
 					returnDate = retDateField.getText();
 				
 					  			 
-				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination, passengers);  //now need to send to server
+				Server.requestSearchFlight(depurtureDate,returnDate,origin, destination);  //now need to send to server
 				
 				frame.dispose();
 				ResultPage.ResFun();	
-				
-				
+			
 			}
 		});
 		

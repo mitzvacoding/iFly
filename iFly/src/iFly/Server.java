@@ -41,9 +41,9 @@ public class Server
 	
 	 
 	// Search flight
-	public static void requestSearchFlight(String depDate, String returnDate,String origin, String destination, int passengers) 	
+	public static void requestSearchFlight(String depDate, String returnDate,String origin, String destination) 	
 	{ 
-		DataManagement.searchFlights(depDate, returnDate,origin, destination, passengers); 	
+		DataManagement.searchFlights(depDate, returnDate,origin, destination); 	
 	}
 
 	
@@ -57,14 +57,14 @@ public class Server
 		ArrayList<Flight> lastFlightResult = new ArrayList<Flight>();
 		lastFlightResult = DataManagement.showFlightResult();
 		
-	     JTable ta = new JTable(6,7);
+				JTable ta = new JTable(6,7);
 				ta.setColumnSelectionAllowed(true);
 				ta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 				ta.setBounds(47, 248, 706, 180);
 				ta.setBackground(new Color(255, 250, 240));
 				ta.setBorder(new LineBorder(new Color(0, 0, 0)));
 				ta.setValueAt("Dep Date", 0, 0);
-			    ta.setValueAt("Return Date",0, 1);	
+			    ta.setValueAt("quantity",0, 1);	
 			    ta.setValueAt("vendor",0,2);
 			    ta.setValueAt("Origin", 0, 3);
 			    ta.setValueAt("Destination", 0, 4);
@@ -76,28 +76,23 @@ public class Server
 		int row = 1, col=0;
 		for(Flight flight: lastFlightResult)
 		{
-			String destination = ObjectsFactory.getDestinationByFlight(flight);
-			//System.out.println(flight);
-			ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
-
-			if(ObjectsFactory.getClassName(flight).equals("RoundTripFlight"));//needs to be implemented
-			
-			else
-				ta.setValueAt("NA",row, col++);
-			
-
-			ta.setValueAt(flight.getVendor(),row, col++);
-			ta.setValueAt(flight.getOrigin(),row, col++);
-			ta.setValueAt(destination, row, col++);
-			ta.setValueAt(flight.getFlightId(),row, col++);
-			ta.setValueAt(flight.getPrice()+"$",row, col++);//7
-			row++;
-			col = 0;
-
+				String destination = ObjectsFactory.getDestinationByFlight(flight);
+				ta.setValueAt(Date.print(flight.getDepartureDate()),row, col++);
+				ta.setValueAt(flight.getQuantity(),row, col++);
+				ta.setValueAt(flight.getVendor(),row, col++);
+				ta.setValueAt(flight.getOrigin(),row, col++);
+				ta.setValueAt(destination, row, col++);
+				ta.setValueAt(flight.getFlightId(),row, col++);
+				ta.setValueAt(flight.getPrice()+"$",row, col++);//7
+				row++;
+				col = 0;	
 		}
-		
+	
 		return ta;
 	}
+	
+	
+	
 	
 	
 	
@@ -113,10 +108,10 @@ public class Server
 	
 	   
   
-	public static boolean requestremoveObj( String str,String objName) 
+	public static boolean requestremoveObj( String str,int quantity,String objName) 
 
     {
-		if(DataManagement.removeObj(str,objName))
+		if(DataManagement.removeObj(str,quantity,objName))
 			return true;
 		return false;
     }

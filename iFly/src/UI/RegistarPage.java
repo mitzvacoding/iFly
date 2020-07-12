@@ -59,11 +59,12 @@ public class RegistarPage {
 	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setLocationRelativeTo(null);
 		frame.setForeground(SystemColor.controlText);
 		frame.getContentPane().setForeground(SystemColor.controlText);
 		frame.getContentPane().setBackground(SystemColor.activeCaption);
 		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(null);
+		
 		
 
 	     frame.addWindowListener(new java.awt.event.WindowAdapter() {

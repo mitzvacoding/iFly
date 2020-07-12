@@ -17,3 +17,15 @@ public class Connected implements Observer
 		ManagerPage.ManPage();
 	} 
 }
+
+
+
+
+
+
+
+
+
+
+
+

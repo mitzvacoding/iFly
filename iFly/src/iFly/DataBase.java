@@ -19,7 +19,7 @@ public class DataBase
 	public static DataObject dataObj;
 	private static String fileName = "data.txt";
 	
-	public static boolean removeObj(String str,String objName){return dataObj.removeObj(str, objName);}
+	public static boolean removeObj(String str,int quantity,String objName){return dataObj.removeObj(str,quantity,objName);}
 	
 	public static boolean addObject(Flight flt) {return dataObj.addObject(flt);}
 	
@@ -31,13 +31,13 @@ public class DataBase
 	
 	public static void signUpCustomer(Customer cst) {dataObj.signUpCustomer(cst);}
 	
-	public static void searchRoundTripFlight(Object f,int passengers) {dataObj.searchRoundTripFlight(f, passengers);}
+	//public static void searchRoundTripFlight(Object f,int passengers) {dataObj.searchRoundTripFlight(f, passengers);}
 	
 	public static void addFlights(HashMap<Integer, Flight> addedFlights) {dataObj.addFlights(addedFlights);}
 	
-	public static ArrayList<Flight> searchFlight(Flight f,int passengers)
+	public static ArrayList<Flight> searchFlight(Flight f)
 	{
-		return dataObj.searchFlight(f, passengers);	
+		return dataObj.searchFlight(f);	
 	}
 	
 
@@ -46,8 +46,10 @@ public class DataBase
 	
 	public static void init()  
 	{		
+		
 		dataObj = new DataObject();
 		readFromFile();
+		dataObj.initKeys();		
 		
 		int managerKey = dataObj.getManagerKey();
 		dataObj.getManagers().put(managerKey++, new Manager("123", "123", "*1", 2));
@@ -56,7 +58,8 @@ public class DataBase
 		dataObj.getCustomers().put(customerKey++, new Customer("123","123","123"));
 		
 		dataObj.setCustomerKey(customerKey);
-		dataObj.setManagerKey(managerKey);				   
+		dataObj.setManagerKey(managerKey);	
+		
 	} 
 	
 	

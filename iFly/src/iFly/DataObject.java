@@ -18,11 +18,11 @@ public class DataObject
 	private int flightKey=1;
 	private int managerKey=1;
 	private int interFlightKey=1;  
-
+	private int connectionFlightKey=1;
 	
 	private HashMap<Integer, Flight> flights;
 	private HashMap<Integer, InternationalFlight> internationalFlights;
-	
+	private HashMap<Integer,ConnectionFlight> connectionFlights;
 	private HashMap<Integer, Customer> customers;
 	private HashMap<Integer, Manager> managers;
 
@@ -31,11 +31,11 @@ public class DataObject
 	{
 		flights = new HashMap<Integer, Flight>();
 		internationalFlights = new HashMap<Integer, InternationalFlight>();
-		
+		connectionFlights=new HashMap<Integer,ConnectionFlight>();
 		customers = new HashMap<Integer, Customer>();
 		managers = new HashMap<Integer, Manager>();
 		
-		initKeys();		
+	
 	}
 	
 
@@ -43,14 +43,14 @@ public class DataObject
 	{
 		flightKey = flights.size()+1;
 		interFlightKey = internationalFlights.size()+1;
-		
+		connectionFlightKey=connectionFlights.size()+1;
 		customerKey = customers.size()+1;
 		managerKey = managers.size()+1;
 	}
 
 	
 	
-	public ArrayList<Flight> searchFlight(Flight f,int passengers)
+	public ArrayList<Flight> searchFlight(Flight f)
 	{
 		ArrayList<Flight> resultFlights = new ArrayList<Flight>();
 		if(f.getClass().getSimpleName().equals("InternationalFlight")) 
@@ -61,6 +61,15 @@ public class DataObject
 						flight.getDestenation().equals(((InternationalFlight)f).getDestenation()) )
 						resultFlights.add(flight);	
 				} 
+		
+			for(ConnectionFlight flight:connectionFlights.values())// .values() return array of all data.
+			{
+				if(flight.getDepartureDate().equals(((ConnectionFlight)f).getDepartureDate()) &&
+					flight.getDestenation().equals(((ConnectionFlight)f).getDestenation()) )
+					resultFlights.add(flight);	
+			} 
+		
+			
 		}
 		
 		else if(f.getClass().getSimpleName().equals("Flight")) //Object f= Flight;  ,   ///this is the problem;
@@ -69,8 +78,9 @@ public class DataObject
 			{
 				if( flight.getDepartureDate().equals(f.getDepartureDate()))
 					resultFlights.add(flight);
-			}		
-		}	 
+			}	
+		}	
+
 		
 		return resultFlights;
 	}
@@ -86,11 +96,17 @@ public class DataObject
 		}
 	}
 	
-	
-	public void searchRoundTripFlight(Object f,int passengers)
-	{				
-	}
+	/*
+	public void searchRoundTripFlight(Object f)
+	{
 		
+	
+			for(RoundTripFlight flight: RoundTripFlights.values())
+			{
+				if( )
+			}
+	}
+		*/
 	
 	
 		
@@ -173,43 +189,51 @@ public class DataObject
 	}
 	
 	//Check if an object exists, then delete it
-	public boolean removeObj(String str,String objName)
+	public boolean removeObj(String str,int quantity,String objName)
 	{
-		int	key=0;
+		int	key=1;
 		
-		if(objName=="Customer")
+		if(objName.equals("Customer"))
 		{	
 			for(Customer customer: customers.values())
 				{
-				
-					if(customer.getEmail()==str)
+					
+					if(customer.getEmail().equals(str))
 					{
 						customers.remove(key);
 						return true;
 					}
 						key++;}}
 			
-		else if(objName=="Flight")
+		else if(objName.equals("Flight"))
 		{
-				key=0;
+				
 			
 			for(Flight flight: flights.values())
 			{
-				if( flight.getFlightId()==str)
+				if( flight.getFlightId().equals(str))
 				{
+				flight.setQuantity(flight.getQuantity()-quantity);	
+					
+				if(flight.getQuantity()<=0)
 					flights.remove(key);
+					
 					return true;
 				}
 					key++;	}}			
 		else
 		{
-			 key=0;
+			
 				for(InternationalFlight flight: internationalFlights.values())
 				{
-					if(	flight.getFlightId()==str)
+					if(	flight.getFlightId().equals(str))
 					{
-						internationalFlights.remove(key);
-					return true;
+						flight.setQuantity(flight.getQuantity()-quantity);	
+						
+						if(flight.getQuantity()<=0)
+							internationalFlights.remove(key);
+					
+						return true;
 						
 					}
 						key++;}}

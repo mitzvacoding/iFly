@@ -159,9 +159,9 @@ public class MainPage  extends Observable
 			
 			public void actionPerformed(ActionEvent e) //sign up button function
 			{
-				//frame.setVisible(false);
-				frame.dispose();
 				RegistarPage.RpFun();
+				frame.dispose();
+				
 			}
 		});
 		

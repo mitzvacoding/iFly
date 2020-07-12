@@ -256,9 +256,10 @@ public class ManagerPage
 		lblNewLabel_1.setBounds(295, 167, 87, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnSignout = new JButton("Sign-Out");
+		JButton btnSignout = new JButton("Sign-Out");   			//sign out
 		btnSignout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			//	DataBase.writeToFile();
 				frame.dispose();
 				MainPage.MpFun();
 			}
@@ -335,12 +336,13 @@ public class ManagerPage
 			Delbtn.addActionListener(new ActionListener() {    
 				public void actionPerformed(ActionEvent e) 
 				{
+					int quantity= Date.convertString(txt6.getText());
 					String destenation=txt8.getText();
 					String flightId=txt7.getText();
 					if(usrd.isSelected())
 					{
 						String email=txt10.getText();
-						if(Server.requestremoveObj(email,"Customer"))
+						if(Server.requestremoveObj(email,-1,"Customer"))
 							JOptionPane.showMessageDialog(null, "Flight successfully added");
 						
 					}
@@ -348,13 +350,13 @@ public class ManagerPage
 					else if(destenation!=null)
 					{
 						
-							if(Server.requestremoveObj(flightId,"InternationalFlight"))
+							if(Server.requestremoveObj(flightId,quantity,"InternationalFlight"))
 								JOptionPane.showMessageDialog(null, "Flight successfully added");
 					}
 					
 					else
 					{
-						if(Server.requestremoveObj(flightId,"Flight"))
+						if(Server.requestremoveObj(flightId,quantity,"Flight"))
 							JOptionPane.showMessageDialog(null, "Flight successfully added");
 			
 						
