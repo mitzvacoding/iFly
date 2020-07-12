@@ -64,8 +64,8 @@ public class DataObject
 		
 			for(ConnectionFlight flight:connectionFlights.values())// .values() return array of all data.
 			{
-				if(flight.getDepartureDate().equals(((ConnectionFlight)f).getDepartureDate()) &&
-					flight.getDestenation().equals(((ConnectionFlight)f).getDestenation()) )
+				if(flight.getDepartureDate().equals(((InternationalFlight)f).getDepartureDate()) &&
+					flight.getDestenation().equals(((InternationalFlight)f).getDestenation()) )
 					resultFlights.add(flight);	
 			} 
 		
@@ -268,12 +268,18 @@ public class DataObject
 	public int getManagerKey() {return managerKey;}
 	public void setManagerKey(int value) {managerKey = value;}
 	
+	public int getConnectionFlightKey() {return connectionFlightKey;}
+	public void setConnectionFlightKey(int value) {connectionFlightKey = value;}
+	
 	
 	public HashMap<Integer, Flight> getFlights(){return flights;}
 	public void setFlights(HashMap<Integer, Flight> flights) {this.flights = flights;}
 	
 	public HashMap<Integer, InternationalFlight> getInternationalFlights(){return internationalFlights;}
 	public void setInternationalFlights(HashMap<Integer, InternationalFlight> internationalFlights) {this.internationalFlights = internationalFlights;}
+	
+	public HashMap<Integer, ConnectionFlight> getConnectionFlights(){return connectionFlights;}	
+	public void setConnectionFlights(HashMap<Integer, ConnectionFlight> value) {connectionFlights = value;}
 	
 	public HashMap<Integer, Customer> getCustomers(){return customers;}
 	public void setCustomers(HashMap<Integer, Customer> customers) {this.customers = customers;}

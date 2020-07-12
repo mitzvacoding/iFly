@@ -57,6 +57,10 @@ public class DataBase
 		int customerKey = dataObj.getCustomerKey();
 		dataObj.getCustomers().put(customerKey++, new Customer("123","123","123"));
 		
+		int connectionFlightKey = dataObj.getConnectionFlightKey();
+		dataObj.getConnectionFlights().put(connectionFlightKey++, new ConnectionFlight(new Date("11/11/1111"), new Date("12/11/1111"), "TLV","USA","ELBL",20,2,"123", new Date("11/11/1111"),new Date("12/11/1111"),"GRM" ));
+		
+		dataObj.setConnectionFlightKey(connectionFlightKey);
 		dataObj.setCustomerKey(customerKey);
 		dataObj.setManagerKey(managerKey);	
 		

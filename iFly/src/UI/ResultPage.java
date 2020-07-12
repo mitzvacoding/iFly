@@ -44,6 +44,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Choice;
+import javax.swing.UIManager;
 
 
 
@@ -58,6 +59,7 @@ public class ResultPage
     private JButton btn4;
     private String  id;
     private int quantity;
+ //   private JTable table;
 	public static void ResFun() 
 	{
 		
@@ -66,8 +68,8 @@ public class ResultPage
 				try {
 				
 					JTable ta = Server.requestFlightResults();
-					//Server.requestFlightResults(ta);
-					ResultPage window = new ResultPage(ta);
+					JTable ta2 = Server.requestConnectionFlightResults();
+					ResultPage window = new ResultPage(ta,ta2);
 					window.frame.setVisible(true);		
 			
 					}
@@ -82,16 +84,17 @@ public class ResultPage
 	 
 	
 	
-	public ResultPage(JTable ta) {
-		initialize(ta);
+	public ResultPage(JTable ta, JTable ta2) {
+		initialize(ta, ta2);
 	}
 
 	
 	
-	 void initialize(JTable ta) 
+	 void initialize(JTable ta, JTable table) 
 	 
 	 {
 		frame = new JFrame();  
+		frame.getContentPane().setForeground(Color.GRAY);
 		//frame.setBounds(600,600,700,600);    
 		frame.setBounds(1200,600,900,600);      
 		
@@ -120,7 +123,7 @@ public class ResultPage
 		btn1 = new JButton("Purchase");
 	
 		Choice choice = new Choice();
-		choice.setBounds(789, 258, 44, 39);
+		choice.setBounds(787, 120, 44, 39);
 		frame.getContentPane().add(choice);
 		choice.add("1");
 		choice.add("2");
@@ -128,33 +131,46 @@ public class ResultPage
 		
 		btn1.setForeground(new Color(204, 0, 51));
 		btn1.setBackground(new Color(255, 255, 255));
-		btn1.setBounds(766, 282, 97, 23);
+		btn1.setBounds(765, 151, 97, 23);
 		frame.getContentPane().add(btn1);
 
 		 
 		 btn2 = new JButton("Purchase");
 		 btn2.setForeground(new Color(204, 0, 51));
 		 btn2.setBackground(Color.WHITE);
-		 btn2.setBounds(766, 312, 97, 23);
+		 btn2.setBounds(765, 181, 97, 23);
 		 frame.getContentPane().add(btn2);
 		 
 		 btn3 = new JButton("Purchase");
 		 btn3.setForeground(new Color(204, 0, 51));
 		 btn3.setBackground(Color.WHITE);
-		 btn3.setBounds(766, 341, 97, 23);
+		 btn3.setBounds(765, 210, 97, 23);
 		 frame.getContentPane().add(btn3);
 		 
 		 btn4 = new JButton("Purchase");
 		 btn4.setForeground(new Color(204, 0, 51));
 		 btn4.setBackground(Color.WHITE);
-		 btn4.setBounds(766, 371, 97, 23);
+		 btn4.setBounds(765, 240, 97, 23);
 		 frame.getContentPane().add(btn4);
 		 
 		 JButton btn5 = new JButton("Purchase");
 		 btn5.setForeground(new Color(204, 0, 51));
 		 btn5.setBackground(Color.WHITE);
-		 btn5.setBounds(766, 405, 97, 23);
+		 btn5.setBounds(765, 274, 97, 23);
 		 frame.getContentPane().add(btn5);
+		 
+		JButton btn6 = new JButton("Purchase");
+		btn6.setForeground(new Color(204, 0, 51));
+		btn6.setBackground(Color.WHITE);
+		btn6.setBounds(765, 368, 97, 23);
+		frame.getContentPane().add(btn6);
+			
+		JButton btn7 = new JButton("Purchase");
+		btn7.setForeground(new Color(204, 0, 51));
+		btn7.setBackground(Color.WHITE);
+		btn7.setBounds(765, 402, 97, 23);
+		frame.getContentPane().add(btn7);
+			
 		 
 		 
 		 
@@ -240,11 +256,59 @@ public class ResultPage
 					 DataBase.writeToFile();
 				}
 			});
+			
+			
+			btn6.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+					id=table.getValueAt(1,8).toString();
+					quantity= Date.convertString(choice.getSelectedItem().toString());
+					
+					if(table.getValueAt(1, 4)==null)
+						Server.requestremoveObj(id,quantity,"Flight");
+					else 
+						Server.requestremoveObj(id,quantity,"InternationalFlight");
+					
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.dispose(); 
+					 DataBase.writeToFile();
+				}
+			});
+			
+			btn7.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e)
+				{
+					id=table.getValueAt(2,8).toString();
+					quantity= Date.convertString(choice.getSelectedItem().toString());
+					
+					if(table.getValueAt(2, 4)==null)
+						Server.requestremoveObj(id,quantity,"Flight");
+					else 
+						Server.requestremoveObj(id,quantity,"InternationalFlight");
+					
+					JOptionPane.showMessageDialog(frame, "Purchase operation successful.");
+					frame.dispose(); 
+					DataBase.writeToFile();
+				}
+			});
+			
+			
 	
 			frame.getContentPane().add(ta);
+			frame.getContentPane().add(table);
 			
-		
-		
+			JLabel lblNewLabel = new JLabel("Direct Flights");
+			lblNewLabel.setForeground(SystemColor.textHighlight);
+			lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+			lblNewLabel.setBounds(46, 98, 375, 20);
+			frame.getContentPane().add(lblNewLabel);
+			
+			JLabel lblConnectionFlights = new JLabel("Connection Flights");
+			lblConnectionFlights.setForeground(SystemColor.textHighlight);
+			lblConnectionFlights.setFont(new Font("Arial", Font.PLAIN, 20));
+			lblConnectionFlights.setBounds(46, 315, 375, 20);
+			frame.getContentPane().add(lblConnectionFlights);
+
 	  
 			  for(int i=1 ; i<6 ; i++)
 			  {
@@ -267,14 +331,25 @@ public class ResultPage
 							  break;
 						 case 5:
 							 btn5.setEnabled(false);
-							  break;  
-					  }
-					 
+							  break;  		  
+					  }					 
 				  }
 			  }
-	
-	 
-	 
+			  
+			  for(int i =1; i<3 ; i++)
+			  {
+				  if(table.getValueAt(i, 0)==null)
+					  switch(i)
+					  {
+						  case 1:
+							  btn6.setEnabled(false);
+							  break;
+							  
+						 case 2:
+							 btn7.setEnabled(false);				  
+							 	break;	  
+					  }				  
+			  }
 	 
 	 }
  }

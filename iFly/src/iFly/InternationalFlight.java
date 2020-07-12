@@ -15,7 +15,7 @@ public class InternationalFlight extends Flight implements Serializable
 		
 	}  
 
-	public InternationalFlight(Date departureDate, Date landingDate,String origin, String vendor,int price, int quantity, String flightId,String destenation)
+	public InternationalFlight(Date departureDate, Date landingDate,String origin,String destenation, String vendor,int price, int quantity, String flightId)
 	{
 		super(departureDate, landingDate, origin,  vendor, price, quantity,flightId);
 		this.setDestenation(destenation);

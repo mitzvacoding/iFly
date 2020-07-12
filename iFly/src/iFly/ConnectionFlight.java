@@ -16,17 +16,18 @@ public class ConnectionFlight extends InternationalFlight
 	public ConnectionFlight()
 	{
 		super();
+	
 		this.stopDepartureDate=new Date();
 		this.stopLandingDate=new Date();
-	   this.stopAirport= "any place ";	
+		this.stopAirport= "any place";	
 	}
 	
 	
-	public ConnectionFlight(Date departureDate, Date landingDate,String landingAirport, String vendor, int price, int quantity, String flightId,String destenation,Date stopLandingDate,Date stopDepartureDate
-	 ,String stopAirport) 	
+	public ConnectionFlight(Date departureDate, Date landingDate,String origin ,String destination,String vendor, int price, int quantity
+							,String flightId,Date stopLandingDate,Date stopDepartureDate,String stopAirport) 	
    
 	{
-		super(departureDate,landingDate,landingAirport,  vendor, price, quantity,flightId , destenation);
+		super(departureDate,landingDate,origin,destination, vendor, price, quantity,flightId);
 		this.setStopAirport(stopAirport);
 		this.setStopLandingDate(stopLandingDate);
 		this.setStopDepartureDate(stopDepartureDate);
