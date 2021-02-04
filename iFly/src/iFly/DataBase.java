@@ -52,14 +52,16 @@ public class DataBase
 		dataObj.initKeys();		
 		
 		int managerKey = dataObj.getManagerKey();
-		dataObj.getManagers().put(managerKey++, new Manager("123", "123", "*1", 2));
+		dataObj.getManagers().put(managerKey++, new Manager("ariel", "ariel@hit.com", "*123", 2));
 		
 		int customerKey = dataObj.getCustomerKey();
 		dataObj.getCustomers().put(customerKey++, new Customer("123","123","123"));
 		
 		int connectionFlightKey = dataObj.getConnectionFlightKey();
-		dataObj.getConnectionFlights().put(connectionFlightKey++, new ConnectionFlight(new Date("11/11/1111"), new Date("12/11/1111"), "TLV","USA","ELBL",20,2,"123", new Date("11/11/1111"),new Date("12/11/1111"),"GRM" ));
+		dataObj.getConnectionFlights().put(connectionFlightKey++, new ConnectionFlight(new Date("13/07/2020"), new Date("14/07/2020"), "TLV","BCN","Arkia",150,2,"312", new Date("13/07/2020"),new Date("14/07/2020"),"LON" ));
 		
+		dataObj.getConnectionFlights().put(connectionFlightKey++, new ConnectionFlight(new Date("13/07/2020"), new Date("14/07/2020"), "TLV","BCN","Turkish",170,5,"566", new Date("13/07/2020"),new Date("14/07/2020"),"TUR" ));
+
 		dataObj.setConnectionFlightKey(connectionFlightKey);
 		dataObj.setCustomerKey(customerKey);
 		dataObj.setManagerKey(managerKey);	
